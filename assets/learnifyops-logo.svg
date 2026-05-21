@@ -1,0 +1,26 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">learnifyops logo</title>
+  <desc id="desc">A lightbulb with orbit line beside the learnifyops wordmark.</desc>
+  <defs>
+    <linearGradient id="bulbGold" x1="42" y1="12" x2="78" y2="94" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E1B958"/>
+      <stop offset="1" stop-color="#A96816"/>
+    </linearGradient>
+    <linearGradient id="orbitBlue" x1="8" y1="78" x2="116" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35D4C6"/>
+      <stop offset="0.52" stop-color="#0F8CA6"/>
+      <stop offset="1" stop-color="#113E72"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(5 5)">
+    <path d="M62 87c0 4.7-5.1 9.2-11.4 9.2S39.2 91.7 39.2 87h22.8Z" fill="url(#bulbGold)"/>
+    <path d="M38.3 76.5h24.9M40.6 83.4h20.3" stroke="#A96816" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M38.1 70.1c-1.2-8.6-8-17.8-9.1-30.3C27.4 22.5 40.1 9.4 55.4 9.4c15.5 0 28.3 12.8 27 30.1-0.9 12.1-8.5 21.5-10.1 30.6" stroke="url(#bulbGold)" stroke-width="7.2" stroke-linecap="round"/>
+    <path d="M47.5 58.2V44.1c0-4.2 3-6.7 6.2-6.7 3.3 0 5.4 2.1 5.4 5.2 0 5-5.3 7.8-11.6 6.7M60.1 58.2V44.1c0-4.2 3-6.7 6.2-6.7 3.3 0 5.4 2.1 5.4 5.2 0 5-5.3 7.8-11.6 6.7" stroke="#9A661C" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14.4 67.9C44.1 78.9 89.8 64 107.7 31.6" stroke="url(#orbitBlue)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M7.8 72.8C42.4 86.8 95.5 67.4 115.7 37.2" stroke="#0B5C86" stroke-width="4.8" stroke-linecap="round" opacity="0.92"/>
+    <path d="M48.6 3.8 45.8 0M68.8 3.6 72.2 0M84.3 14.9 90.6 9.8M91.2 33.4h8.4M25 14.4 18.5 9.3M19.8 34.2h-8.5" stroke="#D3AC43" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="136" y="58" fill="#0A3557" font-family="Inter, Arial, sans-serif" font-size="39" font-weight="850" letter-spacing="0">learnifyops</text>
+  <text x="138" y="86" fill="#607180" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.8">SAAS • EDTECH • TRAINING</text>
+</svg>
