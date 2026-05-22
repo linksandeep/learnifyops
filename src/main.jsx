@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowRight,
-  BadgeCheck,
   BarChart3,
   BriefcaseBusiness,
   Building2,
@@ -11,7 +10,6 @@ import {
   ClipboardCheck,
   CloudCog,
   Code2,
-  Cookie,
   DatabaseZap,
   FileCheck2,
   Globe2,
@@ -24,63 +22,100 @@ import {
   Menu,
   MessageSquareText,
   Phone,
+  Search,
   ShieldCheck,
   Sparkles,
   Target,
   Users,
+  Workflow,
   X
 } from "lucide-react";
 import "./styles.css";
 
 const navItems = [
   ["Home", "/"],
-  ["Company", "/company"],
-  ["Services", "/services"],
-  ["Platform", "/platform"],
-  ["Impact", "/impact"],
-  ["Standards", "/standards"],
+  ["About", "/about"],
+  ["Capabilities", "/capabilities"],
+  ["Industries", "/industries"],
+  ["Products", "/products"],
+  ["Placements", "/placements"],
   ["Contact", "/contact"]
 ];
 
 const proofPoints = [
-  { icon: Globe2, title: "UK + India delivery", text: "Strategy, build, growth and support across global time zones." },
-  { icon: LockKeyhole, title: "Secure enquiry flow", text: "Consent-led contact capture connected to the local API." },
-  { icon: FileCheck2, title: "Launch-ready structure", text: "SEO, accessibility, policy signals and production build hygiene." }
+  { icon: Globe2, title: "UK-led global delivery", text: "Technology, training and operational support for businesses, institutions and learners." },
+  { icon: DatabaseZap, title: "SaaS product mindset", text: "CRM, portals, dashboards, workflow automation and data-led systems built for daily use." },
+  { icon: GraduationCap, title: "Placement pathways", text: "Career readiness, internships, live project practice and employer-focused digital skills." }
 ];
 
-const servicePillars = [
-  { icon: Code2, title: "Product Engineering", text: "SaaS platforms, dashboards, portals, CRM modules, APIs and workflow products for operational teams.", cta: "Scope a build" },
-  { icon: CloudCog, title: "AI Operations", text: "Automation for onboarding, support, reporting, lead routing, knowledge retrieval and team handovers.", cta: "Automate work" },
-  { icon: BarChart3, title: "Growth Systems", text: "SEO, analytics, campaign journeys, content operations and conversion infrastructure for serious buyers.", cta: "Grow demand" },
-  { icon: GraduationCap, title: "Learning Programmes", text: "Internships, digital skills, mentorship, live project practice and career-readiness pathways for young talent.", cta: "Explore talent" }
+const capabilities = [
+  { icon: Code2, title: "SaaS Product Development", text: "Custom CRM, LMS, ERP modules, portals, dashboards, subscriptions, APIs and admin systems for growing organisations." },
+  { icon: CloudCog, title: "AI and Automation", text: "Lead routing, onboarding flows, internal knowledge, reporting, support replies and repetitive operations automated with care." },
+  { icon: BarChart3, title: "Digital Growth", text: "SEO, paid campaigns, content systems, analytics, landing pages and conversion journeys for education and B2B markets." },
+  { icon: Users, title: "Placement and Training", text: "Internship support, interview preparation, practical projects, digital marketing, coding and product operations training." },
+  { icon: Workflow, title: "Business Process Transformation", text: "Map scattered manual work into clear workflows, ownership, service levels, dashboards and measurable improvement loops." },
+  { icon: ShieldCheck, title: "Trust and Compliance Foundations", text: "Accessible UI, privacy-aware forms, security signals, clean content structure and launch-ready business information." }
 ];
 
-const audiences = [
-  ["Enterprises", "Operational software, automation and analytics for teams that need fewer manual handoffs."],
-  ["Education Providers", "Learner portals, admissions workflows, progress tracking and programme delivery systems."],
-  ["Growth Teams", "High-converting websites, marketing operations, reporting and CRM visibility."],
-  ["Young Talent", "Practical training, portfolio projects, internships and mentorship connected to real digital work."]
+const industries = [
+  ["Education and Training", "Admissions, learner journeys, LMS, training delivery, cohorts, mentors, outcomes and placement readiness."],
+  ["Startups and SMEs", "Websites, SaaS MVPs, CRM visibility, lead management, automation and growth systems."],
+  ["Recruitment and Placement", "Candidate pipelines, skill tracking, employer communication, interview prep and placement reporting."],
+  ["Professional Services", "Client portals, enquiry workflows, document handling, reporting and service operations."],
+  ["Retail and Local Business", "Digital storefronts, marketing operations, customer engagement and analytics dashboards."],
+  ["Nonprofits and Community", "Programme management, youth initiatives, grant reporting, training access and impact measurement."]
 ];
 
-const platformModules = [
-  ["OpsDashboard CRM", "Consultation pipelines, task queues, ownership, follow-up automation and executive summaries."],
-  ["AI Workflow Assistant", "Internal knowledge, response drafts, support triage, onboarding checklists and report generation."],
-  ["Digital Operations Portal", "Secure client, student, partner or staff workspaces with approvals, dashboards and reporting."],
-  ["Growth Intelligence Hub", "Lead sources, campaign signals, conversion data and decision-ready marketing reports."]
+const products = [
+  ["OpsDashboard CRM", "Consultation pipeline, task queues, ownership, follow-up automation and management visibility."],
+  ["Learner and Placement Portal", "Student profiles, skills progress, CV readiness, interview activity, employer matching and outcomes."],
+  ["AI Workflow Assistant", "Internal knowledge, support drafts, onboarding checklists, reports and handover automation."],
+  ["Growth Intelligence Hub", "Campaign data, lead sources, website conversions, content performance and executive reporting."]
 ];
 
-const capabilityRows = [
-  { metric: "01", title: "Map the operation", text: "We clarify the commercial goal, data model, user journeys, compliance needs and delivery priorities." },
-  { metric: "02", title: "Design the system", text: "We shape interfaces, architecture, workflows and content paths before production engineering begins." },
-  { metric: "03", title: "Build and improve", text: "We ship, test, measure and iterate with a roadmap that keeps the platform useful after launch." }
+const placementTracks = [
+  ["Software and Web Development", "React, front-end implementation, dashboards, QA, Git workflows and real product tasks."],
+  ["Digital Marketing", "SEO, landing pages, social campaigns, analytics, content planning and campaign reporting."],
+  ["Product Operations", "Workflow mapping, client onboarding, testing, documentation, CRM setup and project coordination."],
+  ["AI and Automation", "Prompt workflows, support automation, reporting systems, internal tools and process improvement." ]
+];
+
+const process = [
+  { metric: "01", title: "Discover the operation", text: "Clarify the business model, learners, users, data, bottlenecks, growth goals and placement outcomes." },
+  { metric: "02", title: "Design the future state", text: "Shape journeys, dashboards, workflows, content structure and product architecture before build starts." },
+  { metric: "03", title: "Build, train and launch", text: "Deliver software, automation, marketing assets and training pathways with practical handover." },
+  { metric: "04", title: "Measure and improve", text: "Track adoption, conversion, learner outcomes, service quality and operational efficiency over time." }
+];
+
+const stories = [
+  ["Placement engine for digital careers", "A structured pathway that turns training activity into visible skills, interview readiness and employer-facing candidate profiles."],
+  ["CRM clarity for growing teams", "A central operating view for enquiries, consultations, follow-ups, owners and daily priorities."],
+  ["AI-assisted service delivery", "Reusable workflow assistants for reporting, onboarding, support drafts and handover notes." ]
 ];
 
 const standards = [
   { icon: ShieldCheck, title: "Privacy aware", text: "Focused enquiry fields, consent capture and space for full UK GDPR policy detail before public launch." },
-  { icon: BadgeCheck, title: "Accessible by default", text: "Semantic layout, visible focus, readable contrast, responsive typography and reduced-motion support." },
-  { icon: Cookie, title: "Cookie clarity", text: "This local build uses only essential storage for the notice. Analytics can be added behind consent." },
-  { icon: Building2, title: "Business confidence", text: "Address, phone, email, company information area and policy links are visible for trust." }
+  { icon: FileCheck2, title: "Accessible structure", text: "Semantic layout, readable contrast, keyboard access, responsive pages and reduced-motion support." },
+  { icon: ClipboardCheck, title: "Business confidence", text: "Visible contact details, office address, legal placeholders, policy paths and clear service information." }
 ];
+
+const insights = [
+  ["SaaS and CRM products for growing teams", "Build portals, dashboards, workflows and admin systems that turn daily operations into measurable performance."],
+  ["AI automation for service delivery", "Automate reports, onboarding, support drafts, lead routing and internal knowledge without losing human quality."],
+  ["Placement pathways for digital careers", "Prepare candidates with resumes, interviews, live projects, employer readiness and practical digital capability."],
+  ["Digital marketing that creates demand", "SEO, paid campaigns, content operations, analytics and conversion journeys for education and B2B services."]
+];
+
+const globalStats = [
+  ["2", "Office hubs in India and the UK"],
+  ["6", "Service domains across tech, growth and talent"],
+  ["4", "Placement tracks for career readiness"],
+  ["24/7", "Digital-first support mindset"],
+  ["100+", "Workflow and learning journeys we can map"],
+  ["AI", "Enabled delivery model"]
+];
+
+const partnerAreas = ["SaaS", "AI Automation", "Digital Marketing", "Resume Support", "Job Support", "Interview Prep", "Placements", "UK + India"];
 
 function normalisePath(pathname) {
   const clean = pathname.replace(/\/$/, "") || "/";
@@ -110,16 +145,7 @@ function useRoute() {
 
 function Link({ to, navigate, children, className, onNavigate, ...props }) {
   return (
-    <a
-      className={className}
-      href={to}
-      onClick={(event) => {
-        event.preventDefault();
-        navigate(to);
-        onNavigate?.();
-      }}
-      {...props}
-    >
+    <a className={className} href={to} onClick={(event) => { event.preventDefault(); navigate(to); onNavigate?.(); }} {...props}>
       {children}
     </a>
   );
@@ -131,12 +157,12 @@ function BrandLogo() {
 
 function Header({ path, navigate }) {
   const [open, setOpen] = useState(false);
-
   return (
     <header className="site-header">
       <nav className={open ? "nav open" : "nav"} aria-label="Primary navigation">
         <Link className="brand" to="/" navigate={navigate} onNavigate={() => setOpen(false)} aria-label="learnifyops home"><BrandLogo /></Link>
         <button className="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}</button>
+        <Search className="search-icon" size={31} aria-hidden="true" />
         <div className="nav-links">
           {navItems.map(([label, target]) => <Link key={target} to={target} navigate={navigate} onNavigate={() => setOpen(false)} className={path === target ? "active" : undefined}>{label}</Link>)}
         </div>
@@ -154,7 +180,7 @@ function SectionIntro({ eyebrow, icon, title, text }) {
 }
 
 function PageHero({ eyebrow, icon, title, text, image = "/assets/hero-learnifyops.png" }) {
-  const backgroundImage = "linear-gradient(90deg, rgba(7, 16, 24, 0.98), rgba(7, 16, 24, 0.74)), url(" + image + ")";
+  const backgroundImage = "linear-gradient(90deg, rgba(5, 15, 32, 0.96), rgba(5, 15, 32, 0.66)), url(" + image + ")";
   return <section className="page-hero"><div className="page-hero-media" style={{ backgroundImage }} aria-hidden="true" /><div className="container page-hero-inner reveal visible"><Eyebrow icon={icon}>{eyebrow}</Eyebrow><h1>{title}</h1><p>{text}</p></div></section>;
 }
 
@@ -164,85 +190,103 @@ function Hero({ navigate }) {
       <div className="hero-media" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy reveal visible">
-          <Eyebrow icon={Globe2}>International software, operations and learning partner</Eyebrow>
-          <h1>Digital systems for organisations ready to operate globally.</h1>
-          <p>learnifyops designs and builds SaaS platforms, AI workflow engines, CRM systems, websites, mobile experiences and talent programmes for ambitious teams in the UK, India and beyond.</p>
-          <div className="hero-actions"><Link className="btn btn-primary" to="/contact" navigate={navigate}>Start a Project <ArrowRight size={18} aria-hidden="true" /></Link><Link className="btn btn-secondary" to="/services" navigate={navigate}>View Services</Link></div>
-        </div>
-        <div className="command-centre reveal visible" aria-label="learnifyops global delivery snapshot">
-          <div className="command-top"><span>Global Delivery OS</span><strong>Live</strong></div>
-          <div className="command-map"><span className="pin pin-uk">UK</span><span className="pin pin-in">IN</span><span className="route route-a" /><span className="route route-b" /></div>
-          <div className="command-metrics"><article><strong>4</strong><span>Service pillars</span></article><article><strong>2</strong><span>Delivery hubs</span></article><article><strong>24h</strong><span>Workflow mindset</span></article></div>
+          <Eyebrow icon={Globe2}>Digital transformation, SaaS products and placement pathways</Eyebrow>
+          <h1>OUTSKILL<br />THE FUTURE</h1>
+          <p>AI-powered services, SaaS products, digital growth and placement support for organisations and talent across India and the UK.</p>
+          <div className="hero-actions">
+            <Link className="btn btn-primary" to="/contact" navigate={navigate}>Make Your Business Smarter <ArrowRight size={18} aria-hidden="true" /></Link>
+            <Link className="btn btn-secondary" to="/capabilities" navigate={navigate}>Explore Capabilities</Link>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
+function SmartIntro({ navigate }) {
+  return <section className="smart-intro"><div className="container smart-intro-inner reveal"><h2>Your competition is not your competition, it is the future.</h2><p>With SaaS, AI automation, digital marketing, resume support, job support and interview readiness, learnifyops helps businesses scale smarter and helps people become placement ready.</p><div className="intro-links"><Link to="/contact" navigate={navigate}>Make Your Business Smarter Today <ArrowRight size={18} /></Link><Link to="/placements" navigate={navigate}>Explore Placement Programmes <ArrowRight size={18} /></Link></div></div></section>;
+}
+
 function ProofStrip() {
   return <section className="proof-strip" aria-label="Credibility highlights"><div className="container proof-grid reveal">{proofPoints.map(({ icon: Icon, title, text }) => <article key={title}><Icon size={22} aria-hidden="true" /><strong>{title}</strong><span>{text}</span></article>)}</div></section>;
 }
 
-function PlatformPreview() {
-  return <div className="platform-preview reveal" aria-label="Platform dashboard preview"><div className="preview-sidebar" aria-hidden="true"><span /><span /><span /><span /></div><div className="preview-main"><div className="preview-top"><span>Operating Console</span><strong>Q2</strong></div><div className="preview-kpis"><article><strong>68%</strong><span>Automated follow-ups</span></article><article><strong>31</strong><span>Active workflows</span></article></div><div className="preview-bars" aria-hidden="true"><i /><i /><i /><i /><i /></div><ul>{platformModules.map(([name]) => <li key={name}><CheckCircle2 size={16} aria-hidden="true" />{name}</li>)}</ul></div></div>;
+function CapabilitiesSection({ navigate }) {
+  return <section className="section capabilities"><div className="container"><SectionIntro eyebrow="Capabilities" icon={Layers3} title="Combining domain understanding with continuous digital execution." text="Inspired by enterprise transformation firms, learnifyops brings software, automation, marketing and placement delivery into one practical operating partner." /><div className="capability-grid">{capabilities.map(({ icon: Icon, title, text }) => <article className="capability-card reveal" key={title}><Icon size={24} aria-hidden="true" /><h3>{title}</h3><p>{text}</p><Link to="/contact" navigate={navigate}>Discuss this <ChevronRight size={16} aria-hidden="true" /></Link></article>)}</div></div></section>;
 }
 
-function CompanySection() {
-  return <section className="section company"><div className="container company-layout"><div className="copy-block reveal"><Eyebrow icon={Building2}>Company</Eyebrow><h2>A technology company with product, growth and talent in one operating model.</h2><p>We help organisations replace scattered manual processes with well-designed digital systems. The result is clearer sales visibility, stronger learner journeys, faster delivery and more confident leadership decisions.</p></div><div className="audience-grid reveal">{audiences.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
+function IndustriesSection() {
+  return <section className="section industries"><div className="container"><SectionIntro eyebrow="Industries" icon={Building2} title="Own the future on your terms." text="Focused solutions for organisations that need cleaner operations, better learner outcomes and faster digital execution." /><div className="industry-grid">{industries.map(([title, text]) => <article className="industry-card reveal" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
 }
 
-function ServicesSection({ navigate }) {
-  return <section className="section services"><div className="container"><SectionIntro eyebrow="Services" icon={Layers3} title="Built for international buyers, not local brochure traffic." text="The website, product layer, automation stack and training programmes are designed as one connected growth system." /><div className="service-grid">{servicePillars.map(({ icon: Icon, title, text, cta }) => <article className="service-card reveal" key={title}><span className="service-icon"><Icon size={25} aria-hidden="true" /></span><h3>{title}</h3><p>{text}</p><Link to="/contact" navigate={navigate}>{cta}<ChevronRight size={16} aria-hidden="true" /></Link></article>)}</div></div></section>;
+function ProductsSection() {
+  return <section className="section products"><div className="container product-layout"><div className="product-console reveal" aria-label="SaaS product console"><div className="console-top"><span>Product suite</span><strong>Build-ready</strong></div><div className="console-bars" aria-hidden="true"><i /><i /><i /><i /><i /></div><ul>{products.map(([name]) => <li key={name}><CheckCircle2 size={16} aria-hidden="true" />{name}</li>)}</ul></div><div className="copy-block reveal"><Eyebrow icon={DatabaseZap}>SaaS Products</Eyebrow><h2>Systems that make operations visible, measurable and easier to scale.</h2><p>Use learnifyops as your SaaS product studio for CRM, placement portals, AI workflow assistants and growth intelligence products.</p><div className="module-list">{products.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></div></section>;
 }
 
-function PlatformSection() {
-  return <section className="section platform"><div className="container platform-layout"><PlatformPreview /><div className="copy-block reveal"><Eyebrow icon={DatabaseZap}>Platform</Eyebrow><h2>One operational command centre for learning, sales and service delivery.</h2><p>Use learnifyops as a studio for custom systems or as a strategic partner for portals, admissions CRM, analytics dashboards and AI-assisted workflow tools.</p><div className="module-list">{platformModules.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></div></section>;
+function InsightsSection({ navigate }) {
+  return <section className="dark-feed"><div className="container"><h2>Shaping the future with AI, SaaS and talent at the core</h2><div className="feed-grid">{insights.map(([title, text], index) => <article className={"feed-card feed-card-" + index} key={title}><div><h3>{title}</h3><p>{text}</p>{index === 2 && <Link to="/placements" navigate={navigate}>Read More <ArrowRight size={16} /></Link>}</div></article>)}</div><Link className="view-all" to="/capabilities" navigate={navigate}>View All <ArrowRight size={18} /></Link></div></section>;
 }
 
-function ImpactSection() {
-  return <section className="impact-band"><div className="container impact-layout reveal"><div><Eyebrow icon={Target}>Impact</Eyebrow><h2>From consultation to launch, the work stays commercially useful.</h2></div><div className="impact-steps">{capabilityRows.map(({ metric, title, text }) => <article key={metric}><span>{metric}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
+function CaseStudyBand({ navigate }) {
+  return <section className="case-band"><div className="container case-layout"><div className="case-copy reveal"><span>Smarter by Design</span><h2>Innovation Meets Execution</h2><h3>From digital services to placement outcomes</h3><p>We connect software delivery, AI-enabled operations, marketing execution and career support so organisations can grow while talent becomes job ready.</p><Link to="/contact" navigate={navigate}>Read More <ArrowRight size={18} /></Link></div><div className="case-media reveal"><img src="/assets/youth-uk-ready.png" alt="Learners and professionals collaborating on digital projects" /><span className="play-button">▶</span></div></div></section>;
 }
 
-function TalentSection() {
-  return <section className="section talent"><div className="container talent-layout"><div className="talent-image reveal"><img src="/assets/youth-uk-ready.png" alt="Students learning digital skills with mentors" /></div><div className="copy-block reveal"><Eyebrow icon={Users}>Talent programmes</Eyebrow><h2>Creating practical technology pathways for young people.</h2><p>learnifyops supports students and early-career professionals through coding, AI tools, online learning, internships, hackathons, CV preparation, interview practice and live project delivery.</p><div className="tag-row"><span>Coding</span><span>AI workflows</span><span>Mentorship</span><span>Internships</span></div></div></div></section>;
+function GlobalPresenceSection({ navigate }) {
+  return <section className="presence-band"><div className="container presence-layout"><div className="presence-copy reveal"><h2>AI Powered.<br />Human Led.<br />Future Ready.</h2><p>We combine global delivery thinking with practical execution from India and the UK.</p><Link to="/about" navigate={navigate}>Read More <ArrowRight size={18} /></Link></div><div className="presence-grid reveal">{globalStats.map(([value, label]) => <article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div></div></section>;
+}
+
+function PartnerBand({ navigate }) {
+  return <section className="partner-band"><div className="container"><h2>Partnerships that power smarter businesses</h2><div className="partner-row">{partnerAreas.map((item) => <span key={item}>{item}</span>)}</div><Link to="/contact" navigate={navigate}>View Our Global Service Network <ArrowRight size={18} /></Link></div></section>;
+}
+
+function PlacementsSection() {
+  return <section className="section placements"><div className="container placement-layout"><div className="placement-image reveal"><img src="/assets/youth-uk-ready.png" alt="Students preparing for digital careers with mentors" /></div><div className="copy-block reveal"><Eyebrow icon={GraduationCap}>Placements</Eyebrow><h2>Placement support built around practical digital capability.</h2><p>We provide structured training, real project exposure, CV preparation, interview readiness and placement pathways for students and early-career talent.</p><div className="track-list">{placementTracks.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></div></section>;
+}
+
+function ProcessSection() {
+  return <section className="impact-band"><div className="container impact-layout reveal"><div><Eyebrow icon={Target}>Delivery Model</Eyebrow><h2>Transformation that moves from strategy to measurable outcomes.</h2></div><div className="impact-steps">{process.map(({ metric, title, text }) => <article key={metric}><span>{metric}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
+}
+
+function StoriesSection() {
+  return <section className="section stories"><div className="container"><SectionIntro eyebrow="Success Stories" icon={BarChart3} title="Smarter by design. Practical in execution." text="Proof-style examples of how learnifyops can combine systems, skills and service delivery." /><div className="story-grid">{stories.map(([title, text]) => <article className="story-card reveal" key={title}><span>Case focus</span><h3>{title}</h3><p>{text}</p><a href="/contact">Readiness discussion</a></article>)}</div></div></section>;
 }
 
 function StandardsSection() {
-  return <section className="section standards"><div className="container"><SectionIntro eyebrow="Standards" icon={ClipboardCheck} title="Trust foundations for a serious public launch." text="Clear compliance signals, accessible interface choices and visible business information help the brand feel credible from the first visit." /><div className="standards-grid">{standards.map(({ icon: Icon, title, text }) => <article className="standard-card reveal" key={title}><Icon size={24} aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
+  return <section className="section standards"><div className="container"><SectionIntro eyebrow="Trust" icon={ClipboardCheck} title="Built with credibility foundations from the start." text="For international buyers, trust is visible in structure, content, accessibility, privacy and operational clarity." /><div className="standards-grid">{standards.map(({ icon: Icon, title, text }) => <article className="standard-card reveal" key={title}><Icon size={24} aria-hidden="true" /><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>;
 }
 
 function ContactSection({ handleSubmit, formState, formStatus }) {
-  return <section className="section contact"><div className="container contact-layout"><div className="copy-block reveal"><Eyebrow icon={MessageSquareText}>Contact</Eyebrow><h2>Start a focused conversation with learnifyops.</h2><p>Tell us what you want to build, improve, market or teach. The form connects to the local API and stores enquiries in MongoDB when the database is running.</p><div className="contact-lines"><a href="mailto:info@britinstitute.uk"><Mail size={18} aria-hidden="true" />info@britinstitute.uk</a><a href="tel:+447520664011"><Phone size={18} aria-hidden="true" />+44 7520 664011</a><span><MapPin size={18} aria-hidden="true" />Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span><BriefcaseBusiness size={18} aria-hidden="true" />Monday to Friday, 9am to 5pm</span></div></div><form className="contact-form reveal" onSubmit={handleSubmit} aria-describedby="privacy-help form-status"><label htmlFor="name">Name<input id="name" type="text" name="name" placeholder="Your name" autoComplete="name" required /></label><label htmlFor="email">Email<input id="email" type="email" name="email" placeholder="you@example.com" autoComplete="email" required /></label><label htmlFor="phone">Phone<input id="phone" type="tel" name="phone" placeholder="+44..." autoComplete="tel" /></label><label htmlFor="type">Interest<select id="type" name="type" required><option>Product engineering</option><option>AI operations</option><option>Website or mobile app</option><option>Digital marketing</option><option>Training programme</option><option>Partnership</option></select></label><label htmlFor="message">Message<textarea id="message" name="message" placeholder="Tell us about your goal" required /></label><label className="consent-row" htmlFor="consent"><input id="consent" name="consent" type="checkbox" required />I agree to be contacted about this enquiry and understand my details should be handled according to the privacy notice.</label><p id="privacy-help" className="form-help">Only the details you enter are used for this enquiry. Add a full UK GDPR privacy notice before launching with a live backend.</p><button className="btn btn-primary" type="submit" disabled={formState === "saving"}>{formState === "saving" ? "Saving..." : "Send Message"}<ArrowRight size={18} aria-hidden="true" /></button><p id="form-status" className={"form-status " + formState} role="status">{formStatus}</p></form></div></section>;
+  return <section className="section contact"><div className="container contact-layout"><div className="copy-block reveal"><Eyebrow icon={MessageSquareText}>Contact</Eyebrow><h2>Start a focused conversation with learnifyops.</h2><p>Tell us whether you need a SaaS product, website, AI workflow, marketing system, placement support or a complete digital transformation roadmap.</p><div className="contact-lines"><a href="mailto:info@britinstitute.uk"><Mail size={18} aria-hidden="true" />info@britinstitute.uk</a><a href="tel:+447520664011"><Phone size={18} aria-hidden="true" />+44 7520 664011</a><span><MapPin size={18} aria-hidden="true" />Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span><BriefcaseBusiness size={18} aria-hidden="true" />Monday to Friday, 9am to 5pm</span></div></div><form className="contact-form reveal" onSubmit={handleSubmit} aria-describedby="privacy-help form-status"><label htmlFor="name">Name<input id="name" type="text" name="name" placeholder="Your name" autoComplete="name" required /></label><label htmlFor="email">Email<input id="email" type="email" name="email" placeholder="you@example.com" autoComplete="email" required /></label><label htmlFor="phone">Phone<input id="phone" type="tel" name="phone" placeholder="+44..." autoComplete="tel" /></label><label htmlFor="type">Interest<select id="type" name="type" required><option>SaaS product development</option><option>Placement programme</option><option>AI automation</option><option>Website or mobile app</option><option>Digital marketing</option><option>Business transformation</option><option>Partnership</option></select></label><label htmlFor="message">Message<textarea id="message" name="message" placeholder="Tell us about your goal" required /></label><label className="consent-row" htmlFor="consent"><input id="consent" name="consent" type="checkbox" required />I agree to be contacted about this enquiry and understand my details should be handled according to the privacy notice.</label><p id="privacy-help" className="form-help">Only the details you enter are used for this enquiry. Add a full UK GDPR privacy notice before launching with a live backend.</p><button className="btn btn-primary" type="submit" disabled={formState === "saving"}>{formState === "saving" ? "Saving..." : "Contact Us"}<ArrowRight size={18} aria-hidden="true" /></button><p id="form-status" className={"form-status " + formState} role="status">{formStatus}</p></form></div></section>;
 }
 
 function FinalCta({ navigate }) {
-  return <section className="final-cta"><div className="container final-cta-inner reveal"><Handshake size={34} aria-hidden="true" /><h2>Build intelligent systems. Grow capable teams. Operate with international confidence.</h2><Link className="btn btn-secondary" to="/contact" navigate={navigate}>Plan Your Next System</Link></div></section>;
+  return <section className="final-cta"><div className="container final-cta-inner reveal"><Handshake size={34} aria-hidden="true" /><h2>Build the system. Train the people. Improve the outcome.</h2><Link className="btn btn-secondary" to="/contact" navigate={navigate}>Make Your Business Smarter</Link></div></section>;
 }
 
 function HomePage({ navigate, contactProps }) {
-  return <><Hero navigate={navigate} /><ProofStrip /><CompanySection /><ServicesSection navigate={navigate} /><PlatformSection /><ImpactSection /><TalentSection /><StandardsSection /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
+  return <><Hero navigate={navigate} /><SmartIntro navigate={navigate} /><InsightsSection navigate={navigate} /><CaseStudyBand navigate={navigate} /><GlobalPresenceSection navigate={navigate} /><PartnerBand navigate={navigate} /><CapabilitiesSection navigate={navigate} /><ProductsSection /><PlacementsSection /><ProcessSection /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
 }
-function CompanyPage({ navigate }) {
-  return <><PageHero eyebrow="Company" icon={Building2} title="A global-standard technology partner with education in its DNA." text="learnifyops combines product engineering, AI operations, growth strategy and talent development into one delivery model for serious organisations." /><CompanySection /><TalentSection /><FinalCta navigate={navigate} /></>;
+function AboutPage({ navigate }) {
+  return <><PageHero eyebrow="About" icon={Building2} title="A practical transformation partner for businesses, institutions and young talent." text="learnifyops combines SaaS product delivery, AI-enabled operations, digital growth and placement pathways into one clear operating model." /><ProofStrip /><ProcessSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
 }
-function ServicesPage({ navigate }) {
-  return <><PageHero eyebrow="Services" icon={Layers3} title="Software, automation, growth and learning programmes under one roof." text="Choose focused delivery or a full operating system across product, marketing, data, AI workflows and talent pathways." image="/assets/global-ai-hero.png" /><ServicesSection navigate={navigate} /><ImpactSection /><FinalCta navigate={navigate} /></>;
+function CapabilitiesPage({ navigate }) {
+  return <><PageHero eyebrow="Capabilities" icon={Layers3} title="Software, AI, marketing and placement delivery under one roof." text="Capabilities shaped for organisations that need execution, not just advice." image="/assets/global-ai-hero.png" /><CapabilitiesSection navigate={navigate} /><ProductsSection /><FinalCta navigate={navigate} /></>;
 }
-function PlatformPage({ navigate }) {
-  return <><PageHero eyebrow="Platform" icon={DatabaseZap} title="Operational dashboards and workflow products built around visibility." text="Bring enquiries, students, clients, staff, campaigns and delivery actions into cleaner digital systems." /><PlatformSection /><ServicesSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+function IndustriesPage({ navigate }) {
+  return <><PageHero eyebrow="Industries" icon={Building2} title="Digital transformation for education, business and placement ecosystems." text="Focused industry understanding helps each solution fit the actual workflow, user and outcome." /><IndustriesSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
 }
-function ImpactPage({ navigate }) {
-  return <><PageHero eyebrow="Impact" icon={Target} title="Every build is measured by operational clarity and practical outcomes." text="The process connects discovery, design, production and improvement so the work keeps creating value after launch." /><ImpactSection /><ProofStrip /><FinalCta navigate={navigate} /></>;
+function ProductsPage({ navigate }) {
+  return <><PageHero eyebrow="Products" icon={DatabaseZap} title="SaaS products that turn operations into measurable systems." text="CRM, placement portals, AI workflow assistants and growth intelligence tools built for daily execution." /><ProductsSection /><CapabilitiesSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
 }
-function StandardsPage({ navigate }) {
-  return <><PageHero eyebrow="Standards" icon={ClipboardCheck} title="Trust, accessibility and launch discipline for international credibility." text="The site includes visible compliance foundations, business signals, policy paths and user-friendly interface decisions." /><StandardsSection /><ProofStrip /><FinalCta navigate={navigate} /></>;
+function PlacementsPage({ navigate }) {
+  return <><PageHero eyebrow="Placements" icon={GraduationCap} title="Placement-ready talent through practical digital training." text="Structured pathways for students and young professionals across software, marketing, AI automation and product operations." image="/assets/youth-uk-ready.png" /><PlacementsSection /><ProcessSection /><FinalCta navigate={navigate} /></>;
 }
 function ContactPage({ navigate, contactProps }) {
-  return <><PageHero eyebrow="Contact" icon={MessageSquareText} title="Talk to learnifyops about the next system you need to build." text="Use the form for product engineering, AI operations, digital marketing, training programmes, partnerships or consulting." image="/assets/youth-uk-ready.png" /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Contact" icon={MessageSquareText} title="Talk to learnifyops about what you want to build, improve or place." text="Use the form for SaaS products, placement programmes, digital services, AI automation or partnerships." image="/assets/youth-uk-ready.png" /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
 }
 
 function Footer({ navigate }) {
-  return <footer className="footer"><div className="container footer-grid"><div><Link className="brand footer-brand" to="/" navigate={navigate}><BrandLogo /></Link><p>International-grade product engineering, AI operations, digital growth and youth technology training from the UK.</p></div><div className="legal-grid" aria-label="Legal and policy information"><span>Company number: add registered England & Wales number</span><span>Registered office: Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span><Link to="/standards" navigate={navigate}>Privacy Policy</Link> / <Link to="/standards" navigate={navigate}>Terms</Link> / <Link to="/standards" navigate={navigate}>Cookie Policy</Link></span><span>Copyright 2026 learnifyops. All rights reserved.</span></div></div></footer>;
+  return <footer className="footer"><div className="container footer-grid"><div><Link className="brand footer-brand" to="/" navigate={navigate}><BrandLogo /></Link><p>SaaS product development, AI operations, digital growth and placement-focused training from the UK.</p></div><div className="legal-grid" aria-label="Legal and policy information"><span>Company number: add registered England & Wales number</span><span>Registered office: Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span><Link to="/about" navigate={navigate}>About</Link> / <Link to="/capabilities" navigate={navigate}>Capabilities</Link> / <Link to="/contact" navigate={navigate}>Contact</Link></span><span>Copyright 2026 learnifyops. All rights reserved.</span></div></div></footer>;
 }
 
 function App() {
@@ -267,7 +311,7 @@ function App() {
 
   useEffect(() => {
     const page = navItems.find(([, route]) => route === path)?.[0] || "Home";
-    document.title = path === "/" ? "learnifyops | Global Software & EdTech Solutions" : "learnifyops | " + page;
+    document.title = path === "/" ? "learnifyops | SaaS, Placements and Digital Transformation" : "learnifyops | " + page;
   }, [path]);
 
   const handleSubmit = async (event) => {
@@ -300,11 +344,11 @@ function App() {
   const contactProps = { handleSubmit, formState, formStatus };
   const pages = {
     "/": <HomePage navigate={navigate} contactProps={contactProps} />,
-    "/company": <CompanyPage navigate={navigate} />,
-    "/services": <ServicesPage navigate={navigate} />,
-    "/platform": <PlatformPage navigate={navigate} />,
-    "/impact": <ImpactPage navigate={navigate} />,
-    "/standards": <StandardsPage navigate={navigate} />,
+    "/about": <AboutPage navigate={navigate} />,
+    "/capabilities": <CapabilitiesPage navigate={navigate} />,
+    "/industries": <IndustriesPage navigate={navigate} />,
+    "/products": <ProductsPage navigate={navigate} />,
+    "/placements": <PlacementsPage navigate={navigate} />,
     "/contact": <ContactPage navigate={navigate} contactProps={contactProps} />
   };
 

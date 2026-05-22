@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" role="img" aria-label="World map texture">
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9df8d5"/>
+      <stop offset="0.45" stop-color="#49d5aa"/>
+      <stop offset="1" stop-color="#168f78"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+      <feOffset dy="1"/>
+      <feComposite in2="SourceAlpha" operator="out"/>
+      <feColorMatrix values="0 0 0 0 0.03 0 0 0 0 0.26 0 0 0 0 0.22 0 0 0 .42 0"/>
+      <feBlend in2="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <g fill="url(#land)" stroke="#caffef" stroke-width="1.6" stroke-linejoin="round" filter="url(#soft)">
+    <path d="M76 90l26-18 36 5 19 21 35 7 17 29-10 28-34 13-14 31 15 20-8 38-28 4-14-25-25-11-5-37-30-28-9-34 18-15z"/>
+    <path d="M164 82l17-25 32-13 24 8 9 23-16 20-32 4-21-4z"/>
+    <path d="M194 214l27 12 23 36-5 43-19 39-18-10-9-42-24-35 5-27z"/>
+    <path d="M272 126l20-16 31 3 14 18-15 22 12 20-14 19-30-4-21-19 10-19z"/>
+    <path d="M322 161l33-14 39 9 20 32-8 42-21 44-33-6-16-42-27-21z"/>
+    <path d="M373 112l36-24 53 4 34 20 34-10 58 24 43 43-18 36-55-2-32 21-45-8-33 22-28-31 3-43-36-17z"/>
+    <path d="M558 238l38 6 33 24-14 25-42 4-26-18z"/>
+    <path d="M640 297l25 8 10 19-19 13-28-11z"/>
+    <path d="M43 266l35 4 18 18-27 15-38-12z"/>
+    <path d="M688 114l32-15v53l-24-8z"/>
+  </g>
+  <g fill="none" stroke="#e4fff7" stroke-width="0.8" opacity="0.36">
+    <path d="M94 112l48 6 36 29"/>
+    <path d="M72 151l51 22 39-3"/>
+    <path d="M118 196l41 33"/>
+    <path d="M203 236l31 34"/>
+    <path d="M286 134l31 9 20-12"/>
+    <path d="M336 174l50 2 28 18"/>
+    <path d="M352 213l45 18"/>
+    <path d="M408 108l29 42 50-36"/>
+    <path d="M447 164l48 24 44-23"/>
+    <path d="M517 130l33 54 45-13"/>
+    <path d="M574 244l16 42"/>
+  </g>
+  <g fill="#ffffff" opacity="0.18">
+    <path d="M46 72c42-28 88-23 131 7-49-8-88-3-131-7z"/>
+    <path d="M422 56c58-20 112-13 166 22-62-9-111-3-166-22z"/>
+    <path d="M462 284c52-17 99-12 141 14-49-5-94 2-141-14z"/>
+  </g>
+</svg>
