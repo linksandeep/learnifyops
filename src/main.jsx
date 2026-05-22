@@ -43,7 +43,7 @@ const navItems = [
 ];
 
 const proofPoints = [
-  { icon: Globe2, title: "UK-led global delivery", text: "Technology, training and operational support for businesses, institutions and learners." },
+  { icon: Globe2, title: "UK and India registered", text: "A registered presence in both markets with remote-first service delivery for clients worldwide." },
   { icon: DatabaseZap, title: "SaaS product mindset", text: "CRM, portals, dashboards, workflow automation and data-led systems built for daily use." },
   { icon: GraduationCap, title: "Placement pathways", text: "Career readiness, internships, live project practice and employer-focused digital skills." }
 ];
@@ -72,6 +72,29 @@ const products = [
   ["AI Workflow Assistant", "Internal knowledge, support drafts, onboarding checklists, reports and handover automation."],
   ["Growth Intelligence Hub", "Campaign data, lead sources, website conversions, content performance and executive reporting."]
 ];
+
+const productDetails = {
+  "OpsDashboard CRM": {
+    bestFor: "Education providers, consultancies, placement teams and growing service businesses.",
+    includes: ["Lead and enquiry tracking", "Consultation pipelines", "Team task ownership", "Follow-up reminders", "Reporting dashboards", "Role-based admin access"],
+    outcome: "A clearer operating view where every enquiry, task and client conversation has ownership and measurable progress."
+  },
+  "Learner and Placement Portal": {
+    bestFor: "Training institutes, placement programmes, universities and career-readiness teams.",
+    includes: ["Learner profiles", "Skill progress tracking", "CV and resume readiness", "Interview activity", "Employer matching", "Placement outcome reports"],
+    outcome: "A structured journey from training to employability, with visible progress for learners, mentors and employers."
+  },
+  "AI Workflow Assistant": {
+    bestFor: "Teams that repeat onboarding, reporting, support, documentation or internal handover work.",
+    includes: ["Knowledge-base assistant", "Support reply drafts", "Report summaries", "Onboarding checklists", "Process prompts", "Human approval workflows"],
+    outcome: "Faster service delivery without losing quality, control or the human review needed for professional operations."
+  },
+  "Growth Intelligence Hub": {
+    bestFor: "Businesses that need marketing visibility, campaign accountability and better conversion decisions.",
+    includes: ["Campaign performance views", "Lead source tracking", "Landing page analytics", "Content planning", "Conversion reporting", "Management summaries"],
+    outcome: "A practical growth command centre that connects marketing activity with enquiries, sales readiness and business outcomes."
+  }
+};
 
 const placementTracks = [
   ["Software and Web Development", "React, front-end implementation, dashboards, QA, Git workflows and real product tasks."],
@@ -107,15 +130,15 @@ const insights = [
 ];
 
 const globalStats = [
-  ["2", "Office hubs in India and the UK"],
+  ["2", "Registered markets: UK and India"],
   ["6", "Service domains across tech, growth and talent"],
   ["4", "Placement tracks for career readiness"],
-  ["24/7", "Digital-first support mindset"],
+  ["Global", "Worldwide remote-first service delivery"],
   ["100+", "Workflow and learning journeys we can map"],
-  ["AI", "Enabled delivery model"]
+  ["AI", "Automation-enabled delivery model"]
 ];
 
-const partnerAreas = ["SaaS", "AI Automation", "Digital Marketing", "Resume Support", "Job Support", "Interview Prep", "Placements", "UK + India"];
+const partnerAreas = ["SaaS", "AI Automation", "Digital Marketing", "Resume Support", "Job Support", "Interview Prep", "Placements", "Worldwide Delivery"];
 
 function normalisePath(pathname) {
   const clean = pathname.replace(/\/$/, "") || "/";
@@ -192,7 +215,7 @@ function Hero({ navigate }) {
         <div className="hero-copy reveal visible">
           <Eyebrow icon={Globe2}>Digital transformation, SaaS products and placement pathways</Eyebrow>
           <h1>OUTSKILL<br />THE FUTURE</h1>
-          <p>AI-powered services, SaaS products, digital growth and placement support for organisations and talent across India and the UK.</p>
+          <p>AI-powered services, SaaS products, digital growth and placement support from our UK and India registered company for organisations worldwide.</p>
           <div className="hero-actions">
             <Link className="btn btn-primary" to="/contact" navigate={navigate}>Make Your Business Smarter <ArrowRight size={18} aria-hidden="true" /></Link>
             <Link className="btn btn-secondary" to="/capabilities" navigate={navigate}>Explore Capabilities</Link>
@@ -220,11 +243,14 @@ function IndustriesSection() {
 }
 
 function ProductsSection() {
-  return <section className="section products"><div className="container product-layout"><div className="product-console reveal" aria-label="SaaS product console"><div className="console-top"><span>Product suite</span><strong>Build-ready</strong></div><div className="console-bars" aria-hidden="true"><i /><i /><i /><i /><i /></div><ul>{products.map(([name]) => <li key={name}><CheckCircle2 size={16} aria-hidden="true" />{name}</li>)}</ul></div><div className="copy-block reveal"><Eyebrow icon={DatabaseZap}>SaaS Products</Eyebrow><h2>Systems that make operations visible, measurable and easier to scale.</h2><p>Use learnifyops as your SaaS product studio for CRM, placement portals, AI workflow assistants and growth intelligence products.</p><div className="module-list">{products.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></div></section>;
+  const [selectedProduct, setSelectedProduct] = useState(products[0][0]);
+  const detail = productDetails[selectedProduct];
+  return <section className="section products"><div className="container product-layout"><div className="product-console reveal" aria-label="SaaS product console"><div className="console-top"><span>Product suite</span><strong>Build-ready</strong></div><div className="console-bars" aria-hidden="true"><i /><i /><i /><i /><i /></div><ul>{products.map(([name]) => <li key={name} className={selectedProduct === name ? "active" : ""}><CheckCircle2 size={16} aria-hidden="true" />{name}</li>)}</ul></div><div className="copy-block reveal"><Eyebrow icon={DatabaseZap}>SaaS Products</Eyebrow><h2>Systems that make operations visible, measurable and easier to scale.</h2><p>Use LearnifyOps as your SaaS product studio for CRM, placement portals, AI workflow assistants and growth intelligence products.</p><div className="module-list product-picker">{products.map(([title, text]) => <button type="button" className={selectedProduct === title ? "product-card active" : "product-card"} key={title} onClick={() => setSelectedProduct(title)}><span>Product</span><h3>{title}</h3><p>{text}</p><strong>View complete information <ArrowRight size={15} aria-hidden="true" /></strong></button>)}</div><article className="product-detail-panel" aria-live="polite"><span>Selected product</span><h3>{selectedProduct}</h3><p>{detail.bestFor}</p><div><strong>What it includes</strong><ul>{detail.includes.map((item) => <li key={item}><CheckCircle2 size={15} aria-hidden="true" />{item}</li>)}</ul></div><p><strong>Business outcome:</strong> {detail.outcome}</p></article></div></div></section>;
 }
 
 function InsightsSection({ navigate }) {
-  return <section className="dark-feed"><div className="container"><h2>Shaping the future with AI, SaaS and talent at the core</h2><div className="feed-grid">{insights.map(([title, text], index) => <article className={"feed-card feed-card-" + index} key={title}><div><h3>{title}</h3><p>{text}</p>{index === 2 && <Link to="/placements" navigate={navigate}>Read More <ArrowRight size={16} /></Link>}</div></article>)}</div><Link className="view-all" to="/capabilities" navigate={navigate}>View All <ArrowRight size={18} /></Link></div></section>;
+  const insightRoutes = ["/products", "/capabilities", "/placements", "/capabilities"];
+  return <section className="dark-feed"><div className="container"><h2>Shaping the future with AI, SaaS and talent at the core</h2><div className="feed-grid">{insights.map(([title, text], index) => <article className={"feed-card feed-card-" + index} key={title}><div><h3>{title}</h3><p>{text}</p><Link to={insightRoutes[index]} navigate={navigate}>View Details <ArrowRight size={16} /></Link></div></article>)}</div><Link className="view-all" to="/capabilities" navigate={navigate}>View All <ArrowRight size={18} /></Link></div></section>;
 }
 
 function CaseStudyBand({ navigate }) {
@@ -232,7 +258,7 @@ function CaseStudyBand({ navigate }) {
 }
 
 function GlobalPresenceSection({ navigate }) {
-  return <section className="presence-band"><div className="container presence-layout"><div className="presence-copy reveal"><h2>AI Powered.<br />Human Led.<br />Future Ready.</h2><p>We combine global delivery thinking with practical execution from India and the UK.</p><Link to="/about" navigate={navigate}>Read More <ArrowRight size={18} /></Link></div><div className="presence-grid reveal">{globalStats.map(([value, label]) => <article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div></div></section>;
+  return <section className="presence-band"><div className="container presence-layout"><div className="presence-copy reveal"><h2>AI Powered.<br />Human Led.<br />Future Ready.</h2><p>LearnifyOps is registered in the UK and India, with remote-first delivery for clients, learners and partner organisations worldwide.</p><Link to="/about" navigate={navigate}>Read More <ArrowRight size={18} /></Link></div><div className="presence-grid reveal">{globalStats.map(([value, label]) => <article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div></div></section>;
 }
 
 function PartnerBand({ navigate }) {
@@ -267,7 +293,7 @@ function HomePage({ navigate, contactProps }) {
   return <><Hero navigate={navigate} /><SmartIntro navigate={navigate} /><InsightsSection navigate={navigate} /><CaseStudyBand navigate={navigate} /><GlobalPresenceSection navigate={navigate} /><PartnerBand navigate={navigate} /><CapabilitiesSection navigate={navigate} /><ProductsSection /><PlacementsSection /><ProcessSection /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
 }
 function AboutPage({ navigate }) {
-  return <><PageHero eyebrow="About" icon={Building2} title="A practical transformation partner for businesses, institutions and young talent." text="learnifyops combines SaaS product delivery, AI-enabled operations, digital growth and placement pathways into one clear operating model." /><ProofStrip /><ProcessSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="About" icon={Building2} title="A practical transformation partner for businesses, institutions and young talent." text="LearnifyOps is registered in the UK and India and provides SaaS, AI automation, digital growth and placement services to clients worldwide." /><ProofStrip /><ProcessSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
 }
 function CapabilitiesPage({ navigate }) {
   return <><PageHero eyebrow="Capabilities" icon={Layers3} title="Software, AI, marketing and placement delivery under one roof." text="Capabilities shaped for organisations that need execution, not just advice." image="/assets/global-ai-hero.png" /><CapabilitiesSection navigate={navigate} /><ProductsSection /><FinalCta navigate={navigate} /></>;
@@ -286,7 +312,7 @@ function ContactPage({ navigate, contactProps }) {
 }
 
 function Footer({ navigate }) {
-  return <footer className="footer"><div className="container footer-grid"><div><Link className="brand footer-brand" to="/" navigate={navigate}><BrandLogo /></Link><p>SaaS product development, AI operations, digital growth and placement-focused training from the UK.</p></div><div className="legal-grid" aria-label="Legal and policy information"><span>Company number: add registered England & Wales number</span><span>Registered office: Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span><Link to="/about" navigate={navigate}>About</Link> / <Link to="/capabilities" navigate={navigate}>Capabilities</Link> / <Link to="/contact" navigate={navigate}>Contact</Link></span><span>Copyright 2026 learnifyops. All rights reserved.</span></div></div></footer>;
+  return <footer className="footer"><div className="container footer-grid"><div><Link className="brand footer-brand" to="/" navigate={navigate}><BrandLogo /></Link><p>SaaS product development, AI operations, digital growth and placement-focused training from registered UK and India operations, delivered worldwide.</p></div><div className="legal-grid" aria-label="Legal and policy information"><span>UK registered office: Office 7084, 58 Peregrine Road, Hainault, Ilford, Essex, IG6 3SZ, UK</span><span>India registration details: add registered entity name, CIN/GST and office address before public launch</span><span><Link to="/about" navigate={navigate}>About</Link> / <Link to="/capabilities" navigate={navigate}>Capabilities</Link> / <Link to="/products" navigate={navigate}>Products</Link> / <Link to="/contact" navigate={navigate}>Contact</Link></span><span>Copyright 2026 LearnifyOps. All rights reserved.</span></div></div></footer>;
 }
 
 function App() {
