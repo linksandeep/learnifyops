@@ -30,7 +30,7 @@ import {
   Workflow,
   X
 } from "lucide-react";
-import learnifyOpsLogo from "../assets/learnifyops-logo-transparent.png";
+const learnifyOpsLogo = "/assets/learnifyops-logo-transparent.png";
 import "./styles.css";
 
 const navItems = [
