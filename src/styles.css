@@ -1762,3 +1762,317 @@ body {
   border-radius: 4px;
   font-size: 10px;
 }
+
+/* ============================================================
+   FINAL COLOR UNIFICATION — Sky Blue + White Theme
+   Overrides all previous warm/pink/beige/orange leftovers
+   ============================================================ */
+
+/* --- CSS Variables: Sky Blue + White + Deep Navy --- */
+:root {
+  --sky-light:   #f3fafc;
+  --sky-mid:     #e8f4fb;
+  --sky-soft:    #daeef8;
+  --white:       #ffffff;
+  --navy-dark:   #052f46;
+  --navy-mid:    #073b55;
+  --navy-deep:   #074d6a;
+  --ink:         #0e2a38;
+  --ink-2:       #1e4258;
+  --muted:       #5a8fa3;
+  --line:        #cce5f0;
+  --paper:       #f3fafc;
+  --paper-2:     #e8f4fb;
+  --blue:        #2b94bd;
+  --blue-2:      #1f769b;
+  --cyan:        #35b6dc;
+  --gold:        #f5ad13;
+  --gold-2:      #e99000;
+  --shadow:      0 26px 72px rgba(7, 59, 85, .13);
+  --soft-shadow: 0 14px 38px rgba(7, 59, 85, .08);
+}
+
+/* --- Body: clean white-to-sky gradient --- */
+body {
+  color: var(--ink);
+  background: #ffffff;
+}
+
+/* --- Page-level background defaults --- */
+.case-band,
+.partner-band,
+.products,
+.contact,
+.industries,
+.placements,
+.standards,
+.stories,
+.proof-strip {
+  background: var(--sky-light) !important;
+}
+
+/* Capabilities section (light cards on dark bg already set) */
+.capabilities {
+  background: radial-gradient(circle at 12% 0%, rgba(53, 182, 220, .2), transparent 32%),
+              linear-gradient(135deg, #052f46, #074d6a 54%, #052f46) !important;
+}
+
+/* Dark bands — unified teal navy */
+.dark-feed,
+.impact-band,
+.final-cta,
+.footer,
+.presence-band {
+  background: radial-gradient(circle at 12% 0%, rgba(53, 182, 220, .16), transparent 32%),
+              linear-gradient(135deg, #052f46, #074d6a 52%, #052f46) !important;
+}
+
+/* Proof strip cards — pure white */
+.proof-grid {
+  background: #ffffff !important;
+  border-color: var(--line) !important;
+}
+
+.proof-grid article {
+  border-right-color: var(--line) !important;
+}
+
+.proof-grid svg {
+  color: var(--blue) !important;
+}
+
+/* Section intro & card body text */
+.section-intro p,
+.copy-block p,
+.capability-card p,
+.industry-card p,
+.standard-card p,
+.story-card p,
+.track-list p {
+  color: var(--muted) !important;
+}
+
+/* Cards: white bg, sky border */
+.capability-card,
+.industry-card,
+.standard-card,
+.story-card,
+.module-list article,
+.track-list article,
+.contact-form {
+  background: #ffffff !important;
+  border-color: var(--line) !important;
+  box-shadow: var(--soft-shadow) !important;
+}
+
+.capability-card:hover,
+.industry-card:hover,
+.standard-card:hover,
+.story-card:hover,
+.module-list article:hover,
+.track-list article:hover {
+  border-color: rgba(43, 148, 189, .38) !important;
+  box-shadow: 0 22px 52px rgba(7, 59, 85, .12) !important;
+}
+
+/* Card svg icons: sky blue */
+.capability-card svg,
+.standard-card svg,
+.proof-grid svg,
+.contact-lines svg,
+.product-detail-panel svg {
+  color: var(--blue) !important;
+}
+
+/* Eyebrow labels */
+.eyebrow {
+  color: var(--gold) !important;
+}
+
+.hero .eyebrow,
+.page-hero .eyebrow,
+.impact-band .eyebrow {
+  color: #ffd46b !important;
+}
+
+/* Page headings on light sections */
+h2,
+h3 {
+  color: var(--ink);
+}
+
+/* Dark band headings stay white */
+.dark-feed h2,
+.capabilities h2,
+.capabilities h3,
+.impact-band h2,
+.impact-band h3,
+.final-cta h2,
+.presence-copy h2,
+.impact-steps h3 {
+  color: #ffffff !important;
+}
+
+/* Links on dark bands */
+.feed-card a,
+.capability-card a,
+.story-card a,
+.legal-grid a,
+.product-card strong,
+.product-card span,
+.product-detail-panel > span {
+  color: var(--gold) !important;
+}
+
+/* Product cards: white + sky hover */
+.product-card {
+  background: #ffffff !important;
+  border-color: var(--line) !important;
+}
+
+.product-card:hover,
+.product-card.active {
+  background: linear-gradient(180deg, #ffffff, var(--sky-mid)) !important;
+  border-color: rgba(43, 148, 189, .34) !important;
+}
+
+.product-detail-panel {
+  background: radial-gradient(circle at 94% 6%, rgba(53, 182, 220, .12), transparent 28%), #ffffff !important;
+  border-color: rgba(43, 148, 189, .24) !important;
+}
+
+/* Placement image filter: neutral, no warm tint */
+.case-media img,
+.placement-image img,
+.page-hero-media {
+  filter: saturate(.96) contrast(.98) brightness(.96) !important;
+}
+
+/* Case band: text on sky bg */
+.case-copy span {
+  color: var(--ink-2) !important;
+}
+.case-copy h2 {
+  color: var(--blue) !important;
+}
+.case-copy h3,
+.case-copy p {
+  color: var(--ink) !important;
+}
+.case-copy a {
+  color: var(--ink-2) !important;
+}
+.case-media {
+  border-radius: 16px !important;
+  box-shadow: 0 26px 70px rgba(7, 59, 85, .16) !important;
+}
+
+/* Partner band: sky bg */
+.partner-band h2 {
+  color: var(--ink) !important;
+}
+.partner-row span {
+  color: var(--ink-2) !important;
+  border-bottom-color: rgba(43, 148, 189, .32) !important;
+}
+.partner-band a {
+  color: var(--ink-2) !important;
+}
+
+/* Products section on sky */
+.products h2,
+.products h3 { color: var(--ink) !important; }
+.section-intro .eyebrow { color: var(--gold) !important; }
+
+/* Contact form on sky bg */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background: #ffffff !important;
+  border-color: var(--line) !important;
+  color: var(--ink) !important;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: rgba(43, 148, 189, .5) !important;
+  box-shadow: 0 0 0 4px rgba(43, 148, 189, .1) !important;
+}
+.contact-form label {
+  color: var(--ink-2) !important;
+}
+
+/* Buttons: gold accent */
+.btn-primary,
+.cookie-note button {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2)) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 14px 32px rgba(245, 173, 19, .24) !important;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #eba000, #d88100) !important;
+}
+
+/* Console/SaaS panel: dark teal */
+.product-console,
+.final-cta-inner {
+  background: radial-gradient(circle at 82% 10%, rgba(53, 182, 220, .22), transparent 28%),
+              linear-gradient(135deg, #052f46, #086184 56%, #052f46) !important;
+}
+
+/* Console bars: sky blue gold */
+.console-bars i {
+  background: linear-gradient(180deg, #ffd46b, var(--blue)) !important;
+}
+
+/* Navigation: white transparent (already set) — no override needed */
+
+/* Presence grid boxes */
+.presence-grid article {
+  border-color: rgba(255, 212, 107, .14) !important;
+  background: rgba(255, 255, 255, .045) !important;
+}
+.presence-grid strong {
+  color: rgba(255, 255, 255, .75) !important;
+}
+.presence-grid span {
+  color: rgba(255, 255, 255, .62) !important;
+}
+
+/* Footer */
+.footer {
+  color: rgba(255, 255, 255, .75) !important;
+  border-top: 1px solid rgba(53, 182, 220, .18) !important;
+}
+.footer p { color: rgba(255, 255, 255, .68) !important; }
+.legal-grid { color: rgba(255, 255, 255, .68) !important; }
+.legal-grid a { color: #ffc642 !important; }
+
+/* ---- PAGE HERO TRANSITIONS: seamless into section below ---- */
+
+/* Default: hero fades into sky-white (for About, Industries, Products, Placements, Contact) */
+.page-hero::after {
+  background: linear-gradient(180deg, transparent 0%, var(--sky-light) 100%) !important;
+}
+
+/* Capabilities page: hero fades into dark teal capabilities section */
+.page-hero.next-dark::after {
+  background: linear-gradient(180deg, transparent 0%, #052f46 100%) !important;
+}
+
+/* Hero bottom fade on homepage also into white */
+.hero::after {
+  background: linear-gradient(180deg, transparent 0%, #ffffff 100%) !important;
+}
+
+/* About page hero: fades into white (proof strip cards sit on white) */
+.proof-strip {
+  background: transparent !important;
+  padding-bottom: 60px;
+}
+
+/* Impact band (process) and dark sections: no bottom white strip */
+.impact-band::after,
+.dark-feed::after,
+.final-cta::after { display: none; }
+
