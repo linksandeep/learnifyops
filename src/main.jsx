@@ -179,7 +179,7 @@ function BrandLogo() {
   return <span className="brand-lockup"><img className="brand-logo-image" src={learnifyOpsLogo} alt="LearnifyOps" /></span>;
 }
 
-function Header({ path, navigate }) {
+function Header({ path, navigate, setSearchOpen }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
@@ -187,7 +187,9 @@ function Header({ path, navigate }) {
       <nav className={open ? "nav open" : "nav"} aria-label="Primary navigation">
         <Link className="brand" to="/" navigate={navigate} onNavigate={() => setOpen(false)} aria-label="LearnifyOps home"><BrandLogo /></Link>
         <button className="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation-links" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}</button>
-        <Search className="search-icon" size={31} aria-hidden="true" />
+        <button className="search-toggle" type="button" aria-label="Search website" onClick={() => setSearchOpen(true)}>
+          <Search size={20} aria-hidden="true" />
+        </button>
         <div className="nav-links" id="primary-navigation-links">
           {navItems.map(([label, target]) => <Link key={target} to={target} navigate={navigate} onNavigate={() => setOpen(false)} className={path === target ? "active" : undefined}>{label}</Link>)}
         </div>
@@ -204,9 +206,9 @@ function SectionIntro({ eyebrow, icon, title, text }) {
   return <div className="section-intro reveal"><Eyebrow icon={icon}>{eyebrow}</Eyebrow><h2>{title}</h2>{text && <p>{text}</p>}</div>;
 }
 
-function PageHero({ eyebrow, icon, title, text, image = "/assets/hero-learnifyops.png" }) {
+function PageHero({ eyebrow, icon, title, text, image = "/assets/hero-learnifyops.png", nextSectionDark = false }) {
   const backgroundImage = "linear-gradient(90deg, rgba(5, 15, 32, 0.96), rgba(5, 15, 32, 0.66)), url(" + image + ")";
-  return <section className="page-hero"><div className="page-hero-media" style={{ backgroundImage }} aria-hidden="true" /><div className="container page-hero-inner reveal visible"><Eyebrow icon={icon}>{eyebrow}</Eyebrow><h1>{title}</h1><p>{text}</p></div></section>;
+  return <section className={nextSectionDark ? "page-hero next-dark" : "page-hero"}><div className="page-hero-media" style={{ backgroundImage }} aria-hidden="true" /><div className="container page-hero-inner reveal visible"><Eyebrow icon={icon}>{eyebrow}</Eyebrow><h1>{title}</h1><p>{text}</p></div></section>;
 }
 
 function Hero({ navigate }) {
@@ -298,7 +300,7 @@ function AboutPage({ navigate }) {
   return <><PageHero eyebrow="About" icon={Building2} title="A global technology and career-solutions company with offices in India and the UK." text="LearnifyOps delivers SaaS products, AI automation, software development and placement support from Noida and London, Essex to clients and partners worldwide." /><ProofStrip /><ProcessSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
 }
 function CapabilitiesPage({ navigate }) {
-  return <><PageHero eyebrow="Capabilities" icon={Layers3} title="SaaS, AI automation, software development and placement support under one roof." text="Capabilities shaped for organisations that need reliable execution, scalable technology and clear outcomes." image="/assets/global-ai-hero.png" /><CapabilitiesSection navigate={navigate} /><ProductsSection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Capabilities" icon={Layers3} title="SaaS, AI automation, software development and placement support under one roof." text="Capabilities shaped for organisations that need reliable execution, scalable technology and clear outcomes." image="/assets/global-ai-hero.png" nextSectionDark={true} /><CapabilitiesSection navigate={navigate} /><ProductsSection /><FinalCta navigate={navigate} /></>;
 }
 function IndustriesPage({ navigate }) {
   return <><PageHero eyebrow="Industries" icon={Building2} title="Technology solutions for education, business and global career ecosystems." text="We support organisations that need better software, stronger workflows and practical placement or learning outcomes." /><IndustriesSection /><StoriesSection /><FinalCta navigate={navigate} /></>;
@@ -317,11 +319,131 @@ function Footer({ navigate }) {
   return <footer className="footer"><div className="container footer-grid"><div><Link className="brand footer-brand" to="/" navigate={navigate}><BrandLogo /></Link><p>SaaS products, AI automation, software development and placement assistance from offices in India and the UK, delivered for global clients and partners.</p></div><div className="legal-grid" aria-label="Legal and policy information"><span>UK office: London, Essex, United Kingdom</span><span>India office: Noida, Uttar Pradesh, India</span><span>Global services: SaaS products, AI automation, software development, LMS, job application systems and placement support</span><span><Link to="/about" navigate={navigate}>About</Link> / <Link to="/capabilities" navigate={navigate}>Capabilities</Link> / <Link to="/products" navigate={navigate}>Products</Link> / <Link to="/contact" navigate={navigate}>Contact</Link></span><span>Copyright 2026 LearnifyOps. All rights reserved.</span></div></div></footer>;
 }
 
+const searchIndex = [
+  { title: "Home Page", path: "/", type: "Page", keywords: "home main learnifyops welcome" },
+  { title: "About Us", path: "/about", type: "Page", keywords: "about company team brit institute offices london noida" },
+  { title: "Capabilities & Services", path: "/capabilities", type: "Page", keywords: "services capabilities saas ai automation software development job placements" },
+  { title: "Industries We Serve", path: "/industries", type: "Page", keywords: "industries sectors education startups recruitment training providers partnerships" },
+  { title: "Our Products", path: "/products", type: "Page", keywords: "products solutions software automated job application lms workflows saas" },
+  { title: "Placements & Careers", path: "/placements", type: "Page", keywords: "placements career job assistance resume interview preparation university canada" },
+  { title: "Contact Us", path: "/contact", type: "Page", keywords: "contact email phone offices london essex noida enquiry form" },
+  
+  // Specific services
+  { title: "SaaS Product Development", path: "/capabilities", type: "Service", keywords: "saas products dashboard portals development design custom" },
+  { title: "AI Workflow Automation", path: "/capabilities", type: "Service", keywords: "ai automation workflow intelligence integration" },
+  { title: "Software Development", path: "/capabilities", type: "Service", keywords: "software development web app api clean architecture" },
+  { title: "Placement & Job Assistance", path: "/placements", type: "Service", keywords: "placement job assistance resume career pathways cv coaching" },
+  
+  // Specific products
+  { title: "Automated Job Application System", path: "/products", type: "Product", keywords: "job application system automated candidate tracking cv resume" },
+  { title: "Learning Management Software (LMS)", path: "/products", type: "Product", keywords: "lms learning management courses batch progress assessments" },
+  { title: "Business Workflow Automation Tools", path: "/products", type: "Product", keywords: "workflow automation tools business process approvals notifications" }
+];
+
+function SearchModal({ isOpen, onClose, navigate }) {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setQuery("");
+      setResults([]);
+      return;
+    }
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  const handleSearch = (val) => {
+    setQuery(val);
+    if (!val.trim()) {
+      setResults([]);
+      return;
+    }
+    const term = val.toLowerCase().trim();
+    const filtered = searchIndex.filter(
+      (item) =>
+        item.title.toLowerCase().includes(term) ||
+        item.keywords.toLowerCase().includes(term)
+    );
+    setResults(filtered);
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="search-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Search site">
+      <div className="search-modal-card" onClick={(e) => e.stopPropagation()}>
+        <div className="search-modal-header">
+          <Search size={20} className="search-input-icon" />
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search pages, products, services..."
+            value={query}
+            onChange={(e) => handleSearch(e.target.value)}
+            autoFocus
+          />
+          <button className="search-modal-close" type="button" aria-label="Close search" onClick={onClose}>
+            <X size={20} />
+          </button>
+        </div>
+        <div className="search-modal-body">
+          {query.trim() === "" ? (
+            <div className="search-quick-links">
+              <span>Popular Searches</span>
+              <div className="quick-link-tags">
+                <button type="button" onClick={() => handleSearch("placement")}>Placements</button>
+                <button type="button" onClick={() => handleSearch("automation")}>AI Automation</button>
+                <button type="button" onClick={() => handleSearch("saas")}>SaaS Products</button>
+                <button type="button" onClick={() => handleSearch("contact")}>Contact</button>
+              </div>
+            </div>
+          ) : results.length > 0 ? (
+            <div className="search-results-list">
+              {results.map((res) => (
+                <button
+                  key={res.title + res.path}
+                  type="button"
+                  className="search-result-item"
+                  onClick={() => {
+                    navigate(res.path);
+                    onClose();
+                  }}
+                >
+                  <div className="search-result-info">
+                    <strong>{res.title}</strong>
+                    <span>{res.path}</span>
+                  </div>
+                  <span className="search-result-type-tag">{res.type}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="search-no-results">
+              <p>No results found for "<strong>{query}</strong>"</p>
+              <span>Try searching for "canada", "resume", "lms", "london", or "noida".</span>
+            </div>
+          )}
+        </div>
+        <div className="search-modal-footer">
+          <span>Press <kbd>ESC</kbd> to close</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const { path, navigate } = useRoute();
   const [formStatus, setFormStatus] = useState("");
   const [formState, setFormState] = useState("idle");
   const [cookieDismissed, setCookieDismissed] = useState(() => localStorage.getItem("learnifyops-cookie-note") === "dismissed");
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     document.querySelectorAll(".reveal").forEach((el) => el.classList.remove("visible"));
@@ -380,7 +502,7 @@ function App() {
     "/contact": <ContactPage navigate={navigate} contactProps={contactProps} />
   };
 
-  return <><a className="skip-link" href="#main">Skip to content</a><Header path={path} navigate={navigate} /><main id="main">{pages[path] || pages["/"]}</main>{!cookieDismissed && <div className="cookie-note" role="region" aria-label="Cookie notice"><p><strong>Cookie notice:</strong> this website uses essential browser storage only to remember this message. No analytics or marketing cookies are active.</p><button type="button" onClick={() => { localStorage.setItem("learnifyops-cookie-note", "dismissed"); setCookieDismissed(true); }}>OK</button></div>}<Footer navigate={navigate} /></>;
+  return <><a className="skip-link" href="#main">Skip to content</a><Header path={path} navigate={navigate} setSearchOpen={setSearchOpen} /><main id="main">{pages[path] || pages["/"]}</main>{!cookieDismissed && <div className="cookie-note" role="region" aria-label="Cookie notice"><p><strong>Cookie notice:</strong> this website uses essential browser storage only to remember this message. No analytics or marketing cookies are active.</p><button type="button" onClick={() => { localStorage.setItem("learnifyops-cookie-note", "dismissed"); setCookieDismissed(true); }}>OK</button></div>}<SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} navigate={navigate} /><Footer navigate={navigate} /></>;
 }
 
 createRoot(document.getElementById("root")).render(<App />);
