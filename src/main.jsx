@@ -271,8 +271,8 @@ function HomeHero({ navigate }) {
     <section className="home-hero">
       <div className="container home-hero-grid">
         <div className="hero-copy reveal visible">
-          <Eyebrow icon={GraduationCap}>Doctor of Business Administration</Eyebrow>
-          <h1>Lead with insight.<br /><span>Research with impact.</span></h1>
+          <Eyebrow icon={GraduationCap}>Global Doctor of Business Administration</Eyebrow>
+          <h1>Think beyond<br />the <span>boardroom.</span></h1>
           <p className="hero-lead">A premium, internationally focused DBA pathway for experienced professionals ready to convert leadership experience into original business knowledge.</p>
           <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>DBA pathways supported through four international partner institutions</span></div>
           <div className="hero-actions">
@@ -286,11 +286,13 @@ function HomeHero({ navigate }) {
           </div>
         </div>
         <div className="hero-visual reveal visible">
-          <img src="/assets/dba-executive-hero.png" alt="International executives participating in a doctoral business seminar" />
+          <img src="/assets/dba-home-hero-v2.jpg" alt="International executives participating in a strategic DBA roundtable" />
+          <div className="hero-orbit hero-orbit-one" />
+          <div className="hero-orbit hero-orbit-two" />
           <div className="hero-visual-card">
-            <span>Designed for</span>
-            <strong>Experienced leaders</strong>
-            <small>Europe · United States · Australia · Global</small>
+            <span>Global executive doctorate</span>
+            <strong>Research that moves business forward.</strong>
+            <small>Europe · United States · Australia · Worldwide</small>
           </div>
         </div>
       </div>
@@ -339,12 +341,12 @@ function ValueSection() {
   );
 }
 
-function ResearchSection({ navigate }) {
+function ResearchSection({ navigate, image = "/assets/dba-home-research-v2.jpg", variant = "home" }) {
   return (
-    <section className="section section-sky">
+    <section className={`section research-section research-${variant}`}>
       <div className="container split-layout">
         <div className="split-image reveal">
-          <img src="/assets/dba-applied-research.png" alt="Executive doctoral candidate reviewing applied research with an academic supervisor" />
+          <img src={image} alt="Executive doctoral candidate reviewing applied research with an academic supervisor" />
           <div className="image-badge"><BookOpen size={18} aria-hidden="true" />Research in action</div>
         </div>
         <div className="split-copy reveal">
@@ -439,16 +441,22 @@ function AudienceSection({ navigate }) {
   );
 }
 
-function PageHero({ eyebrow, icon, title, text, image = "/assets/dba-executive-hero.png" }) {
+function PageHero({ eyebrow, icon, title, text, image, tone = "midnight", index = "01", caption = "Global DBA pathway" }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero page-hero-${tone}`}>
       <div className="container page-hero-grid">
         <div className="page-hero-copy reveal visible">
+          <span className="page-index">{index}</span>
           <Eyebrow icon={icon}>{eyebrow}</Eyebrow>
           <h1>{title}</h1>
           <p>{text}</p>
+          <span className="page-caption">{caption}</span>
         </div>
-        <div className="page-hero-image reveal visible"><img src={image} alt="" /></div>
+        <div className="page-hero-image reveal visible">
+          <img src={image} alt="" />
+          <span className="image-corner image-corner-top" />
+          <span className="image-corner image-corner-bottom" />
+        </div>
       </div>
     </section>
   );
@@ -508,7 +516,18 @@ function CohortSection() {
             <article><BookOpen size={22} /><strong>Guided research</strong><span>Academic direction throughout the doctoral journey</span></article>
           </div>
         </div>
-        <div className="split-image reveal"><img src="/assets/dba-executive-hero.png" alt="International executive cohort in a DBA learning environment" /></div>
+        <div className="experience-canvas reveal" aria-label="Global DBA community">
+          <span className="experience-globe"><Globe2 size={46} aria-hidden="true" /></span>
+          <span className="experience-node node-europe">Europe</span>
+          <span className="experience-node node-america">United States</span>
+          <span className="experience-node node-australia">Australia</span>
+          <span className="experience-node node-global">Global cohort</span>
+          <div className="experience-quote">
+            <Network size={24} aria-hidden="true" />
+            <strong>Different markets.<br />Shared ambition.</strong>
+            <p>Build relationships with experienced professionals who understand the complexity of leading at scale.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -613,27 +632,27 @@ function HomePage({ navigate }) {
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} title="A doctoral program for leaders who want to shape business practice." text="Combine advanced management knowledge, applied research and executive reflection in an internationally focused DBA pathway." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} index="01" tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Doctoral thinking for executive practice" title="A doctoral program for leaders who want to shape business practice." text="Combine advanced management knowledge, applied research and executive reflection in an internationally focused DBA pathway." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} /></>;
 }
 
 function CurriculumPage({ navigate }) {
-  return <><PageHero eyebrow="Curriculum" icon={BookOpen} title="Research-led learning with practical business application." text="Build the intellectual and methodological capability to investigate complex organisational challenges at doctoral level." image="/assets/dba-applied-research.png" /><CurriculumSection /><JourneySection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Curriculum" icon={BookOpen} index="02" tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Rigour, relevance and original contribution" title="Research-led learning with practical business application." text="Build the intellectual and methodological capability to investigate complex organisational challenges at doctoral level." /><CurriculumSection /><JourneySection /><FinalCta navigate={navigate} /></>;
 }
 
 function ExperiencePage({ navigate }) {
-  return <><PageHero eyebrow="Executive Experience" icon={Network} title="Global peers. Serious scholarship. Flexible professional learning." text="A premium doctoral environment for experienced leaders who bring substantial professional insight into the learning community." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Executive Experience" icon={Network} index="03" tone="immersive" image="/assets/dba-experience-hero-v2.jpg" caption="A network built around professional depth" title="Global peers. Serious scholarship. Flexible professional learning." text="A premium doctoral environment for experienced leaders who bring substantial professional insight into the learning community." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
 }
 
 function AdmissionsPage({ navigate }) {
-  return <><PageHero eyebrow="Admissions" icon={ShieldCheck} title="Your leadership experience could be the foundation for doctoral research." text="Begin with an individual profile review to understand academic fit, professional readiness and the partner-university pathway." image="/assets/dba-applied-research.png" /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Admissions" icon={ShieldCheck} index="04" tone="warm" image="/assets/dba-admissions-hero-v2.jpg" caption="A personal, transparent admissions process" title="Your leadership experience could be the foundation for doctoral research." text="Begin with an individual profile review to understand academic fit, professional readiness and the partner-university pathway." /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} /></>;
 }
 
 function PartnershipPage({ navigate }) {
-  return <><PageHero eyebrow="Partner Universities" icon={Building2} title="Choose a DBA pathway aligned with your professional ambition." text="Explore our network of partner institutions, then speak with our admissions team to understand the pathway best suited to your background, goals and preferred learning model." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="How we support you" icon={Globe2} title="One conversation. Clear university options." text="Our role is to make the DBA decision easier to understand—from initial fit and documentation through to the formal institution application." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Clear information</h3><p>Understand the academic pathway, application expectations and documentary requirements.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Profile preparation</h3><p>Position your leadership background, research interest and doctoral motivation effectively.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>University matching</h3><p>Compare available partner pathways against your professional profile and doctoral goals.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Transparent decisions</h3><p>Receive the material facts you need before making an application or financial commitment.</p></article></div></div></section><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Partner Universities" icon={Building2} index="05" tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="Four institutions. One global ambition." title="Choose a DBA pathway aligned with your professional ambition." text="Explore our network of partner institutions, then speak with our admissions team to understand the pathway best suited to your background, goals and preferred learning model." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="How we support you" icon={Globe2} title="One conversation. Clear university options." text="Our role is to make the DBA decision easier to understand—from initial fit and documentation through to the formal institution application." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Clear information</h3><p>Understand the academic pathway, application expectations and documentary requirements.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Profile preparation</h3><p>Position your leadership background, research interest and doctoral motivation effectively.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>University matching</h3><p>Compare available partner pathways against your professional profile and doctoral goals.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Transparent decisions</h3><p>Receive the material facts you need before making an application or financial commitment.</p></article></div></div></section><FinalCta navigate={navigate} /></>;
 }
 
 function ContactPage({ navigate, contactProps }) {
-  return <><PageHero eyebrow="Contact Admissions" icon={Mail} title="Explore whether the DBA fits your leadership and research ambitions." text="Request program information or begin a confidential profile review with our international admissions support team." image="/assets/dba-applied-research.png" /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Contact Admissions" icon={Mail} index="06" tone="contact" image="/assets/dba-contact-hero-v2.jpg" caption="A confidential conversation starts here" title="Explore whether the DBA fits your leadership and research ambitions." text="Request program information or begin a confidential profile review with our international admissions support team." /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
 }
 
 function Footer({ navigate }) {
