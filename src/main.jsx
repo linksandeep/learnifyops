@@ -45,117 +45,117 @@ const partnerUniversities = [
   {
     initials: "KU",
     name: "Kennedy University",
-    type: "Partner university"
+    type: "Partner University"
   },
   {
     initials: "BU",
     name: "Birchwood University",
-    type: "Partner university"
+    type: "Partner University"
   },
   {
     initials: "FCU",
     name: "Florida Coastal University",
-    type: "Partner university"
+    type: "Partner University"
   },
   {
     initials: "EMIT",
     name: "EMIT",
-    type: "Partner institution"
+    type: "Partner Institution"
   }
 ];
 
 const productTools = [
-  ["AI-powered Auto Apply Job Tool", "Automates repetitive job-application workflows so students can target more opportunities with better consistency."],
-  ["Learning Management System", "Centralized course delivery, learner resources, assessments and academic progress visibility."],
-  ["Adaptive Learning Resources", "Personalized AI-supported learning prompts and resources that help students study with more structure."],
-  ["Resume Builder and Review Tools", "Helps learners improve professional profiles with structured templates, review workflows and practical feedback."],
-  ["Student Progress Dashboard", "Gives students and mentors a clear view of learning milestones, performance and readiness."],
-  ["Placement Support Portal", "Organizes applications, career support activity, employer touchpoints and placement assistance."],
-  ["Career Tracking Tools", "Tracks learner progress from preparation to interviews, offers and long-term career development."],
-  ["CRM and Lead Management", "Supports teams with structured enquiry tracking, learner follow-up and operational visibility."]
+  ["AI-Powered Application Auto-Apply", "Automates tedious job application workflows, helping students target top-tier opportunities with precision and consistency."],
+  ["Enterprise Learning Management System", "A sophisticated, centralized platform delivering academic resources, modular coursework, and transparent progress metrics."],
+  ["Adaptive AI Learning Assistant", "Personalized study companions that generate tailored study plans, mock quizzes, and academic feedback."],
+  ["Professional CV Optimizer & Review System", "Helps students refine their CVs using industry-benchmarked templates, automated scans, and mentor review workflows."],
+  ["Student Milestone Progress Dashboard", "Provides real-time visibility into academic milestones, research stages, and readiness for graduation."],
+  ["Executive Career Placement Support Portal", "Streamlines direct employer matchmaking, corporate touchpoints, and tailored recruitment support."],
+  ["Strategic Career Tracking Analytics", "Enables students to monitor interviews, feedback loops, and long-term career progression."],
+  ["Enterprise CRM & Admissions Console", "Empowers administrative teams with workflow automation to handle enquiries, applications, and enrollments smoothly."]
 ];
 
 const technologyServices = [
-  "SaaS products",
-  "AI automation solutions",
-  "Business process automation",
-  "Custom software development",
-  "CRM and lead management systems",
-  "Workflow automation",
-  "AI integration",
-  "Technical consulting",
-  "Digital transformation services"
+  "Custom Enterprise SaaS Products",
+  "Tailored AI & Agentic Workflows",
+  "Automated Business Process Engines",
+  "Advanced Custom Software Development",
+  "CRM Systems & Admissions Pipelines",
+  "Corporate Workflow Optimization",
+  "AI Integration & LLM Fine-Tuning",
+  "Strategic Technology Consulting",
+  "Digital Transformation Blueprints"
 ];
 
 const certificationProgramFeatures = [
-  ["Certification courses", "Industry-focused programs designed to build practical, employable skills."],
-  ["Placement support", "Guidance for applications, employer readiness and career movement."],
-  ["One-to-one mentorship", "Personal support for learner goals, confidence and interview preparation."],
-  ["Resume building", "Resume optimization, profile positioning and review workflows."],
-  ["Free job tool access", "Access to career tools that help learners search and apply with structure."],
-  ["Career outcomes help", "Placement assistance, interview practice and ongoing career support."]
+  ["Advanced Skill Certifications", "Rigorous programs designed to equip professionals with immediate, high-value skills requested by modern employers."],
+  ["Dedicated Placement Assistance", "Direct pipelines to partner enterprises, mock interviews, and active placement matchmaking."],
+  ["1-on-1 Executive Mentorship", "Personalized guidance from industry veterans to build confidence and strategic decision-making capability."],
+  ["Executive CV & LinkedIn Optimization", "Transforming professional profiles to capture the attention of corporate headhunters and executive recruiters."],
+  ["Free Access to Career Automation Suite", "Full access to our proprietary tools for target applications and market outreach."],
+  ["End-to-End Career Acceleration", "From program onboarding to job placement, we offer active, hands-on support every step of the way."]
 ];
 
 const dbaMenuColumns = [
   {
-    title: "DBA pathway",
+    title: "DBA Pathway",
     items: [
-      { title: "Program overview", text: "Doctor of Business Administration pathway for experienced professionals.", to: "/program" },
-      { title: "Curriculum", text: "Research-led learning with practical business application.", to: "/curriculum" },
-      { title: "Executive experience", text: "Global peers, flexible learning and guided doctoral research.", to: "/experience" }
+      { title: "Program Overview", text: "Doctor of Business Administration pathway for experienced professionals.", to: "/program" },
+      { title: "Curriculum Framework", text: "Research-led learning with practical business application.", to: "/curriculum" },
+      { title: "Executive Experience", text: "Global peers, flexible learning and guided doctoral research.", to: "/experience" }
     ]
   },
   {
-    title: "Admissions",
+    title: "Admissions Process",
     items: [
-      { title: "Profile review", text: "Understand academic fit, professional readiness and next steps.", to: "/admissions" },
-      { title: "Partner universities", text: "Explore Kennedy, Birchwood, Florida Coastal and EMIT pathways.", to: "/partnership" },
-      { title: "Request prospectus", text: "Start a confidential conversation with our team.", to: "/contact" }
+      { title: "Profile Review", text: "Understand academic fit, professional readiness and next steps.", to: "/admissions" },
+      { title: "Partner Universities", text: "Explore Kennedy, Birchwood, Florida Coastal and EMIT pathways.", to: "/partnership" },
+      { title: "Request Prospectus", text: "Start a confidential conversation with our team.", to: "/contact" }
     ]
   }
 ];
 
 const toolsMenuColumns = [
   {
-    title: "Career automation",
+    title: "Career Automation",
     items: productTools.slice(0, 3).map(([title, text]) => ({ title, text }))
   },
   {
-    title: "Student success",
+    title: "Student Success",
     items: productTools.slice(3, 6).map(([title, text]) => ({ title, text }))
   },
   {
-    title: "Operations systems",
+    title: "Operations Systems",
     items: productTools.slice(6).map(([title, text]) => ({ title, text }))
   }
 ];
 
 const certificationMenuColumns = [
   {
-    title: "Certification program",
+    title: "Certification Programs",
     items: certificationProgramFeatures.slice(0, 3).map(([title, text]) => ({ title, text }))
   },
   {
-    title: "Career support",
+    title: "Career Architecture",
     items: certificationProgramFeatures.slice(3).map(([title, text]) => ({ title, text }))
   }
 ];
 
 const servicesMenuColumns = [
   {
-    title: "Build and automate",
+    title: "Build and Automate",
     items: [
-      { title: "SaaS products", text: "Product strategy and build support for scalable digital platforms." },
-      { title: "AI automation", text: "Automate repetitive work and create smarter operating flows." },
-      { title: "Custom software", text: "Design and develop tailored systems for business needs." }
+      { title: "SaaS Products", text: "Product strategy and build support for scalable digital platforms." },
+      { title: "AI Automation", text: "Automate repetitive work and create smarter operating flows." },
+      { title: "Custom Software", text: "Design and develop tailored systems for business needs." }
     ]
   },
   {
-    title: "Growth and operations",
+    title: "Growth and Operations",
     items: [
-      { title: "Marketing technology", text: "Support for funnels, lead systems, campaign workflows and tracking." },
-      { title: "CRM and lead management", text: "Improve follow-up, pipeline visibility and team productivity." },
-      { title: "Tech consulting", text: "Practical guidance for startups and small businesses adopting AI and automation." }
+      { title: "Marketing Technology", text: "Support for funnels, lead systems, campaign workflows and tracking." },
+      { title: "CRM and Lead Management", text: "Improve follow-up, pipeline visibility and team productivity." },
+      { title: "Tech Consulting", text: "Practical guidance for startups and small businesses adopting AI and automation." }
     ]
   }
 ];
@@ -194,94 +194,94 @@ const megaMenus = [
 const valuePillars = [
   {
     icon: BriefcaseBusiness,
-    title: "Executive leadership",
-    text: "Develop the judgement, strategic confidence and evidence-led perspective expected of senior decision-makers."
+    title: "Executive Foresight",
+    text: "Develop the leadership acumen, strategic agility, and research-backed perspective needed to steer complex organizations."
   },
   {
     icon: FileSearch,
-    title: "Applied business research",
-    text: "Investigate a real organisational challenge and turn rigorous research into practical business value."
+    title: "Applied Scientific Research",
+    text: "Address genuine corporate bottlenecks by converting rigorous research methodologies into immediately actionable business value."
   },
   {
     icon: Clock3,
-    title: "Built around your career",
-    text: "A flexible doctoral journey designed for experienced professionals who intend to remain active at work."
+    title: "Designed for Active Executives",
+    text: "A flexible, high-caliber doctoral curriculum structure allowing seasoned professionals to continue their leadership careers."
   },
   {
     icon: Network,
-    title: "International network",
-    text: "Learn alongside leaders, entrepreneurs and senior managers with perspectives spanning global markets."
+    title: "Global Cohort Network",
+    text: "Collaborate alongside an international network of senior managers, founders, and industry champions representing global markets."
   }
 ];
 
 const audience = [
-  ["Senior managers", "Move from operational leadership to organisation-wide strategic influence."],
-  ["Business leaders", "Strengthen decision-making through research, evidence and reflective practice."],
-  ["Entrepreneurs", "Create original insight around markets, innovation and scalable business models."],
-  ["Consultants", "Build deeper authority through a doctoral-level understanding of complex organisations."],
-  ["Public-sector leaders", "Apply robust research to policy, transformation and institutional performance."],
-  ["Academic-practitioners", "Connect professional expertise with meaningful scholarly contribution."]
+  ["Senior Executive Leaders", "Scale your strategic influence from operational head to board-level visionary decision-maker."],
+  ["Entrepreneurs & Founders", "Validate market innovations, scale business models, and create original IP through research."],
+  ["Strategy Consultants", "Build authoritative, research-backed credentials that drive corporate advisory value at the highest levels."],
+  ["Public Sector Administrators", "Apply scientific research paradigms to public policy, institutional modernization, and systemic reforms."],
+  ["Corporate Directors", "Deepen quantitative and qualitative analytical capabilities to steer board-level strategy."],
+  ["Academic Practitioners", "Bridge the gap between theoretical business models and actual market execution with doctoral distinction."]
 ];
 
 const curriculum = [
   {
     number: "01",
-    title: "Strategic leadership and change",
-    text: "Examine leadership practice, organisational transformation, governance and decision-making in complex environments."
+    title: "Strategic Foresight & Change Orchestration",
+    text: "Analyze advanced governance paradigms, system changes, and high-impact decision-making frameworks in global business environments."
   },
   {
     number: "02",
-    title: "Research philosophy and design",
-    text: "Build the doctoral research capability to frame important questions and select rigorous, defensible methods."
+    title: "Doctoral Research Design & Methods",
+    text: "Establish rigorous research foundations. Formulate query frameworks using qualitative and quantitative scholarly methodologies."
   },
   {
     number: "03",
-    title: "Innovation and global business",
-    text: "Explore strategy, disruption, international markets and the organisational systems that enable sustainable growth."
+    title: "Global Disruption & Growth Strategies",
+    text: "Investigate market shifts, technological disruptions, and systemic operations that enable sustainable international scaling."
   },
   {
     number: "04",
-    title: "Applied research project",
-    text: "Produce an original doctoral contribution grounded in a live business, leadership or management challenge."
+    title: "Applied Doctoral Thesis & Research Project",
+    text: "Synthesize executive insights into a peer-reviewed, defense-ready dissertation solving a critical business challenge."
   }
 ];
 
 const journey = [
-  ["Discover", "Clarify your executive goals, research interests and readiness for doctoral study."],
-  ["Develop", "Strengthen research literacy, critical thinking and advanced management expertise."],
-  ["Investigate", "Design and conduct applied research with structured academic supervision."],
-  ["Contribute", "Translate your findings into an original contribution with real organisational relevance."]
+  ["Contextualize", "Define your academic vision, target research domains, and readiness for rigorous executive study."],
+  ["Formulate", "Build analytical frameworks, master research methodologies, and outline your literature review."],
+  ["Investigate", "Execute field studies and empirical data collection under direct academic mentorship and supervisor reviews."],
+  ["Synthesize", "Defend your thesis, publish findings, and implement structural transformation inside your organization."]
 ];
 
 const outcomes = [
-  "Lead strategic transformation with greater authority",
-  "Use doctoral research to address complex business problems",
-  "Strengthen executive, consulting and board-level credibility",
-  "Build an international peer and academic network",
-  "Create practical knowledge that can influence organisations",
-  "Advance toward senior leadership, advisory or academic-practice roles"
+  "Spearhead large-scale corporate transformations with deep research-backed authority",
+  "Design innovative solutions to complex organizational challenges using scholarly methods",
+  "Enhance professional credibility for board positions, consulting, and advisory appointments",
+  "Tap into a prestigious global network of research scholars and corporate leaders",
+  "Publish peer-reviewed contributions that advance modern management paradigms",
+  "Elevate your career trajectory into C-suite leadership, specialized consulting, or academia"
 ];
 
 const admissionsSteps = [
-  ["Profile review", "Share your academic background, leadership experience and professional objectives."],
-  ["Adviser conversation", "Discuss program fit, research interests, delivery expectations and the available university pathways."],
-  ["Document guidance", "Receive support preparing the required academic and professional documentation."],
-  ["University application", "Progress to the formal admissions process with the most suitable partner institution when your profile is ready."]
+  ["Initial Profile Assessment", "Submit your executive resume and academic history for a comprehensive fit analysis."],
+  ["Admissions Counsel Consultation", "Clarify program delivery models, align research goals, and select the target university pathway."],
+  ["Document Drafting Guidance", "Receive detailed support in drafting your research statement and gathering academic references."],
+  ["Formal Academic Presentation", "Submit your finalized dossier directly to the partner institution for formal board evaluation."]
 ];
 
 const eligibility = [
-  "Experienced professionals, executives, entrepreneurs and senior managers",
-  "A strong academic or equivalent professional profile",
-  "A clear interest in solving a meaningful business or management problem",
-  "Readiness for independent doctoral research and sustained professional learning",
-  "English-language proficiency appropriate for doctoral study"
+  "Experienced professionals, management consultants, entrepreneurs, and senior directors",
+  "A verified Master's degree, MBA, or equivalent senior-level professional qualification",
+  "A well-defined interest in solving a strategic business, policy, or management challenge",
+  "Commitment to independent, rigorous research alongside professional obligations",
+  "Fluent English proficiency suitable for academic writing and doctoral defense"
 ];
 
 const faq = [
-  ["Can I continue working while studying?", "The DBA pathway is positioned for working professionals. Exact delivery, scheduling and attendance expectations are confirmed during the admissions conversation."],
-  ["Do I need a research topic before applying?", "You do not need a final proposal at the first conversation. A clear area of professional interest is enough to begin a profile review."],
-  ["Which universities do you work with?", "Our partner network includes Kennedy University, Birchwood University, Florida Coastal University and EMIT. The appropriate pathway and awarding details are confirmed during admissions."],
-  ["Is this an MBA?", "No. A DBA is a doctoral-level qualification focused on advanced applied research, executive practice and an original contribution to business knowledge."]
+  ["How is the program structured for active professionals?", "The DBA is built from the ground up for working leaders. Modular coursework and digital delivery allow you to study seamlessly alongside your corporate career."],
+  ["What starting support do I receive for my research topic?", "You don't need a polished proposal. Our team helps you refine your area of interest into a viable doctoral research question during the onboarding phase."],
+  ["Which partner universities award the final degree?", "We collaborate with accredited institutions including Birchwood University, Kennedy University, Florida Coastal University, and EMIT. Pathways are selected to fit your background and career goals."],
+  ["What is the main difference between an MBA and a DBA?", "An MBA covers broad operational and management principles. A DBA focuses on generating new, original business knowledge through scientific research and applied methodologies."]
 ];
 
 function normalisePath(pathname) {
@@ -350,7 +350,7 @@ function Header({ path, navigate }) {
       <div className="global-bar">
         <div className="container global-bar-inner">
           <span className="global-brandline"><Globe2 size={14} aria-hidden="true" /> Brit Institute Education Ecosystem</span>
-          <span className="global-menu-line">DBA <i /> Certifications <i /> AI Products <i /> Technology Services</span>
+          <span className="global-menu-line">Doctoral Pathway <i /> Skill Certifications <i /> Enterprise Automation <i /> Consulting Services</span>
           <a className="global-link" href={britInstituteUrl} target="_blank" rel="noreferrer">Visit Brit Institute <ArrowRight size={13} aria-hidden="true" /></a>
         </div>
       </div>
@@ -460,18 +460,18 @@ function HomeHero({ navigate }) {
     <section className="home-hero">
       <div className="container home-hero-grid">
         <div className="hero-copy reveal visible">
-          <Eyebrow icon={GraduationCap}>Global Doctor of Business Administration</Eyebrow>
-          <h1>Think beyond<br />the <span>boardroom.</span></h1>
-          <p className="hero-lead">LearnifyOps brings together premium DBA guidance, AI-powered learning products, placement-ready career tools and technology services for global learners and businesses.</p>
-          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>DBA pathways supported through four partner institutions and a technology-driven student success ecosystem</span></div>
+          <Eyebrow icon={GraduationCap}>Prestigious Global Executive Doctorate</Eyebrow>
+          <h1>Forge Strategic Leadership Beyond The <span>Boardroom.</span></h1>
+          <p className="hero-lead">LearnifyOps integrates high-caliber Doctor of Business Administration pathways, enterprise AI learning software, dedicated placement engines, and systems automation to empower professionals and enterprises globally.</p>
+          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>Four accredited international partner universities and a technology-driven student success ecosystem.</span></div>
           <div className="hero-actions">
             <PrimaryButton to="/contact" navigate={navigate}>Request Prospectus</PrimaryButton>
             <SecondaryButton to="/admissions" navigate={navigate}>Check Your Profile</SecondaryButton>
           </div>
           <div className="hero-proof" aria-label="Program highlights">
-            <span><strong>DBA</strong> Doctoral-level study</span>
-            <span><strong>4</strong> Partner institutions</span>
-            <span><strong>AI</strong> Learning and career tools</span>
+            <span><strong>DBA Doctorate</strong>Scholarly Research</span>
+            <span><strong>4 Partners</strong>Accredited Pathways</span>
+            <span><strong>AI Ecosystem</strong>Career Acceleration</span>
           </div>
         </div>
         <div className="hero-visual reveal visible">
@@ -479,9 +479,9 @@ function HomeHero({ navigate }) {
           <div className="hero-orbit hero-orbit-one" />
           <div className="hero-orbit hero-orbit-two" />
           <div className="hero-visual-card">
-            <span>Global executive doctorate</span>
-            <strong>Research that moves business forward.</strong>
-            <small>Europe · United States · Australia · Worldwide</small>
+            <span>Prestigious Executive Pathway</span>
+            <strong>Doctoral thesis targeting actual market disruption.</strong>
+            <small>London · New York · Sydney · Worldwide</small>
           </div>
         </div>
       </div>
@@ -491,10 +491,10 @@ function HomeHero({ navigate }) {
 
 function ProgramFacts() {
   const facts = [
-    ["Qualification", "Doctor of Business Administration"],
-    ["Approach", "Applied, research-driven learning"],
-    ["Ideal for", "Executives and experienced professionals"],
-    ["University network", "Four partner institutions"]
+    ["Qualification", "Doctor of Business Administration (DBA)"],
+    ["Scholarly Approach", "Applied, research-driven business models"],
+    ["Candidate Profile", "Directors, consultants, and active founders"],
+    ["Admissions Pipeline", "Transparent university matchmaking"]
   ];
 
   return (
@@ -511,10 +511,10 @@ function ProductEcosystemSection({ navigate }) {
     <section className="section product-section">
       <div className="container">
         <SectionIntro
-          eyebrow="In-house products"
+          eyebrow="Proprietary Tech Suite"
           icon={Lightbulb}
-          title="AI-powered tools created to improve the student journey."
-          text="Our products are designed in-house to support learning, placement preparation and career tracking—not as add-ons, but as part of a connected student success ecosystem."
+          title="Custom AI application tools designed to elevate the student lifecycle."
+          text="Our custom-built SaaS products are integrated into our educational pathways to streamline career outreach, simplify module navigation, and track research metrics."
         />
         <div className="product-grid">
           {productTools.map(([title, text]) => (
@@ -528,7 +528,7 @@ function ProductEcosystemSection({ navigate }) {
               <span className="product-dot" aria-hidden="true" />
               <h3>{title}</h3>
               <p>{text}</p>
-              <span className="product-action">Discuss capability <ArrowRight size={15} aria-hidden="true" /></span>
+              <span className="product-action">Explore integration <ArrowRight size={15} aria-hidden="true" /></span>
             </Link>
           ))}
         </div>
@@ -542,10 +542,10 @@ function TechnologyServicesSection({ navigate }) {
     <section className="section services-section">
       <div className="container services-layout">
         <div className="services-copy reveal">
-          <Eyebrow icon={BriefcaseBusiness}>Technology solutions</Eyebrow>
-          <h2>We also build SaaS, automation and AI solutions for modern businesses.</h2>
-          <p>Beyond education, LearnifyOps supports startups, SMEs and growth-focused teams with practical technology services that streamline operations, improve productivity and help businesses scale with modern software and AI.</p>
-          <PrimaryButton to="/contact" navigate={navigate}>Discuss Services</PrimaryButton>
+          <Eyebrow icon={BriefcaseBusiness}>Enterprise Technology Solutions</Eyebrow>
+          <h2>We design, engineer, and deploy high-performance SaaS, automation, and AI workflows.</h2>
+          <p>Beyond our academic services, LearnifyOps serves as an active technology development partner for businesses. We build customized workflow engines, orchestrate AI agents, and implement CRM integrations to scale operations.</p>
+          <PrimaryButton to="/contact" navigate={navigate}>Discuss Tech Services</PrimaryButton>
         </div>
         <div className="services-panel reveal">
           {technologyServices.map((service) => (
@@ -562,10 +562,10 @@ function ValueSection() {
     <section className="section section-white">
       <div className="container">
         <SectionIntro
-          eyebrow="Why a DBA"
+          eyebrow="Academic Authority"
           icon={Award}
-          title="Doctoral rigour for leaders who want practical influence."
-          text="The DBA is designed for professionals who want to investigate important business problems, strengthen executive judgement and create knowledge that works in the real world."
+          title="Doctoral rigor engineered for immediate enterprise impact."
+          text="A Doctor of Business Administration equips you to formulate original insights, defend management decisions, and author solutions to critical bottlenecks."
         />
         <div className="value-grid">
           {valuePillars.map(({ icon: Icon, title, text }) => (
@@ -587,18 +587,18 @@ function ResearchSection({ navigate, image = "/assets/dba-home-research-v2.jpg",
       <div className="container split-layout">
         <div className="split-image reveal">
           <img src={image} alt="Executive doctoral candidate reviewing applied research with an academic supervisor" />
-          <div className="image-badge"><BookOpen size={18} aria-hidden="true" />Research in action</div>
+          <div className="image-badge"><BookOpen size={18} aria-hidden="true" />Empirical Fieldwork</div>
         </div>
         <div className="split-copy reveal">
-          <Eyebrow icon={Lightbulb}>Academic excellence, business relevance</Eyebrow>
-          <h2>Bring a real leadership challenge into doctoral research.</h2>
-          <p>Your professional context becomes a powerful research environment. The goal is not theory for its own sake, but a credible original contribution that can improve decisions, organisations and industries.</p>
+          <Eyebrow icon={Lightbulb}>Scientific Management Paradigm</Eyebrow>
+          <h2>Transform live corporate challenges into your doctoral dissertation.</h2>
+          <p>We believe doctoral research should yield immediate, observable market value. Your active corporate environment serves as the primary dataset, allowing you to solve organizational friction while earning your degree.</p>
           <ul className="check-list">
-            <li><CheckCircle2 size={18} />Connect research with executive practice</li>
-            <li><CheckCircle2 size={18} />Build advanced critical and analytical capability</li>
-            <li><CheckCircle2 size={18} />Work toward an original contribution to business knowledge</li>
+            <li><CheckCircle2 size={18} />Synthesize academic frameworks with corporate decisions</li>
+            <li><CheckCircle2 size={18} />Enhance empirical, qualitative, and quantitative analysis</li>
+            <li><CheckCircle2 size={18} />Author an original, publishable contribution to management literature</li>
           </ul>
-          <PrimaryButton to="/program" navigate={navigate}>Explore the DBA</PrimaryButton>
+          <PrimaryButton to="/program" navigate={navigate}>Explore DBA Pathway</PrimaryButton>
         </div>
       </div>
     </section>
@@ -609,7 +609,7 @@ function JourneySection() {
   return (
     <section className="section section-white">
       <div className="container">
-        <SectionIntro eyebrow="The doctoral journey" icon={Target} title="A clear path from executive experience to original contribution." />
+        <SectionIntro eyebrow="Doctoral Roadmap" icon={Target} title="A structured transition from executive leadership to management research." />
         <div className="journey-grid">
           {journey.map(([title, text], index) => (
             <article className="journey-card reveal" key={title}>
@@ -630,12 +630,12 @@ function UniversitiesSection({ navigate, compact = false }) {
       <div className="container">
         <div className="universities-heading reveal">
           <div>
-            <Eyebrow icon={Building2}>Our university network</Eyebrow>
-            <h2>DBA pathways with internationally focused institutions.</h2>
+            <Building2 size={36} style={{ color: "var(--gold-light)", marginBottom: "16px" }} />
+            <h2>Doctoral pathways matched to accredited global institutions.</h2>
           </div>
           <div className="universities-intro">
-            <p>We help experienced professionals understand their options, prepare a strong doctoral profile and progress toward the appropriate university admissions pathway.</p>
-            {compact && <Link className="text-link" to="/partnership" navigate={navigate}>Explore our partners <ArrowRight size={17} /></Link>}
+            <p>We work closely with candidates to evaluate qualifications, draft academic profiles, and facilitate direct admissions into leading international universities.</p>
+            {compact && <Link className="text-link" to="/partnership" navigate={navigate}>View Partners <ArrowRight size={17} /></Link>}
           </div>
         </div>
         <div className="university-grid">
@@ -647,8 +647,8 @@ function UniversitiesSection({ navigate, compact = false }) {
               </div>
               <span className="university-type">{type}</span>
               <h3>{name}</h3>
-              <p>Internationally oriented DBA pathway for ambitious professionals and business leaders.</p>
-              <span className="university-detail">Program details confirmed during admissions <ArrowRight size={15} /></span>
+              <p>An internationally recognized DBA program pathway designed specifically for experienced managers and corporate advisors.</p>
+              <span className="university-detail">Curriculum structure discussed during profile review <ArrowRight size={15} /></span>
             </article>
           ))}
         </div>
@@ -656,10 +656,10 @@ function UniversitiesSection({ navigate, compact = false }) {
           <div className="university-note reveal">
             <ShieldCheck size={22} aria-hidden="true" />
             <div>
-              <strong>Clear guidance before you apply</strong>
-              <p>Entry criteria, delivery model, awarding arrangements, recognition and fees can vary by institution and intake. These are discussed transparently during your profile review.</p>
+              <strong>Transparent Admissions Guidance</strong>
+              <p>Course fees, modular timelines, dissertation defense regulations, and credit transfers vary per institution. We guarantee transparent options during your profile review.</p>
             </div>
-            <PrimaryButton to="/contact" navigate={navigate}>Discuss Your Options</PrimaryButton>
+            <PrimaryButton to="/contact" navigate={navigate}>Consult An Advisor</PrimaryButton>
           </div>
         )}
       </div>
@@ -671,11 +671,11 @@ function AudienceSection({ navigate }) {
   return (
     <section className="section section-sky">
       <div className="container">
-        <SectionIntro eyebrow="Who it is for" icon={Users} title="Built for experienced professionals ready for their next level of influence." />
+        <SectionIntro eyebrow="Candidate Cohorts" icon={Users} title="Designed for ambitious managers ready to achieve board-level credibility." />
         <div className="audience-grid">
           {audience.map(([title, text]) => <article className="audience-card reveal" key={title}><h3>{title}</h3><p>{text}</p></article>)}
         </div>
-        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Review Admissions</PrimaryButton></div>
+        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Review Entry Profile</PrimaryButton></div>
       </div>
     </section>
   );
@@ -706,9 +706,9 @@ function OutcomesSection() {
     <section className="section section-sky">
       <div className="container outcome-layout">
         <div className="outcome-copy reveal">
-          <Eyebrow icon={Award}>Executive outcomes</Eyebrow>
-          <h2>Graduate with more than a title.</h2>
-          <p>Build the research capability, strategic perspective and professional authority to contribute at the highest level of business practice.</p>
+          <Eyebrow icon={Award}>Executive Milestones</Eyebrow>
+          <h2>Earn credentials backed by academic rigor.</h2>
+          <p>Gain the research literacy, statistical insight, and public defense capability to advise board members, lead transitions, and author management frameworks.</p>
         </div>
         <div className="outcome-list reveal">
           {outcomes.map((item) => <div key={item}><CheckCircle2 size={19} aria-hidden="true" /><span>{item}</span></div>)}
@@ -723,10 +723,10 @@ function CurriculumSection() {
     <section className="section section-white">
       <div className="container">
         <SectionIntro
-          eyebrow="Curriculum framework"
+          eyebrow="Core Framework"
           icon={BookOpen}
-          title="Advanced management thinking. Rigorous research capability."
-          text="The final curriculum and module sequence are confirmed through the selected university pathway. This framework communicates the central capabilities expected in a globally oriented DBA."
+          title="Modular, research-focused curriculum tailored for management professionals."
+          text="While exact modules depend on your selected university, this framework communicates the vital knowledge domains necessary for a defense-ready doctoral thesis."
         />
         <div className="curriculum-grid">
           {curriculum.map(({ number, title, text }) => (
@@ -745,26 +745,26 @@ function CohortSection() {
     <section className="section section-white">
       <div className="container split-layout reverse">
         <div className="split-copy reveal">
-          <Eyebrow icon={Network}>The DBA experience</Eyebrow>
-          <h2>A serious academic environment shaped around senior professionals.</h2>
-          <p>Engage with business leaders who bring different sectors, markets and cultural perspectives to the learning experience. The result is a network built around professional depth, not just geography.</p>
+          <Eyebrow icon={Network}>Executive Experience</Eyebrow>
+          <h2>Learn within a prestigious, globally connected peer ecosystem.</h2>
+          <p>The LearnifyOps cohort model connects you with executives, founders, and consultants across major trade zones. Collaborate on modules, critique research frameworks, and build lifelong professional relationships.</p>
           <div className="mini-grid">
-            <article><Globe2 size={22} /><strong>Global perspectives</strong><span>International professional contexts and ideas</span></article>
-            <article><Users size={22} /><strong>Executive peers</strong><span>Experienced leaders with practical insight</span></article>
-            <article><Clock3 size={22} /><strong>Flexible rhythm</strong><span>Structured for continued professional activity</span></article>
-            <article><BookOpen size={22} /><strong>Guided research</strong><span>Academic direction throughout the doctoral journey</span></article>
+            <article><Globe2 size={22} /><strong>Global Perspective</strong><span>Examine management trends across US, European, and Asian markets.</span></article>
+            <article><Users size={22} /><strong>C-Suite Cohorts</strong><span>Collaborate alongside experienced founders and corporate directors.</span></article>
+            <article><Clock3 size={22} /><strong>Flexible Milestones</strong><span>Structured deadlines allowing you to continue active employment.</span></article>
+            <article><BookOpen size={22} /><strong>Advisor Supervision</strong><span>1-on-1 supervision from research faculty throughout your thesis.</span></article>
           </div>
         </div>
         <div className="experience-canvas reveal" aria-label="Global DBA community">
           <span className="experience-globe"><Globe2 size={46} aria-hidden="true" /></span>
-          <span className="experience-node node-europe">Europe</span>
-          <span className="experience-node node-america">United States</span>
+          <span className="experience-node node-europe">United Kingdom</span>
+          <span className="experience-node node-america">North America</span>
           <span className="experience-node node-australia">Australia</span>
-          <span className="experience-node node-global">Global cohort</span>
+          <span className="experience-node node-global">Global Cohort</span>
           <div className="experience-quote">
             <Network size={24} aria-hidden="true" />
-            <strong>Different markets.<br />Shared ambition.</strong>
-            <p>Build relationships with experienced professionals who understand the complexity of leading at scale.</p>
+            <strong>Unified ambition. Global perspective.</strong>
+            <p>Build valuable advisory relationships with senior managers who understand high-stakes corporate execution.</p>
           </div>
         </div>
       </div>
@@ -777,8 +777,8 @@ function TestimonialSection() {
     <section className="quote-band">
       <div className="container quote-inner reveal">
         <Quote size={36} aria-hidden="true" />
-        <blockquote>A DBA should allow an experienced professional to remain close to practice while developing the research depth to change it.</blockquote>
-        <p>Program positioning for the global executive learner</p>
+        <blockquote>\"A Doctor of Business Administration empowers seasoned executives to conceptualize complex corporate behavior and orchestrate systemic transformation.\"</blockquote>
+        <p>Strategic Cohort Positioning for Professional Scholars</p>
       </div>
     </section>
   );
@@ -789,13 +789,13 @@ function AdmissionsSection({ navigate }) {
     <section className="section section-white">
       <div className="container admissions-layout">
         <div className="admissions-copy reveal">
-          <Eyebrow icon={ShieldCheck}>Admissions profile</Eyebrow>
-          <h2>Is this DBA the right next step for you?</h2>
-          <p>DBA candidates are normally experienced professionals with the maturity, curiosity and commitment required for independent doctoral research. Every profile is reviewed individually.</p>
+          <Eyebrow icon={ShieldCheck}>Entry Standards</Eyebrow>
+          <h2>Who should apply for the DBA pathway?</h2>
+          <p>Successful candidates demonstrate the intellectual curiosity, analytical capacity, and management maturity required to execute independent empirical research. Every profile is evaluated individually.</p>
           <ul className="check-list">
             {eligibility.map((item) => <li key={item}><CheckCircle2 size={18} />{item}</li>)}
           </ul>
-          <PrimaryButton to="/contact" navigate={navigate}>Request a Profile Review</PrimaryButton>
+          <PrimaryButton to="/contact" navigate={navigate}>Submit Profile Review</PrimaryButton>
         </div>
         <div className="admissions-steps reveal">
           {admissionsSteps.map(([title, text], index) => (
@@ -811,7 +811,7 @@ function FaqSection() {
   return (
     <section className="section section-sky">
       <div className="container">
-        <SectionIntro eyebrow="Common questions" icon={FileText} title="Clear answers before you make a doctoral decision." />
+        <SectionIntro eyebrow="Support & Advice" icon={FileText} title="Clear guidance for your doctoral journey." />
         <div className="faq-grid">
           {faq.map(([question, answer]) => <article className="faq-card reveal" key={question}><h3>{question}</h3><p>{answer}</p></article>)}
         </div>
@@ -825,29 +825,29 @@ function ContactSection({ handleSubmit, formState, formStatus }) {
     <section className="section section-white">
       <div className="container contact-layout">
         <div className="contact-copy reveal">
-          <Eyebrow icon={Mail}>Speak with our team</Eyebrow>
-          <h2>Start with a confidential conversation.</h2>
-          <p>Tell us about your DBA goals, learning technology interests or business requirements. Our team will help you understand the right next step, from profile review and university pathways to AI automation and software solutions.</p>
+          <Eyebrow icon={Mail}>Advisor Onboarding</Eyebrow>
+          <h2>Schedule a confidential profiles discussion.</h2>
+          <p>Share your academic background, research interests, or corporate tech consulting requirements. An expert will guide you through credit reviews, university pathways, and deployment timelines.</p>
           <div className="contact-lines">
             <a href="mailto:contact@learnifyops.com"><Mail size={18} />contact@learnifyops.com</a>
             <a href="tel:+447520664011"><Phone size={18} />+44 7520 664011</a>
-            <span><MapPin size={18} />United Kingdom and India admissions support</span>
-            <span><Globe2 size={18} />Enquiries welcomed from Europe, the United States, Australia and global markets</span>
+            <span><MapPin size={18} />United Kingdom & India Admissions Support Office</span>
+            <span><Globe2 size={18} />Consultations scheduled across UK, USA, Australia, and Middle East time zones.</span>
           </div>
         </div>
         <form className="contact-form reveal" onSubmit={handleSubmit} aria-describedby="privacy-help form-status">
           <div className="form-row">
-            <label htmlFor="name">Full name<input id="name" type="text" name="name" placeholder="Your full name" autoComplete="name" required /></label>
-            <label htmlFor="email">Professional email<input id="email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required /></label>
+            <label htmlFor="name">Full Name<input id="name" type="text" name="name" placeholder="Your full name" autoComplete="name" required /></label>
+            <label htmlFor="email">Work Email<input id="email" type="email" name="email" placeholder="you@company.com" autoComplete="email" required /></label>
           </div>
           <div className="form-row">
-            <label htmlFor="phone">Phone<input id="phone" type="tel" name="phone" placeholder="+44 / +1 / +61..." autoComplete="tel" /></label>
-            <label htmlFor="type">I would like to<select id="type" name="type" required><option>Request the DBA prospectus</option><option>Arrange a profile review</option><option>Discuss certification support</option><option>Discuss placement support</option><option>Discuss technology services</option><option>Compare university pathways</option></select></label>
+            <label htmlFor="phone">Contact Number<input id="phone" type="tel" name="phone" placeholder="+44 / +1 / +61..." autoComplete="tel" /></label>
+            <label htmlFor="type">Primary Interest<select id="type" name="type" required><option>Request the DBA prospectus</option><option>Arrange a profile review</option><option>Discuss certification support</option><option>Discuss placement support</option><option>Discuss technology services</option><option>Compare university pathways</option></select></label>
           </div>
-          <label htmlFor="message">Background and goals<textarea id="message" name="message" placeholder="Briefly tell us about your experience, learning goals or business technology requirement." required /></label>
-          <label className="consent-row" htmlFor="consent"><input id="consent" name="consent" type="checkbox" required /><span>I agree to be contacted about my DBA enquiry and understand my details will be used only to respond to this request.</span></label>
-          <p id="privacy-help" className="form-help">No marketing analytics or third-party advertising cookies are active in this build.</p>
-          <button className="btn btn-primary submit-button" type="submit" disabled={formState === "saving"}>{formState === "saving" ? "Sending..." : "Request DBA Information"}<ArrowRight size={18} /></button>
+          <label htmlFor="message">Research Area / Project Goals<textarea id="message" name="message" placeholder="Briefly describe your executive career, target research areas, or custom software requirements." required /></label>
+          <label className="consent-row" htmlFor="consent"><input id="consent" name="consent" type="checkbox" required /><span>I consent to admissions contact regarding my DBA enquiry and agree to the storage of my profile details.</span></label>
+          <p id="privacy-help" className="form-help">Admissions records are processed in strict compliance with GDPR guidelines.</p>
+          <button className="btn btn-primary submit-button" type="submit" disabled={formState === "saving"}>{formState === "saving" ? "Submitting..." : "Submit Inquiry"}<ArrowRight size={18} /></button>
           <p id="form-status" className={`form-status ${formState}`} role="status">{formStatus}</p>
         </form>
       </div>
@@ -859,10 +859,10 @@ function FinalCta({ navigate }) {
   return (
     <section className="final-cta">
       <div className="container final-cta-inner reveal">
-        <div><Eyebrow icon={GraduationCap}>Your next chapter</Eyebrow><h2>Build doctoral ambition, career outcomes and technology-led growth.</h2></div>
+        <div><Eyebrow icon={GraduationCap}>Academic Onboarding</Eyebrow><h2>Accelerate your leadership with doctoral research and enterprise software tools.</h2></div>
         <div className="final-actions">
-          <PrimaryButton to="/contact" navigate={navigate}>Request Prospectus</PrimaryButton>
-          <SecondaryButton to="/program" navigate={navigate}>Explore DBA Program</SecondaryButton>
+          <PrimaryButton to="/contact" navigate={navigate}>Consult An Advisor</PrimaryButton>
+          <SecondaryButton to="/program" navigate={navigate}>View Program Details</SecondaryButton>
         </div>
       </div>
     </section>
@@ -874,27 +874,45 @@ function HomePage({ navigate }) {
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Doctoral thinking for executive practice" title="A doctoral program for leaders who want to shape business practice." text="Combine advanced management knowledge, applied research, executive reflection and practical business application in an internationally focused DBA pathway." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research for organizational execution" title="Earn a doctoral degree designed around corporate decision-making." text="Combine quantitative research methodologies with strategic reflection in an accredited, modular DBA pathway structured for busy leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} /></>;
 }
 
 function CurriculumPage({ navigate }) {
-  return <><PageHero eyebrow="Curriculum" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Rigour, relevance and original contribution" title="Research-led learning with practical business application." text="Build the intellectual and methodological capability to investigate complex organisational challenges at doctoral level." /><CurriculumSection /><JourneySection /><ProductEcosystemSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Curriculum Framework" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Empirical study, strategic value" title="Modular coursework leading to a defense-ready dissertation." text="Formulate frameworks, collect datasets, and author new management insights that address live market bottlenecks." /><CurriculumSection /><JourneySection /><ProductEcosystemSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+}
+
+function PageHeroImmersive({ eyebrow, icon, title, text, image, caption = "Global DBA pathway" }) {
+  return (
+    <section className="page-hero page-hero-immersive">
+      <div className="page-hero-image">
+        <img src={image} alt="" />
+      </div>
+      <div className="container page-hero-grid">
+        <div className="page-hero-copy reveal visible">
+          <Eyebrow icon={icon} className="eyebrow-light">{eyebrow}</Eyebrow>
+          <h1>{title}</h1>
+          <p>{text}</p>
+          <span className="page-caption">{caption}</span>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function ExperiencePage({ navigate }) {
-  return <><PageHero eyebrow="Executive Experience" icon={Network} tone="immersive" image="/assets/dba-experience-hero-v2.jpg" caption="A network built around professional depth" title="Global peers. Serious scholarship. Flexible professional learning." text="A premium doctoral environment for experienced leaders who bring substantial professional insight into the learning community." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><TechnologyServicesSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHeroImmersive eyebrow="Executive Experience" icon={Network} image="/assets/dba-experience-hero-v2.jpg" caption="Prestigious global network" title="Global cohorts. Peer critiques. Modular flexibility." text="Study alongside directors, consultants, and founders who bring valuable operational data and strategic insight into the learning ecosystem." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><TechnologyServicesSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
 }
 
 function AdmissionsPage({ navigate }) {
-  return <><PageHero eyebrow="Admissions" icon={ShieldCheck} tone="warm" image="/assets/dba-admissions-hero-v2.jpg" caption="A personal, transparent admissions process" title="Your leadership experience could be the foundation for doctoral research." text="Begin with an individual profile review to understand academic fit, professional readiness and the partner-university pathway." /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Admissions Profile" icon={ShieldCheck} tone="warm" image="/assets/dba-admissions-hero-v2.jpg" caption="Rigorous, personalized screening" title="Your leadership background is the primary dataset for doctoral study." text="Schedule an initial profile assessment with an advisor to verify qualifications, review transfer credits, and align academic interests." /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} /></>;
 }
 
 function PartnershipPage({ navigate }) {
-  return <><PageHero eyebrow="Partner Universities" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="Four institutions. One global ambition." title="Choose a DBA pathway aligned with your professional ambition." text="Explore our network of partner institutions, then speak with our admissions team to understand the pathway best suited to your background, goals and preferred learning model." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="How we support you" icon={Globe2} title="One conversation. Clear university options." text="Our role is to make the DBA decision easier to understand—from initial fit and documentation through to the formal institution application." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Clear information</h3><p>Understand the academic pathway, application expectations and documentary requirements.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Profile preparation</h3><p>Position your leadership background, research interest and doctoral motivation effectively.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>University matching</h3><p>Compare available partner pathways against your professional profile and doctoral goals.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Transparent decisions</h3><p>Receive the material facts you need before making an application or financial commitment.</p></article></div></div></section><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Partner Network" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="International pathways" title="Admissions matched directly to your career destination." text="Explore our network of accredited universities, then work with our advisors to prepare a dossier that secures admissions into the right program." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="Admissions Consulting" icon={Globe2} title="A structured process from qualification review to formal enrollment." text="We remove administrative complexity, helping you select a pathway, write research topics, and gather professional recommendations." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Accredited Matching</h3><p>Verify that your awarded credentials hold academic value across global jurisdictions.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Onboarding Counsel</h3><p>Draft research objectives and statements of motivation that align with faculty interests.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>Institutional Reviews</h3><p>Compare modular schedules, credit requirements, and fees across four partner institutions.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Guaranteed Transparency</h3><p>Obtain clear advice on degree awarding, academic recognition, and program costs before applying.</p></article></div></div></section><FinalCta navigate={navigate} /></>;
 }
 
 function ContactPage({ navigate, contactProps }) {
-  return <><PageHero eyebrow="Contact Admissions" icon={Mail} tone="contact" image="/assets/dba-contact-hero-v2.jpg" caption="A confidential conversation starts here" title="Explore the DBA, learning tools or technology services." text="Request program information, begin a confidential DBA profile review or ask how our products and automation services can support your organisation." /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Advisor Consultation" icon={Mail} tone="contact" image="/assets/dba-contact-hero-v2.jpg" caption="Start with a profile review" title="Explore executive pathways and corporate software options." text="Schedule a consultation with an advisor to review credentials, request prospectus documents, or discuss enterprise SaaS integrations." /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
 }
 
 function Footer({ navigate }) {
@@ -903,23 +921,23 @@ function Footer({ navigate }) {
       <div className="container footer-grid">
         <div className="footer-main">
           <Link className="footer-brand" to="/" navigate={navigate}><BrandLogo /></Link>
-          <p>LearnifyOps brings together DBA guidance, AI-powered learning tools, placement-ready career systems and business technology services.</p>
-          <span className="footer-disclaimer">Pathway, awarding and recognition details are confirmed for the selected institution during admissions.</span>
+          <p>LearnifyOps offers prestigious DBA program guidance, enterprise AI systems, and operations software integration for global students and enterprises.</p>
+          <span className="footer-disclaimer">University selection, course syllabi, fees, and awarding models are confirmed during the admissions process.</span>
         </div>
         <div className="footer-links">
           <strong>DBA Program</strong>
-          <Link to="/program" navigate={navigate}>Program overview</Link>
+          <Link to="/program" navigate={navigate}>Overview</Link>
           <Link to="/curriculum" navigate={navigate}>Curriculum</Link>
-          <Link to="/experience" navigate={navigate}>Executive experience</Link>
+          <Link to="/experience" navigate={navigate}>Experience</Link>
         </div>
         <div className="footer-links">
           <strong>Admissions</strong>
-          <Link to="/admissions" navigate={navigate}>Entry profile</Link>
-          <Link to="/partnership" navigate={navigate}>Partner universities</Link>
-          <Link to="/contact" navigate={navigate}>Request prospectus</Link>
+          <Link to="/admissions" navigate={navigate}>Qualifications</Link>
+          <Link to="/partnership" navigate={navigate}>Partner Network</Link>
+          <Link to="/contact" navigate={navigate}>Book Discussion</Link>
         </div>
       </div>
-      <div className="container footer-bottom"><span>Copyright 2026 LearnifyOps. All rights reserved.</span><span>DBA pathways · AI products · technology services</span></div>
+      <div className="container footer-bottom"><span>Copyright 2026 LearnifyOps. All rights reserved.</span><span>DBA Pathways · Enterprise Systems · Tech Consulting</span></div>
     </footer>
   );
 }
@@ -952,7 +970,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setFormState("saving");
-    setFormStatus("Sending your DBA enquiry...");
+    setFormStatus("Submitting your profile inquiry...");
     const form = event.currentTarget;
     const formData = new FormData(form);
     const payload = {
@@ -971,13 +989,13 @@ function App() {
         body: JSON.stringify(payload)
       });
       const result = await response.json();
-      if (!response.ok) throw new Error(result.message || "Unable to send your enquiry.");
+      if (!response.ok) throw new Error(result.message || "Unable to process your inquiry.");
       setFormState("success");
-      setFormStatus(`Thank you. Your DBA enquiry has been received. Reference: ${result.enquiryId}`);
+      setFormStatus(`Thank you. Your inquiry has been received. Reference ID: ${result.enquiryId}`);
       form.reset();
     } catch (error) {
       setFormState("error");
-      setFormStatus(error.message || "Could not send your enquiry. Please try again.");
+      setFormStatus(error.message || "Could not process your inquiry. Please try again.");
     }
   };
 
@@ -999,7 +1017,7 @@ function App() {
       <main id="main">{pages[path] || pages["/"]}</main>
       {!cookieDismissed && (
         <div className="cookie-note" role="region" aria-label="Cookie notice">
-          <p><strong>Cookie notice:</strong> this site uses essential browser storage only. No advertising or analytics cookies are active.</p>
+          <p><strong>GDPR Statement:</strong> This website uses local storage exclusively for session performance. No marketing cookies are active.</p>
           <button type="button" onClick={() => { localStorage.setItem("learnifyops-cookie-note", "dismissed"); setCookieDismissed(true); }}>OK</button>
         </div>
       )}
