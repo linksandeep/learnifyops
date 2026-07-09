@@ -28,7 +28,8 @@ const enquirySchema = new mongoose.Schema(
         "Digital marketing",
         "Training programme",
         "Internship enquiry",
-        "Partnership"
+        "Partnership",
+        "Request the DBA prospectus"
       ]
     },
     message: { type: String, required: true, trim: true, maxlength: 3000 },

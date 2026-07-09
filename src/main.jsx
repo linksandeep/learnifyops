@@ -476,8 +476,6 @@ function HomeHero({ navigate }) {
         </div>
         <div className="hero-visual reveal visible">
           <img src="/assets/dba-home-hero-v2.jpg" alt="International executives participating in a strategic DBA roundtable" />
-          <div className="hero-orbit hero-orbit-one" />
-          <div className="hero-orbit hero-orbit-two" />
           <div className="hero-visual-card">
             <span>Prestigious Executive Pathway</span>
             <strong>Doctoral thesis targeting actual market disruption.</strong>
@@ -519,7 +517,7 @@ function ProductEcosystemSection({ navigate }) {
         <div className="product-grid">
           {productTools.map(([title, text]) => (
             <Link
-              className={`product-card ${title === "Placement Support Portal" ? "featured" : ""} reveal`}
+              className="product-card reveal"
               key={title}
               to="/contact"
               navigate={navigate}
@@ -693,8 +691,6 @@ function PageHero({ eyebrow, icon, title, text, image, tone = "midnight", captio
         </div>
         <div className="page-hero-image reveal visible">
           <img src={image} alt="" />
-          <span className="image-corner image-corner-top" />
-          <span className="image-corner image-corner-bottom" />
         </div>
       </div>
     </section>
@@ -777,7 +773,7 @@ function TestimonialSection() {
     <section className="quote-band">
       <div className="container quote-inner reveal">
         <Quote size={36} aria-hidden="true" />
-        <blockquote>\"A Doctor of Business Administration empowers seasoned executives to conceptualize complex corporate behavior and orchestrate systemic transformation.\"</blockquote>
+        <blockquote>"A Doctor of Business Administration empowers seasoned executives to conceptualize complex corporate behavior and orchestrate systemic transformation."</blockquote>
         <p>Strategic Cohort Positioning for Professional Scholars</p>
       </div>
     </section>
@@ -829,7 +825,7 @@ function ContactSection({ handleSubmit, formState, formStatus }) {
           <h2>Schedule a confidential profiles discussion.</h2>
           <p>Share your academic background, research interests, or corporate tech consulting requirements. An expert will guide you through credit reviews, university pathways, and deployment timelines.</p>
           <div className="contact-lines">
-            <a href="mailto:contact@learnifyops.com"><Mail size={18} />contact@learnifyops.com</a>
+            <a href="mailto:info@learnifyops.com"><Mail size={18} />contact@learnifyops.com</a>
             <a href="tel:+447520664011"><Phone size={18} />+44 7520 664011</a>
             <span><MapPin size={18} />United Kingdom & India Admissions Support Office</span>
             <span><Globe2 size={18} />Consultations scheduled across UK, USA, Australia, and Middle East time zones.</span>
