@@ -45,22 +45,70 @@ const partnerUniversities = [
   {
     initials: "KU",
     name: "Kennedy University",
-    type: "Partner University"
+    type: "Partner University",
+    focus: "Executive strategy, governance and applied management research",
+    overview: "A DBA pathway for experienced managers, consultants and corporate advisors who want to connect leadership experience with structured business research.",
+    highlights: [
+      "Designed for senior working professionals",
+      "Applied doctoral research linked to business challenges",
+      "Profile review used to confirm admission fit and pathway details"
+    ],
+    curriculum: [
+      "Strategic leadership and decision-making",
+      "Research design and methodology",
+      "Applied dissertation or doctoral research project"
+    ]
   },
   {
     initials: "BU",
     name: "Birchwood University",
-    type: "Partner University"
+    type: "Partner University",
+    focus: "Innovation, entrepreneurship and organizational transformation",
+    overview: "A DBA pathway positioned for professionals who want to study growth, transformation and practical business model development.",
+    highlights: [
+      "Suitable for entrepreneurs, managers and transformation leaders",
+      "Focus on innovation and applied business improvement",
+      "Admission and credit details confirmed during candidate review"
+    ],
+    curriculum: [
+      "Innovation and global business models",
+      "Organizational change and transformation",
+      "Research proposal development"
+    ]
   },
   {
     initials: "FCU",
     name: "Florida Coastal University",
-    type: "Partner University"
+    type: "Partner University",
+    focus: "Global business, operational excellence and leadership practice",
+    overview: "A DBA pathway for professionals seeking stronger research-led decision-making, leadership credibility and business execution capability.",
+    highlights: [
+      "Business leadership pathway for experienced candidates",
+      "Applied research connected to executive practice",
+      "Curriculum and fee structure reviewed before application"
+    ],
+    curriculum: [
+      "Global management and operational strategy",
+      "Quantitative and qualitative research methods",
+      "Doctoral thesis or applied research defense"
+    ]
   },
   {
     initials: "EMIT",
     name: "EMIT",
-    type: "Partner Institution"
+    type: "Partner Institution",
+    focus: "Technology management, AI automation and enterprise systems",
+    overview: "A technology-oriented pathway for professionals who want to connect management research with digital transformation and enterprise systems.",
+    highlights: [
+      "Relevant for founders, consultants and tech-enabled managers",
+      "Connects business research with digital transformation",
+      "Pathway details validated during candidate profile review"
+    ],
+    curriculum: [
+      "Digital transformation and AI-enabled operations",
+      "Enterprise systems and process automation",
+      "Applied business research project"
+    ]
   }
 ];
 
@@ -623,6 +671,8 @@ function JourneySection() {
 }
 
 function UniversitiesSection({ navigate, compact = false }) {
+  const [selectedUniversity, setSelectedUniversity] = useState(null);
+
   return (
     <section className={compact ? "universities-section universities-compact" : "universities-section"}>
       <div className="container">
@@ -637,19 +687,66 @@ function UniversitiesSection({ navigate, compact = false }) {
           </div>
         </div>
         <div className="university-grid">
-          {partnerUniversities.map(({ initials, name, type }, index) => (
-            <article className="university-card reveal" key={name}>
+          {partnerUniversities.map((university, index) => (
+            <button
+              className={selectedUniversity?.name === university.name ? "university-card reveal active" : "university-card reveal"}
+              key={university.name}
+              type="button"
+              onClick={() => setSelectedUniversity(university)}
+              aria-expanded={selectedUniversity?.name === university.name}
+              aria-controls="university-pathway-details"
+            >
               <div className="university-card-top">
-                <span className="university-mark" aria-hidden="true">{initials}</span>
+                <span className="university-mark" aria-hidden="true">{university.initials}</span>
                 <span className="university-index">{String(index + 1).padStart(2, "0")}</span>
               </div>
-              <span className="university-type">{type}</span>
-              <h3>{name}</h3>
-              <p>An internationally recognized DBA program pathway designed specifically for experienced managers and corporate advisors.</p>
-              <span className="university-detail">Curriculum structure discussed during profile review <ArrowRight size={15} /></span>
-            </article>
+              <span className="university-type">{university.type}</span>
+              <h3>{university.name}</h3>
+              <p>{university.overview}</p>
+              <span className="university-detail">View university details <ArrowRight size={15} /></span>
+            </button>
           ))}
         </div>
+        {selectedUniversity && (
+          <div className="university-detail-panel reveal visible" id="university-pathway-details" role="region" aria-live="polite">
+            <div className="university-detail-heading">
+              <div>
+                <span className="university-type">{selectedUniversity.type}</span>
+                <h3>{selectedUniversity.name}</h3>
+                <p>{selectedUniversity.overview}</p>
+              </div>
+              <button className="university-detail-close" type="button" onClick={() => setSelectedUniversity(null)} aria-label="Close university details">
+                <X size={18} aria-hidden="true" />
+              </button>
+            </div>
+            <div className="university-detail-content">
+              <article>
+                <strong>DBA pathway focus</strong>
+                <p>{selectedUniversity.focus}</p>
+              </article>
+              <article>
+                <strong>What this pathway supports</strong>
+                <ul>
+                  {selectedUniversity.highlights.map((item) => (
+                    <li key={item}><CheckCircle2 size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+              <article>
+                <strong>Curriculum areas discussed during profile review</strong>
+                <ul>
+                  {selectedUniversity.curriculum.map((item) => (
+                    <li key={item}><BookOpen size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            <div className="university-detail-actions">
+              <p>Degree awarding, recognition, fees, timeline and final curriculum structure are confirmed during the selected institution’s profile review.</p>
+              <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+            </div>
+          </div>
+        )}
         {!compact && (
           <div className="university-note reveal">
             <ShieldCheck size={22} aria-hidden="true" />
