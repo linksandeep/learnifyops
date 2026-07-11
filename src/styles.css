@@ -1119,7 +1119,7 @@
 
    .academic-logo-marquee {
      display: flex;
-     gap: 0.75rem;
+     gap: clamp(0.75rem, 1.4vw, 1.1rem);
      overflow: hidden;
      margin-top: clamp(2rem, 5vw, 4rem);
      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -1127,15 +1127,27 @@
 
    .academic-logo-marquee span {
      flex: 0 0 auto;
-     min-width: clamp(12rem, 18vw, 16rem);
-     padding: 0.85rem 1.2rem;
+     width: clamp(12rem, 20vw, 18rem);
+     min-height: 4.25rem;
+     padding: 0.75rem 1.1rem;
      border-radius: var(--r-full);
      border: 1px solid var(--border-light);
      background: rgba(255, 255, 255, 0.78);
      color: var(--obsidian-darkest);
      font-weight: 900;
      text-align: center;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     line-height: 1.15;
+     white-space: normal;
+     overflow: hidden;
+     text-overflow: ellipsis;
      animation: marqueeDrift 18s linear infinite;
+   }
+
+   .academic-logo-marquee span:nth-child(even) {
+     background: rgba(255, 250, 240, 0.9);
    }
 
    @keyframes marqueeDrift {
@@ -2217,6 +2229,84 @@
      background: rgba(240, 201, 90, 0.12);
      transform: translateY(-2px);
    }
+
+   .university-carousel-shell {
+     padding: clamp(1rem, 1.5vw, 1.35rem);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     border-radius: var(--r-xl);
+     background:
+       radial-gradient(circle at 10% 10%, rgba(224, 160, 48, 0.12), transparent 28%),
+       linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+     box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
+   }
+
+   .university-carousel-top {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 1rem;
+     margin-bottom: 1rem;
+   }
+
+   .university-carousel-top>span {
+     color: var(--gold-light) !important;
+     font-size: 0.76rem;
+     font-weight: 900;
+     letter-spacing: 0.12em;
+     text-transform: uppercase;
+   }
+
+   .university-carousel-controls {
+     display: flex;
+     gap: 0.5rem;
+   }
+
+   .university-carousel-controls button {
+     width: 2.75rem;
+     height: 2.75rem;
+     border-radius: var(--r-full);
+     border: 1px solid rgba(255, 255, 255, 0.16);
+     background: rgba(255, 255, 255, 0.07);
+     color: var(--white);
+     font-size: 1.1rem;
+     font-weight: 900;
+     cursor: pointer;
+     transition: transform 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease);
+   }
+
+   .university-carousel-controls button:hover {
+     transform: translateY(-2px);
+     border-color: rgba(224, 160, 48, 0.55);
+     background: rgba(224, 160, 48, 0.16);
+   }
+
+   .university-card-rail {
+     --university-gap: clamp(1rem, 1.4vw, 1.35rem);
+     display: flex;
+     gap: var(--university-gap);
+     overflow-x: auto;
+     overflow-y: hidden;
+     scroll-snap-type: x mandatory;
+     scroll-behavior: smooth;
+     -webkit-overflow-scrolling: touch;
+     padding: 0.25rem 0.15rem 0.75rem;
+     overscroll-behavior-inline: contain;
+     touch-action: pan-x pan-y;
+   }
+
+   .university-card-rail::-webkit-scrollbar {
+     height: 0.45rem;
+   }
+
+   .university-card-rail::-webkit-scrollbar-track {
+     background: rgba(255, 255, 255, 0.06);
+     border-radius: var(--r-full);
+   }
+
+   .university-card-rail::-webkit-scrollbar-thumb {
+     background: rgba(224, 160, 48, 0.52);
+     border-radius: var(--r-full);
+   }
    
    .university-grid {
      display: grid;
@@ -2225,11 +2315,14 @@
    }
    
    .university-card {
-     width: 100%;
+     flex: 0 0 calc((100% - (var(--university-gap, 1.25rem) * 3)) / 4);
+     min-width: 0;
+     min-height: 27rem;
      text-align: left;
      color: inherit;
      background:
-       linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+       radial-gradient(circle at 90% 12%, rgba(82, 178, 196, 0.13), transparent 30%),
+       linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
        var(--obsidian-mid);
      border: 1px solid rgba(255, 255, 255, 0.1);
      border-radius: var(--r-lg);
@@ -2239,6 +2332,7 @@
      transition: all 0.3s var(--ease);
      position: relative;
      overflow: hidden;
+     scroll-snap-align: start;
      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.18);
    }
    .university-card::after {
@@ -2272,7 +2366,8 @@
    .university-card-top {
      display: flex;
      justify-content: space-between;
-     align-items: center;
+     align-items: flex-start;
+     gap: 1rem;
      margin-bottom: 1.5rem;
    }
    
@@ -2285,6 +2380,35 @@
      border-radius: var(--r-full);
      box-shadow: var(--shadow-brand);
    }
+
+   .university-logo-plaque {
+     display: grid;
+     grid-template-columns: auto minmax(0, 1fr);
+     align-items: center;
+     gap: 0.55rem;
+     max-width: 78%;
+     min-height: 3.2rem;
+     padding: 0.65rem 0.75rem;
+     border-radius: 0.85rem;
+     background: linear-gradient(135deg, rgba(82, 178, 196, 0.95), rgba(224, 160, 48, 0.9));
+     color: var(--white) !important;
+     box-shadow: 0 18px 34px rgba(82, 178, 196, 0.18);
+   }
+
+   .university-logo-plaque svg {
+     color: rgba(255, 255, 255, 0.9);
+   }
+
+   .university-logo-plaque strong {
+     color: var(--white) !important;
+     font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+     line-height: 1.05;
+     letter-spacing: -0.02em;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+   }
    
    .university-index {
      color: var(--gold-main);
@@ -2296,13 +2420,35 @@
      font-weight: 700;
      color: var(--gold-light);
      text-transform: uppercase;
-     margin-bottom: 0.5rem;
+   }
+
+   .university-card-meta {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 0.5rem;
+     margin-bottom: 0.75rem;
+   }
+
+   .university-country-pill {
+     display: inline-flex;
+     align-items: center;
+     min-height: 1.5rem;
+     padding: 0 0.55rem;
+     border: 1px solid rgba(224, 160, 48, 0.28);
+     border-radius: var(--r-full);
+     background: rgba(224, 160, 48, 0.08);
+     color: var(--gold-light) !important;
+     font-size: 0.66rem;
+     font-weight: 900;
+     text-transform: uppercase;
    }
    
    .university-card h3 {
      color: var(--white);
      font-size: clamp(1.0625rem, 1.15vw, 1.1875rem);
      margin-bottom: 0.75rem;
+     overflow-wrap: anywhere;
    }
    
    .university-card p {
@@ -2358,6 +2504,37 @@
      flex: 0 0 auto;
      background: transparent;
    }
+   .university-program-stats {
+     display: grid;
+     grid-template-columns: 0.75fr 1fr 1.35fr;
+     gap: 0.875rem;
+     margin: 1.5rem 0;
+   }
+   .university-program-stats article {
+     min-height: 7rem;
+     padding: 1.15rem;
+     border-radius: var(--r-md);
+     background:
+       radial-gradient(circle at 88% 8%, rgba(224, 160, 48, 0.16), transparent 34%),
+       rgba(255, 255, 255, 0.055);
+     border: 1px solid rgba(255, 255, 255, 0.12);
+     display: grid;
+     align-content: start;
+     gap: 0.55rem;
+   }
+   .university-program-stats span,
+   .university-about-certificate span {
+     color: var(--gold-light);
+     font-size: 0.72rem;
+     font-weight: 900;
+     letter-spacing: 0.09em;
+     text-transform: uppercase;
+   }
+   .university-program-stats strong {
+     color: var(--white);
+     font-size: clamp(1.05rem, 1.7vw, 1.45rem);
+     line-height: 1.22;
+   }
    .university-detail-content {
      display: grid;
      grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2390,6 +2567,118 @@
      color: var(--gold-light);
      flex: 0 0 auto;
      margin-top: 0.1875rem;
+   }
+
+   .university-offerings {
+     display: grid;
+     grid-template-columns: 0.9fr 1.25fr 0.85fr;
+     gap: 1.125rem;
+     margin-top: 1.125rem;
+   }
+
+   .university-offerings article {
+     padding: 1.375rem;
+     border-radius: var(--r-md);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     background:
+       radial-gradient(circle at 92% 10%, rgba(82, 178, 196, 0.1), transparent 34%),
+       linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+   }
+
+   .university-offerings span {
+     display: block;
+     color: var(--gold-light) !important;
+     font-size: 0.72rem;
+     font-weight: 900;
+     letter-spacing: 0.09em;
+     text-transform: uppercase;
+     margin-bottom: 0.85rem;
+   }
+
+   .university-offerings p {
+     margin-top: 0.9rem;
+     color: rgba(255, 255, 255, 0.66) !important;
+     font-size: 0.9rem;
+   }
+
+   .degree-badge-list,
+   .course-chip-list,
+   .study-format-list {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.55rem;
+   }
+
+   .degree-badge-list strong,
+   .course-chip-list em,
+   .study-format-list strong {
+     display: inline-flex;
+     align-items: center;
+     min-height: 2rem;
+     padding: 0.4rem 0.7rem;
+     border-radius: var(--r-full);
+     border: 1px solid rgba(82, 178, 196, 0.24);
+     background: rgba(82, 178, 196, 0.08);
+     color: rgba(255, 255, 255, 0.9) !important;
+     font-size: 0.78rem;
+     font-style: normal;
+     font-weight: 850;
+     line-height: 1.2;
+   }
+
+   .degree-badge-list strong {
+     border-color: rgba(224, 160, 48, 0.34);
+     background: rgba(224, 160, 48, 0.1);
+     color: var(--gold-light) !important;
+   }
+
+   .university-about-certificate {
+     display: grid;
+     grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+     gap: 1.125rem;
+     margin-top: 1.125rem;
+   }
+   .university-about-certificate article {
+     padding: 1.375rem;
+     border-radius: var(--r-md);
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     background:
+       linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+   }
+   .university-about-certificate p {
+     margin-top: 0.8rem;
+     color: rgba(255, 255, 255, 0.68) !important;
+     font-size: 0.94rem;
+   }
+   .sample-certificate-card {
+     display: grid;
+     gap: 0.8rem;
+   }
+   .certificate-preview {
+     min-height: 8.75rem;
+     border-radius: var(--r-sm);
+     border: 1px solid rgba(224, 160, 48, 0.3);
+     background:
+       radial-gradient(circle at 82% 16%, rgba(224, 160, 48, 0.18), transparent 34%),
+       linear-gradient(135deg, #fffaf0 0%, #ffffff 100%);
+     display: grid;
+     place-items: center;
+     color: var(--obsidian-darkest);
+     box-shadow: inset 0 0 0 0.5rem rgba(224, 160, 48, 0.06);
+   }
+   .certificate-preview svg {
+     color: var(--crimson-main);
+   }
+   .certificate-preview strong {
+     font-size: 2.35rem;
+     letter-spacing: 0.04em;
+     color: var(--obsidian-darkest);
+   }
+   .certificate-preview small {
+     color: var(--ink-muted);
+     font-weight: 800;
+     letter-spacing: 0.08em;
+     text-transform: uppercase;
    }
    .university-detail-actions {
      display: flex;
@@ -3061,12 +3350,39 @@
        linear-gradient(135deg, #ffffff 0%, #f7fbfb 62%, #fff8ea 100%);
      color: var(--obsidian-darkest);
    }
+   .page-hero-midnight .page-hero-grid {
+     grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+     gap: clamp(2.25rem, 5vw, 5rem);
+   }
+   .page-hero-midnight .page-hero-copy {
+     max-width: 760px;
+   }
    .page-hero-midnight h1 {
      color: var(--obsidian-darkest);
      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+     max-width: 760px;
+     font-size: clamp(3rem, 4.45vw, 5.15rem);
    }
    .page-hero-midnight p {
      color: var(--ink-light);
+     max-width: 620px;
+     font-size: clamp(1.05rem, 1.25vw, 1.22rem);
+   }
+   .page-hero-midnight .page-hero-image {
+     position: relative;
+   }
+   .page-hero-midnight .page-hero-image::before {
+     content: "";
+     position: absolute;
+     inset: -1rem -1rem auto auto;
+     height: 2px;
+     width: 78%;
+     background: linear-gradient(90deg, transparent, rgba(224, 160, 48, 0.75));
+   }
+   .page-hero-midnight .page-hero-image img {
+     height: clamp(360px, 46vh, 560px);
+     border-radius: 2.25rem 2.25rem 5rem 2.25rem;
+     box-shadow: 0 34px 100px rgba(21, 23, 25, 0.14);
    }
    
    .page-hero-editorial {
@@ -3567,8 +3883,17 @@
      .company-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); }
      .company-timeline::before { display: none; }
      .value-grid { grid-template-columns: repeat(2, 1fr); }
+     .university-card {
+       flex-basis: calc((100% - var(--university-gap, 1.25rem)) / 2);
+       min-width: 0;
+     }
      .university-grid { grid-template-columns: repeat(2, 1fr); }
      .university-detail-content { grid-template-columns: 1fr; }
+     .university-program-stats,
+     .university-offerings,
+     .university-about-certificate {
+       grid-template-columns: 1fr;
+     }
      .university-detail-actions,
      .university-detail-heading { flex-direction: column; align-items: flex-start; }
      .product-grid { grid-template-columns: repeat(2, 1fr); }
@@ -3586,6 +3911,7 @@
        height: clamp(260px, 45vw, 420px);
      }
      .page-hero-grid,
+     .page-hero-midnight .page-hero-grid,
      .page-hero-editorial .page-hero-grid,
      .page-hero-warm .page-hero-grid,
      .page-hero-executive .page-hero-grid,
@@ -3772,6 +4098,7 @@
        padding: clamp(4.25rem, 10vh, 5.75rem) 0 clamp(2rem, 5vh, 3rem);
      }
      .page-hero-grid,
+     .page-hero-midnight .page-hero-grid,
      .page-hero-warm .page-hero-grid,
      .page-hero-executive .page-hero-grid,
      .page-hero-editorial .page-hero-grid {
@@ -3990,6 +4317,28 @@
      .product-grid { grid-template-columns: 1fr; }
      .value-grid { grid-template-columns: 1fr; }
      .audience-grid { grid-template-columns: 1fr; }
+     .university-carousel-shell {
+       padding: 0.875rem;
+       border-radius: 1.35rem;
+     }
+     .university-carousel-top {
+       align-items: flex-start;
+       flex-direction: column;
+     }
+     .university-card {
+       flex-basis: 100%;
+       min-width: 100%;
+       min-height: 24rem;
+     }
+     .university-logo-plaque {
+       max-width: 72%;
+     }
+     .university-offerings {
+       grid-template-columns: 1fr;
+     }
+     .university-offerings article {
+       padding: 1rem;
+     }
      .university-grid { grid-template-columns: 1fr; }
      .journey-grid { grid-template-columns: 1fr; }
      .fact-grid {
@@ -4048,6 +4397,19 @@
      }
      .experience-quote strong { font-size: 0.75rem; }
      .experience-quote p { font-size: 0.625rem; }
+
+     .academic-logo-marquee {
+       gap: 0.6rem;
+       margin-top: 1.75rem;
+     }
+     .academic-logo-marquee span {
+       width: 11.5rem;
+       min-width: 11.5rem;
+       min-height: 3.75rem;
+       padding: 0.6rem 0.8rem;
+       font-size: 0.8rem;
+       animation-duration: 26s;
+     }
    
      .contact-form {
        padding: 1.25rem 1rem;

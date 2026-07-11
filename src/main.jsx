@@ -48,69 +48,163 @@ const partnerUniversities = [
     initials: "KU",
     name: "Kennedy University",
     type: "Partner University",
+    country: "USA",
+    programTitle: "Kennedy University DBA",
     focus: "Executive strategy, governance and applied management research",
-    overview: "A DBA pathway for experienced managers, consultants and corporate advisors who want to connect leadership experience with structured business research.",
+    overview: "Kennedy University's Doctor of Business Administration pathway combines rigorous academic scholarship with practical executive experience for working leaders.",
+    duration: "24–48 months",
+    delivery: "Online, part-time, hybrid",
+    accreditation: "ASIC; AACSB/ACBSP recognition details reviewed during profile assessment",
+    about: "A US-based institution positioned for online executive education, flexible doctoral research and applied business scholarship.",
     highlights: [
-      "Designed for senior working professionals",
-      "Applied doctoral research linked to business challenges",
-      "Profile review used to confirm admission fit and pathway details"
+      "Minimum 8+ years of professional experience in business, management or a related field",
+      "Bachelor's degree or equivalent professional accomplishment",
+      "Demonstrated leadership experience and measurable professional impact",
+      "English proficiency suitable for doctoral writing and research defense"
     ],
     curriculum: [
-      "Strategic leadership and decision-making",
-      "Research design and methodology",
-      "Applied dissertation or doctoral research project"
-    ]
+      "Executive Leadership & Governance",
+      "Advanced Business Analytics",
+      "Global Market Strategy",
+      "Organizational Transformation",
+      "Doctoral Research & Publication"
+    ],
+    certificate: "Indicative sample certificate information is shared during the Kennedy University pathway review."
   },
   {
     initials: "BU",
     name: "Birchwood University",
     type: "Partner University",
+    country: "USA / International",
+    programTitle: "Birchwood University DBA",
     focus: "Innovation, entrepreneurship and organizational transformation",
     overview: "A DBA pathway positioned for professionals who want to study growth, transformation and practical business model development.",
+    duration: "24–48 months",
+    delivery: "Online, flexible executive format",
+    accreditation: "Recognition and awarding route confirmed during profile review",
+    about: "A partner university route for entrepreneurs, transformation leaders and senior managers seeking applied doctoral credibility.",
     highlights: [
       "Suitable for entrepreneurs, managers and transformation leaders",
-      "Focus on innovation and applied business improvement",
+      "Professional leadership background considered during entry review",
+      "Research interest aligned with business model innovation or growth",
       "Admission and credit details confirmed during candidate review"
     ],
     curriculum: [
-      "Innovation and global business models",
-      "Organizational change and transformation",
-      "Research proposal development"
-    ]
+      "Innovation and Global Business Models",
+      "Organizational Change and Transformation",
+      "Strategic Management Research",
+      "Research Proposal Development",
+      "Applied Dissertation Project"
+    ],
+    certificate: "Sample award format and documentation route are reviewed before application."
   },
   {
     initials: "FCU",
     name: "Florida Coastal University",
     type: "Partner University",
+    country: "USA",
+    programTitle: "Florida Coastal University DBA",
     focus: "Global business, operational excellence and leadership practice",
     overview: "A DBA pathway for professionals seeking stronger research-led decision-making, leadership credibility and business execution capability.",
+    duration: "24–48 months",
+    delivery: "Online and part-time study options",
+    accreditation: "Institutional recognition details confirmed during admissions review",
+    about: "A DBA route for professionals who want to connect leadership practice with global business research and operational excellence.",
     highlights: [
       "Business leadership pathway for experienced candidates",
       "Applied research connected to executive practice",
+      "Suitable for senior professionals and consultants",
       "Curriculum and fee structure reviewed before application"
     ],
     curriculum: [
-      "Global management and operational strategy",
-      "Quantitative and qualitative research methods",
-      "Doctoral thesis or applied research defense"
-    ]
+      "Global Management and Operational Strategy",
+      "Quantitative and Qualitative Research Methods",
+      "Leadership Practice and Governance",
+      "Business Execution and Performance Research",
+      "Doctoral Thesis or Applied Research Defense"
+    ],
+    certificate: "Certificate and transcript pathway information is explained during university comparison."
+  },
+  {
+    initials: "LSBS",
+    name: "London School of Business and Science",
+    type: "Partner Institution",
+    country: "United Kingdom",
+    programTitle: "London School of Business and Science DBA Pathway",
+    focus: "Applied leadership, business strategy and executive research practice",
+    overview: "A UK-focused DBA pathway for working professionals who want structured doctoral study connected to leadership, consulting and organizational performance.",
+    duration: "24–48 months",
+    delivery: "Online, blended and executive-friendly",
+    accreditation: "Institutional recognition and awarding route confirmed during admissions review",
+    about: "A business and science focused institution pathway positioned for professionals comparing UK-oriented executive education options.",
+    highlights: [
+      "Suitable for managers, founders and business consultants",
+      "Professional leadership experience considered during profile review",
+      "Research interest aligned with strategic business improvement",
+      "Documentation and entry route confirmed before application"
+    ],
+    curriculum: [
+      "Executive Strategy and Leadership",
+      "Applied Business Research Methods",
+      "Organizational Performance and Change",
+      "Global Business Decision-making",
+      "Doctoral Research Project"
+    ],
+    certificate: "Indicative certificate information and pathway documentation are shared during the profile review."
+  },
+  {
+    initials: "DBS",
+    name: "Dunster Business School",
+    type: "Partner Institution",
+    country: "International",
+    programTitle: "Dunster Business School DBA",
+    focus: "International business, leadership practice and applied executive scholarship",
+    overview: "A DBA pathway for senior professionals seeking an internationally positioned business doctorate with practical research application.",
+    duration: "24–48 months",
+    delivery: "Online and part-time executive study",
+    accreditation: "Recognition, awarding and documentation details reviewed during profile assessment",
+    about: "A business-school pathway for executives who want to connect professional experience with structured doctoral research and leadership credibility.",
+    highlights: [
+      "Designed for experienced managers and senior professionals",
+      "Suitable for international executive and consulting profiles",
+      "Applied research topic reviewed before application",
+      "Final admissions route confirmed during advisor consultation"
+    ],
+    curriculum: [
+      "International Business Strategy",
+      "Executive Leadership and Governance",
+      "Advanced Management Research",
+      "Organizational Transformation",
+      "Doctoral Thesis Development"
+    ],
+    certificate: "Sample certificate and final award route are discussed with eligible candidates before application."
   },
   {
     initials: "EMIT",
     name: "EMIT",
     type: "Partner Institution",
+    country: "International",
+    programTitle: "EMIT DBA Pathway",
     focus: "Technology management, AI automation and enterprise systems",
     overview: "A technology-oriented pathway for professionals who want to connect management research with digital transformation and enterprise systems.",
+    duration: "24–48 months",
+    delivery: "Online, modular, executive-friendly",
+    accreditation: "Recognition and institutional pathway confirmed during review",
+    about: "A technology-management focused route for founders, operators and consultants connecting business research with digital transformation.",
     highlights: [
       "Relevant for founders, consultants and tech-enabled managers",
       "Connects business research with digital transformation",
+      "Suitable for AI automation and enterprise systems research",
       "Pathway details validated during candidate profile review"
     ],
     curriculum: [
-      "Digital transformation and AI-enabled operations",
-      "Enterprise systems and process automation",
-      "Applied business research project"
-    ]
+      "Digital Transformation and AI-enabled Operations",
+      "Enterprise Systems and Process Automation",
+      "Technology Strategy and Change Management",
+      "Applied Business Research Methods",
+      "Doctoral Research Project"
+    ],
+    certificate: "Indicative certificate and institutional documentation are discussed with eligible candidates."
   }
 ];
 
@@ -320,7 +414,7 @@ const admissionsSteps = [
 ];
 
 const admissionsStats = [
-  ["4", "Partner Institutions"],
+  ["5K+", "Admissions Guided"],
   ["1:1", "Profile Review"],
   ["DBA", "Doctoral Pathway"],
   ["100%", "Transparent Guidance"]
@@ -337,7 +431,7 @@ const eligibility = [
 const faq = [
   ["How is the program structured for active professionals?", "The DBA is built from the ground up for working leaders. Modular coursework and digital delivery allow you to study seamlessly alongside your corporate career."],
   ["What starting support do I receive for my research topic?", "You don't need a polished proposal. Our team helps you refine your area of interest into a viable doctoral research question during the onboarding phase."],
-  ["Which partner universities award the final degree?", "We collaborate with accredited institutions including Birchwood University, Kennedy University, Florida Coastal University, and EMIT. Pathways are selected to fit your background and career goals."],
+  ["Which partner universities award the final degree?", "We collaborate with partner institutions including Kennedy University, Birchwood University, Florida Coastal University, London School of Business and Science, Dunster Business School, and EMIT. Pathways are selected to fit your background and career goals."],
   ["What is the main difference between an MBA and a DBA?", "An MBA covers broad operational and management principles. A DBA focuses on generating new, original business knowledge through scientific research and applied methodologies."]
 ];
 
@@ -351,7 +445,7 @@ const heroCapabilities = [
 ];
 
 const trustMetrics = [
-  ["4", "Partner Institutions"],
+  ["5K+", "Admissions Guided"],
   ["1:1", "Admission Review"],
   ["DBA", "Doctoral Pathway"],
   ["100%", "Transparent Guidance"],
@@ -1090,6 +1184,13 @@ function JourneySection() {
 
 function UniversitiesSection({ navigate, compact = false }) {
   const [selectedUniversity, setSelectedUniversity] = useState(null);
+  const universityRailRef = useRef(null);
+  const slideUniversities = (direction) => {
+    universityRailRef.current?.scrollBy({
+      left: direction * 380,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <section className={compact ? "universities-section universities-compact" : "universities-section"}>
@@ -1108,10 +1209,18 @@ function UniversitiesSection({ navigate, compact = false }) {
             {compact && <Link className="text-link" to="/partnership" navigate={navigate}>View Partners <ArrowRight size={17} /></Link>}
           </div>
         </div>
-        <div className="university-grid">
+        <div className="university-carousel-shell reveal">
+          <div className="university-carousel-top">
+            <span>{partnerUniversities.length} partner institutions</span>
+            <div className="university-carousel-controls" aria-label="University carousel controls">
+              <button type="button" onClick={() => slideUniversities(-1)} aria-label="Show previous universities">←</button>
+              <button type="button" onClick={() => slideUniversities(1)} aria-label="Show next universities">→</button>
+            </div>
+          </div>
+          <div className="university-card-rail" ref={universityRailRef}>
           {partnerUniversities.map((university, index) => (
             <button
-              className={selectedUniversity?.name === university.name ? "university-card reveal active" : "university-card reveal"}
+              className={selectedUniversity?.name === university.name ? "university-card active" : "university-card"}
               key={university.name}
               type="button"
               onClick={() => setSelectedUniversity(university)}
@@ -1119,27 +1228,48 @@ function UniversitiesSection({ navigate, compact = false }) {
               aria-controls="university-pathway-details"
             >
               <div className="university-card-top">
-                <span className="university-mark" aria-hidden="true">{university.initials}</span>
+                <span className="university-logo-plaque" aria-label={`${university.name} logo`}>
+                  <Building2 size={20} aria-hidden="true" />
+                  <strong>{university.name}</strong>
+                </span>
                 <span className="university-index">{String(index + 1).padStart(2, "0")}</span>
               </div>
-              <span className="university-type">{university.type}</span>
+              <div className="university-card-meta">
+                <span className="university-type">{university.type}</span>
+                <span className="university-country-pill">{university.country}</span>
+              </div>
               <h3>{university.name}</h3>
               <p>{university.overview}</p>
               <span className="university-detail">View university details <ArrowRight size={15} /></span>
             </button>
           ))}
+          </div>
         </div>
         {selectedUniversity && (
           <div className="university-detail-panel reveal visible" id="university-pathway-details" role="region" aria-live="polite">
             <div className="university-detail-heading">
               <div>
-                <span className="university-type">{selectedUniversity.type}</span>
-                <h3>{selectedUniversity.name}</h3>
+                <span className="university-type">Doctor of Business Administration · {selectedUniversity.country}</span>
+                <h3>{selectedUniversity.programTitle}</h3>
                 <p>{selectedUniversity.overview}</p>
               </div>
               <button className="university-detail-close" type="button" onClick={() => setSelectedUniversity(null)} aria-label="Close university details">
                 <X size={18} aria-hidden="true" />
               </button>
+            </div>
+            <div className="university-program-stats" aria-label={`${selectedUniversity.name} DBA facts`}>
+              <article>
+                <span>Duration</span>
+                <strong>{selectedUniversity.duration}</strong>
+              </article>
+              <article>
+                <span>Delivery</span>
+                <strong>{selectedUniversity.delivery}</strong>
+              </article>
+              <article>
+                <span>Recognition</span>
+                <strong>{selectedUniversity.accreditation}</strong>
+              </article>
             </div>
             <div className="university-detail-content">
               <article>
@@ -1147,7 +1277,7 @@ function UniversitiesSection({ navigate, compact = false }) {
                 <p>{selectedUniversity.focus}</p>
               </article>
               <article>
-                <strong>What this pathway supports</strong>
+                <strong>Eligibility discussed during profile review</strong>
                 <ul>
                   {selectedUniversity.highlights.map((item) => (
                     <li key={item}><CheckCircle2 size={16} aria-hidden="true" />{item}</li>
@@ -1161,6 +1291,33 @@ function UniversitiesSection({ navigate, compact = false }) {
                     <li key={item}><BookOpen size={16} aria-hidden="true" />{item}</li>
                   ))}
                 </ul>
+              </article>
+            </div>
+            <div className="university-offerings">
+              <article>
+                <span>Degrees offered</span>
+                <div className="degree-badge-list">
+                  {(selectedUniversity.degrees || ["DBA"]).map((degree) => (
+                    <strong key={degree}>{degree}</strong>
+                  ))}
+                </div>
+                <p>Final degree route, recognition and awarding details are confirmed during the candidate profile review.</p>
+              </article>
+              <article>
+                <span>Course areas available</span>
+                <div className="course-chip-list">
+                  {selectedUniversity.curriculum.map((item) => (
+                    <em key={item}>{item}</em>
+                  ))}
+                </div>
+              </article>
+              <article>
+                <span>Study format</span>
+                <div className="study-format-list">
+                  <strong>{selectedUniversity.duration}</strong>
+                  <strong>{selectedUniversity.delivery}</strong>
+                </div>
+                <p>Designed for working professionals comparing flexible doctoral and executive research pathways.</p>
               </article>
             </div>
             <div className="university-detail-actions">
@@ -1503,7 +1660,7 @@ function HomePage({ navigate }) {
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research for organizational execution" title="Earn a doctoral degree designed around corporate decision-making." text="Combine quantitative research methodologies with strategic reflection in an accredited, modular DBA pathway structured for busy leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
+  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research-led executive doctorate" title="Earn a research-led DBA for executive decision-making." text="Build doctoral-level business authority through structured research, strategic reflection and a flexible pathway designed for experienced working leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
 }
 
 function CurriculumPage({ navigate }) {
