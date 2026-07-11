@@ -47,6 +47,7 @@ const partnerUniversities = [
   {
     initials: "KU",
     name: "Kennedy University",
+    slug: "kennedy-university",
     type: "Partner University",
     country: "USA",
     programTitle: "Kennedy University DBA",
@@ -74,6 +75,7 @@ const partnerUniversities = [
   {
     initials: "BU",
     name: "Birchwood University",
+    slug: "birchwood-university",
     type: "Partner University",
     country: "USA / International",
     programTitle: "Birchwood University DBA",
@@ -101,6 +103,7 @@ const partnerUniversities = [
   {
     initials: "FCU",
     name: "Florida Coastal University",
+    slug: "florida-coastal-university",
     type: "Partner University",
     country: "USA",
     programTitle: "Florida Coastal University DBA",
@@ -128,6 +131,7 @@ const partnerUniversities = [
   {
     initials: "LSBS",
     name: "London School of Business and Science",
+    slug: "london-school-of-business-and-science",
     type: "Partner Institution",
     country: "United Kingdom",
     programTitle: "London School of Business and Science DBA Pathway",
@@ -155,6 +159,7 @@ const partnerUniversities = [
   {
     initials: "DBS",
     name: "Dunster Business School",
+    slug: "dunster-business-school",
     type: "Partner Institution",
     country: "International",
     programTitle: "Dunster Business School DBA",
@@ -182,6 +187,7 @@ const partnerUniversities = [
   {
     initials: "EMIT",
     name: "EMIT",
+    slug: "emit",
     type: "Partner Institution",
     country: "International",
     programTitle: "EMIT DBA Pathway",
@@ -304,6 +310,80 @@ const servicesMenuColumns = [
   }
 ];
 
+const navToolItems = [
+  {
+    title: "Career Automation",
+    text: "AI-powered Auto-Apply, opportunity matching and smart career workflows that help students save time, increase interview chances and move faster toward employment."
+  },
+  {
+    title: "Enterprise Learning Management System",
+    text: "Enterprise LMS, Adaptive AI Learning Assistant, live classes, assessments, certificates and real-time learner progress tracking in one unified platform."
+  },
+  {
+    title: "Student Success",
+    text: "Professional CV Optimizer, Student Milestone Dashboard and Executive Career Placement Portal for resume improvement, academic tracking and placement support."
+  },
+  {
+    title: "Operations Systems",
+    text: "Strategic Career Tracking Analytics plus Enterprise CRM & Admissions Console for lead management, student engagement, automation and data-led decisions."
+  }
+];
+
+const toolsServicesMenuColumns = [
+  {
+    title: "Tools",
+    intro: "In-house tools built by LearnifyOps to support our student ecosystem, admissions visibility, LMS delivery and placement workflows.",
+    items: navToolItems
+  },
+  {
+    title: "Services",
+    intro: "We help businesses build, automate and scale with enterprise-grade technology solutions across custom software, AI automation, CRM platforms and digital transformation.",
+    items: [
+      { title: "Build & Automate SaaS Products", text: "Turn ideas into scalable SaaS platforms with product design, development, deployment and support." },
+      { title: "AI Automation Solutions", text: "Use AI-powered automation to remove repetitive tasks and improve operational efficiency." },
+      { title: "Custom Software Development", text: "Create tailored web, mobile and enterprise applications aligned with business workflows." },
+      { title: "Marketing Technology", text: "Build automated lead funnels, campaign workflows, analytics and customer acquisition systems." },
+      { title: "CRM & Lead Management", text: "Deploy CRM systems to manage leads, automate follow-ups and improve sales pipelines." },
+      { title: "Technology Consulting", text: "Define technology strategy, modernize operations, adopt AI and build scalable digital systems." }
+    ]
+  }
+];
+
+const doctoralMenuTabs = [
+  {
+    label: "DBA",
+    items: partnerUniversities.map((university) => ({
+      title: university.programTitle,
+      text: university.focus,
+      to: `/universities/${university.slug}`,
+      badge: university.country
+    }))
+  },
+  {
+    label: "PhD",
+    items: [
+      { title: "PhD Pathway Review", text: "Research doctorate options are reviewed after academic profile screening.", to: "/contact" },
+      { title: "Supervisor Fit Discussion", text: "Topic readiness, academic background and supervisor fit are discussed confidentially.", to: "/contact" }
+    ]
+  },
+  {
+    label: "Honorary Doctorate",
+    items: [
+      { title: "Professional Impact Review", text: "Recognition route based on leadership, contribution and verified achievements.", to: "/contact" },
+      { title: "Institutional Eligibility Check", text: "Final criteria are confirmed by the selected awarding institution.", to: "/contact" },
+      { title: "Profile Documentation", text: "Support for achievement summaries, references and recognition evidence.", to: "/contact" }
+    ]
+  },
+  {
+    label: "Overview",
+    items: [
+      { title: "DBA Program Overview", text: "Understand the Doctor of Business Administration pathway for working leaders.", to: "/program" },
+      { title: "Profile-first Guidance", text: "We confirm fit, documentation and institution options before enrollment.", to: "/admissions" },
+      { title: "Partner Institution Comparison", text: "Review available institutions, delivery models and degree routes.", to: "/partnership" }
+    ]
+  }
+];
+
 const megaMenus = [
   {
     key: "dba",
@@ -313,25 +393,26 @@ const megaMenus = [
     cta: { label: "Request Prospectus", to: "/contact" }
   },
   {
-    key: "tools",
-    label: "Tools",
-    columns: toolsMenuColumns,
-    footer: "Our in-house tools connect learning, placement preparation and operational visibility.",
-    cta: { label: "Discuss Tools", to: "/contact" }
+    key: "doctoral",
+    label: "Doctoral",
+    type: "doctoral",
+    tabs: doctoralMenuTabs,
+    footer: "DBA university pages open directly. PhD and honorary doctorate routes start with a confidential profile discussion.",
+    cta: { label: "Schedule Profile Discussion", to: "/contact" }
   },
   {
     key: "certification",
     label: "Certification Program",
     columns: certificationMenuColumns,
-    footer: "Brit Institute provides certification learning, placement support and career readiness resources.",
+    footer: "Certification programs, LMS access and placement-support tools are delivered by Brit Institute, a branch under LearnifyOps.",
     cta: { label: "Visit Brit Institute Website", href: britInstituteUrl, external: true }
   },
   {
-    key: "services",
-    label: "Services",
-    columns: servicesMenuColumns,
-    footer: "Technology services for startups and SMEs that need software, automation and growth systems.",
-    cta: { label: "Discuss Services", to: "/contact" }
+    key: "tools-services",
+    label: "Tools & Services",
+    columns: toolsServicesMenuColumns,
+    footer: "Our tools support the LearnifyOps student ecosystem, while our services help outside businesses build software, automation and growth systems.",
+    cta: { label: "Discuss with Team", to: "/contact" }
   }
 ];
 
@@ -557,8 +638,18 @@ const companyTimeline = [
   ["Global Expansion", "Positioned services for international learners and business clients."]
 ];
 
+function universityPath(university) {
+  return `/universities/${university.slug}`;
+}
+
+function getUniversityByPath(pathname) {
+  const slug = pathname.replace(/\/$/, "").split("/universities/")[1];
+  return partnerUniversities.find((university) => university.slug === slug);
+}
+
 function normalisePath(pathname) {
   const clean = pathname.replace(/\/$/, "") || "/";
+  if (getUniversityByPath(clean)) return clean;
   return navItems.some(([, path]) => path === clean) ? clean : "/";
 }
 
@@ -653,7 +744,7 @@ function Header({ path, navigate }) {
       <div className="global-bar">
         <div className="container global-bar-inner">
           <span className="global-brandline"><Globe2 size={14} aria-hidden="true" /> Brit Institute Education Ecosystem</span>
-          <span className="global-menu-line">Doctoral Pathway <i /> Skill Certifications <i /> Enterprise Automation <i /> Consulting Services</span>
+          <span className="global-menu-line">Doctoral Pathway <i /> Skill Certifications <i /> Tools & Services</span>
           <a className="global-link" href={britInstituteUrl} target="_blank" rel="noreferrer">Visit Brit Institute <ArrowRight size={13} aria-hidden="true" /></a>
         </div>
       </div>
@@ -666,27 +757,30 @@ function Header({ path, navigate }) {
             Home
           </Link>
           {megaMenus.map((menu) => (
-            <div
-              className="mega-nav-item"
-              key={menu.key}
-              onMouseEnter={() => setOpenMega(menu.key)}
-              onFocus={() => setOpenMega(menu.key)}
-            >
-              <button
-                className={openMega === menu.key ? "mega-trigger active" : "mega-trigger"}
-                type="button"
-                aria-expanded={openMega === menu.key}
-                aria-controls={`mega-${menu.key}`}
-                onClick={() => setOpenMega(openMega === menu.key ? null : menu.key)}
+            <React.Fragment key={menu.key}>
+              <div
+                className="mega-nav-item"
+                onMouseEnter={() => setOpenMega(menu.key)}
+                onFocus={() => setOpenMega(menu.key)}
               >
-                {menu.label}<ChevronDown size={15} aria-hidden="true" />
-              </button>
-              <MegaMenu id={`mega-${menu.key}`} menu={menu} navigate={navigate} open={openMega === menu.key} onNavigate={closeMenus} />
-            </div>
+                <button
+                  className={openMega === menu.key ? "mega-trigger active" : "mega-trigger"}
+                  type="button"
+                  aria-expanded={openMega === menu.key}
+                  aria-controls={`mega-${menu.key}`}
+                  onClick={() => setOpenMega(openMega === menu.key ? null : menu.key)}
+                >
+                  {menu.label}<ChevronDown size={15} aria-hidden="true" />
+                </button>
+                <MegaMenu id={`mega-${menu.key}`} menu={menu} navigate={navigate} open={openMega === menu.key} onNavigate={closeMenus} />
+              </div>
+              {menu.key === "doctoral" && (
+                <Link to="/partnership" navigate={navigate} className={path === "/partnership" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
+                  Universities
+                </Link>
+              )}
+            </React.Fragment>
           ))}
-          <Link to="/partnership" navigate={navigate} className={path === "/partnership" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
-            Universities
-          </Link>
         </div>
         <Link className="header-cta" to="/contact" navigate={navigate} onMouseEnter={() => setOpenMega(null)}>
           Request Prospectus <ArrowRight size={16} aria-hidden="true" />
@@ -707,28 +801,81 @@ function Header({ path, navigate }) {
 }
 
 function MegaMenu({ id, menu, navigate, open, onNavigate }) {
+  const [activeTab, setActiveTab] = useState(menu.tabs?.[0]?.label || "");
+  const activeDoctoralTab = menu.tabs?.find((tab) => tab.label === activeTab) || menu.tabs?.[0];
+  const menuClassName = [
+    "mega-menu",
+    `mega-menu-${menu.key}`,
+    menu.type === "doctoral" ? "mega-menu-doctoral" : "",
+    open ? "open" : ""
+  ].filter(Boolean).join(" ");
+
   return (
-    <div className={open ? "mega-menu open" : "mega-menu"} id={id} role="region" aria-label={`${menu.label} menu`}>
-      <div className="mega-menu-grid">
-        {menu.columns.map((column) => (
-          <div className="mega-menu-column" key={column.title}>
-            <strong>{column.title}</strong>
-            {column.items.map((item) => (
+    <div className={menuClassName} id={id} role="region" aria-label={`${menu.label} menu`}>
+      {menu.type === "doctoral" ? (
+        <div className="doctoral-mega-layout">
+          <div className="doctoral-mega-tabs" role="tablist" aria-label="Doctoral route categories">
+            {menu.tabs.map((tab) => (
+              <button
+                key={tab.label}
+                type="button"
+                className={activeDoctoralTab?.label === tab.label ? "doctoral-mega-tab active" : "doctoral-mega-tab"}
+                onMouseEnter={() => setActiveTab(tab.label)}
+                onFocus={() => setActiveTab(tab.label)}
+                onClick={() => setActiveTab(tab.label)}
+                role="tab"
+                aria-selected={activeDoctoralTab?.label === tab.label}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="doctoral-mega-panel" role="tabpanel">
+            {activeDoctoralTab?.items.map((item) => (
               item.to ? (
-                <Link key={item.title} to={item.to} navigate={navigate} className="mega-menu-card" onNavigate={onNavigate}>
-                  <span>{item.title}</span>
+                <Link
+                  key={item.title}
+                  to={item.to}
+                  navigate={navigate}
+                  className="doctoral-mega-item doctoral-mega-link"
+                  onNavigate={onNavigate}
+                >
+                  <strong>{item.title}</strong>
                   <p>{item.text}</p>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               ) : (
-                <article className="mega-menu-card" key={item.title}>
-                  <span>{item.title}</span>
+                <article className="doctoral-mega-item" key={item.title}>
+                  <strong>{item.title}</strong>
                   <p>{item.text}</p>
                 </article>
               )
             ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div className={menu.key === "tools-services" ? "mega-menu-grid mega-menu-grid-tools-services" : "mega-menu-grid"}>
+          {menu.columns.map((column) => (
+            <div className="mega-menu-column" key={column.title}>
+              <strong>{column.title}</strong>
+              {column.intro && <p className="mega-menu-column-intro">{column.intro}</p>}
+              {column.items.map((item) => (
+                item.to ? (
+                  <Link key={item.title} to={item.to} navigate={navigate} className="mega-menu-card" onNavigate={onNavigate}>
+                    <span>{item.title}</span>
+                    <p>{item.text}</p>
+                  </Link>
+                ) : (
+                  <article className="mega-menu-card" key={item.title}>
+                    <span>{item.title}</span>
+                    <p>{item.text}</p>
+                  </article>
+                )
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
       <div className="mega-menu-footer">
         <p>{menu.footer}</p>
         {menu.cta.external ? (
@@ -1183,7 +1330,6 @@ function JourneySection() {
 }
 
 function UniversitiesSection({ navigate, compact = false }) {
-  const [selectedUniversity, setSelectedUniversity] = useState(null);
   const universityRailRef = useRef(null);
   const slideUniversities = (direction) => {
     universityRailRef.current?.scrollBy({
@@ -1219,13 +1365,11 @@ function UniversitiesSection({ navigate, compact = false }) {
           </div>
           <div className="university-card-rail" ref={universityRailRef}>
           {partnerUniversities.map((university, index) => (
-            <button
-              className={selectedUniversity?.name === university.name ? "university-card active" : "university-card"}
+            <Link
+              className="university-card"
               key={university.name}
-              type="button"
-              onClick={() => setSelectedUniversity(university)}
-              aria-expanded={selectedUniversity?.name === university.name}
-              aria-controls="university-pathway-details"
+              to={universityPath(university)}
+              navigate={navigate}
             >
               <div className="university-card-top">
                 <span className="university-logo-plaque" aria-label={`${university.name} logo`}>
@@ -1241,95 +1385,10 @@ function UniversitiesSection({ navigate, compact = false }) {
               <h3>{university.name}</h3>
               <p>{university.overview}</p>
               <span className="university-detail">View university details <ArrowRight size={15} /></span>
-            </button>
+            </Link>
           ))}
           </div>
         </div>
-        {selectedUniversity && (
-          <div className="university-detail-panel reveal visible" id="university-pathway-details" role="region" aria-live="polite">
-            <div className="university-detail-heading">
-              <div>
-                <span className="university-type">Doctor of Business Administration · {selectedUniversity.country}</span>
-                <h3>{selectedUniversity.programTitle}</h3>
-                <p>{selectedUniversity.overview}</p>
-              </div>
-              <button className="university-detail-close" type="button" onClick={() => setSelectedUniversity(null)} aria-label="Close university details">
-                <X size={18} aria-hidden="true" />
-              </button>
-            </div>
-            <div className="university-program-stats" aria-label={`${selectedUniversity.name} DBA facts`}>
-              <article>
-                <span>Duration</span>
-                <strong>{selectedUniversity.duration}</strong>
-              </article>
-              <article>
-                <span>Delivery</span>
-                <strong>{selectedUniversity.delivery}</strong>
-              </article>
-              <article>
-                <span>Recognition</span>
-                <strong>{selectedUniversity.accreditation}</strong>
-              </article>
-            </div>
-            <div className="university-detail-content">
-              <article>
-                <strong>DBA pathway focus</strong>
-                <p>{selectedUniversity.focus}</p>
-              </article>
-              <article>
-                <strong>Eligibility discussed during profile review</strong>
-                <ul>
-                  {selectedUniversity.highlights.map((item) => (
-                    <li key={item}><CheckCircle2 size={16} aria-hidden="true" />{item}</li>
-                  ))}
-                </ul>
-              </article>
-              <article>
-                <strong>Curriculum areas discussed during profile review</strong>
-                <ul>
-                  {selectedUniversity.curriculum.map((item) => (
-                    <li key={item}><BookOpen size={16} aria-hidden="true" />{item}</li>
-                  ))}
-                </ul>
-              </article>
-            </div>
-            <div className="university-offerings">
-              <article>
-                <span>Degrees offered</span>
-                <div className="degree-badge-list">
-                  {(selectedUniversity.degrees || ["DBA"]).map((degree) => (
-                    <strong key={degree}>{degree}</strong>
-                  ))}
-                </div>
-                <p>Final degree route, recognition and awarding details are confirmed during the candidate profile review.</p>
-              </article>
-              <article>
-                <span>Course areas available</span>
-                <div className="course-chip-list">
-                  {selectedUniversity.curriculum.map((item) => (
-                    <em key={item}>{item}</em>
-                  ))}
-                </div>
-              </article>
-              <article>
-                <span>Study format</span>
-                <div className="study-format-list">
-                  <strong>{selectedUniversity.duration}</strong>
-                  <strong>{selectedUniversity.delivery}</strong>
-                </div>
-                <p>Designed for working professionals comparing flexible doctoral and executive research pathways.</p>
-              </article>
-            </div>
-            <div className="university-detail-actions">
-              <p>Degree awarding, recognition, fees, timeline and final curriculum structure are confirmed during the selected institution’s profile review.</p>
-              <div className="university-detail-buttons">
-                <DownloadButton file={dbaBrochureUrl} label="DBA Brochure"><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
-                <DownloadButton file={dbaCurriculumUrl} label="DBA Curriculum"><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
-                <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
-              </div>
-            </div>
-          </div>
-        )}
         {!compact && (
           <div className="university-note reveal">
             <ShieldCheck size={22} aria-hidden="true" />
@@ -1342,6 +1401,103 @@ function UniversitiesSection({ navigate, compact = false }) {
         )}
       </div>
     </section>
+  );
+}
+
+function UniversityDetailPage({ navigate, university }) {
+  return (
+    <>
+      <PageHero
+        eyebrow={`${university.country} · Doctoral Pathway`}
+        icon={Building2}
+        tone="executive"
+        image="/assets/dba-universities-hero-v2.jpg"
+        caption={university.name}
+        title={university.programTitle}
+        text={university.overview}
+      />
+      <section className="section section-sky">
+        <div className="container">
+          <div className="university-detail-panel university-detail-page-panel reveal visible" role="region" aria-label={`${university.name} pathway details`}>
+            <div className="university-detail-heading">
+              <div>
+                <span className="university-type">Partner institution · {university.country}</span>
+                <h3>{university.name}</h3>
+                <p>{university.focus}</p>
+              </div>
+              <Link className="text-link" to="/partnership" navigate={navigate}>View all universities <ArrowRight size={17} /></Link>
+            </div>
+            <div className="university-program-stats" aria-label={`${university.name} DBA facts`}>
+              <article>
+                <span>Duration</span>
+                <strong>{university.duration}</strong>
+              </article>
+              <article>
+                <span>Delivery</span>
+                <strong>{university.delivery}</strong>
+              </article>
+              <article>
+                <span>Recognition</span>
+                <strong>{university.accreditation}</strong>
+              </article>
+            </div>
+            <div className="university-detail-content">
+              <article>
+                <strong>Eligibility discussed during profile review</strong>
+                <ul>
+                  {university.highlights.map((item) => (
+                    <li key={item}><CheckCircle2 size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+              <article>
+                <strong>Course and research areas</strong>
+                <ul>
+                  {university.curriculum.map((item) => (
+                    <li key={item}><BookOpen size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            <div className="university-offerings">
+              <article>
+                <span>Degrees offered</span>
+                <div className="degree-badge-list">
+                  {(university.degrees || ["DBA"]).map((degree) => (
+                    <strong key={degree}>{degree}</strong>
+                  ))}
+                </div>
+                <p>Final degree route, recognition and awarding details are confirmed during the candidate profile review.</p>
+              </article>
+              <article>
+                <span>Course areas available</span>
+                <div className="course-chip-list">
+                  {university.curriculum.map((item) => (
+                    <em key={item}>{item}</em>
+                  ))}
+                </div>
+              </article>
+              <article>
+                <span>Study format</span>
+                <div className="study-format-list">
+                  <strong>{university.duration}</strong>
+                  <strong>{university.delivery}</strong>
+                </div>
+                <p>Designed for working professionals comparing flexible doctoral and executive research pathways.</p>
+              </article>
+            </div>
+            <div className="university-detail-actions">
+              <p>Brochure, curriculum, recognition notes, fees and timeline are shared after a profile review so candidates receive the correct pathway information.</p>
+              <div className="university-detail-buttons">
+                <DownloadButton file={dbaBrochureUrl} label={`${university.name} DBA Brochure`}><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
+                <DownloadButton file={dbaCurriculumUrl} label={`${university.name} DBA Curriculum`}><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
+                <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -1750,7 +1906,8 @@ function App() {
   }, [path]);
 
   useEffect(() => {
-    const page = navItems.find(([, route]) => route === path)?.[0] || "Home";
+    const university = getUniversityByPath(path);
+    const page = university?.name || navItems.find(([, route]) => route === path)?.[0] || "Home";
     document.title = path === "/" ? "Global DBA Program | LearnifyOps" : `${page} | LearnifyOps`;
   }, [path]);
 
@@ -1793,6 +1950,7 @@ function App() {
   };
 
   const contactProps = { handleSubmit, formState, formStatus };
+  const universityPage = getUniversityByPath(path);
   const pages = {
     "/": <HomePage navigate={navigate} />,
     "/program": <ProgramPage navigate={navigate} />,
@@ -1807,7 +1965,7 @@ function App() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <Header path={path} navigate={navigate} />
-      <main id="main">{pages[path] || pages["/"]}</main>
+      <main id="main">{universityPage ? <UniversityDetailPage navigate={navigate} university={universityPage} /> : (pages[path] || pages["/"])}</main>
       <DownloadGateModal request={downloadRequest} onClose={() => setDownloadRequest(null)} />
       {!cookieDismissed && (
         <div className="cookie-note" role="region" aria-label="Cookie notice">

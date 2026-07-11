@@ -474,10 +474,14 @@
    .nav {
      min-height: clamp(3.75rem, 6vh, 4.625rem);
      display: grid;
-     grid-template-columns: clamp(100px, 14vw, 180px) minmax(0, 1fr) auto;
-     gap: clamp(0.5rem, 1.5vw, 1.25rem);
+     grid-template-columns: clamp(92px, 10vw, 150px) minmax(0, 1fr) auto;
+     gap: clamp(0.35rem, 1vw, 0.9rem);
      align-items: center;
      position: relative;
+   }
+
+   .nav.container {
+     width: min(1440px, calc(100% - clamp(1rem, 2.5vw, 2rem)));
    }
    
    .brand {
@@ -497,15 +501,15 @@
      display: flex;
      align-items: center;
      justify-content: center;
-     gap: 0.25rem;
+     gap: 0.1rem;
    }
    
    .nav-links a,
    .mega-trigger {
-     padding: 0.5rem 1rem;
+     padding: 0.5rem clamp(0.55rem, 0.75vw, 0.85rem);
      color: var(--obsidian-darkest);
      border-radius: var(--r-xs);
-     font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+     font-size: clamp(0.72rem, 0.78vw, 0.84rem);
      font-weight: 600;
      transition: all 0.25s var(--ease);
      white-space: nowrap;
@@ -516,7 +520,7 @@
    .mega-trigger:hover,
    .mega-trigger.active {
      color: var(--crimson-deep);
-     background: var(--crimson-soft);
+     background: rgba(82, 178, 196, 0.12);
    }
    
    .nav-links a.active::after,
@@ -637,8 +641,182 @@
    }
    .mega-menu-card:hover {
      background: var(--surface-light) !important;
-     border-left: 3px solid var(--crimson-main);
+     border-left: 3px solid var(--gold-main);
      transform: translateX(4px);
+   }
+
+   .mega-menu-column-intro {
+     margin: -0.1rem 0 0.55rem;
+     color: var(--ink-light);
+     font-size: 0.82rem;
+     line-height: 1.55;
+   }
+
+   .mega-menu-grid-tools-services {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .mega-menu-tools-services {
+     width: min(1320px, calc(100vw - clamp(1.5rem, 4vw, 3rem)));
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-column {
+     display: grid;
+     align-content: start;
+     padding: clamp(0.75rem, 1.25vw, 1rem);
+     border: 1px solid var(--border-light);
+     border-radius: var(--r-sm);
+     background: linear-gradient(135deg, rgba(247, 251, 251, 0.95), rgba(255, 248, 234, 0.58));
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-column {
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 0.55rem;
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-column > strong,
+   .mega-menu-grid-tools-services .mega-menu-column > .mega-menu-column-intro {
+     grid-column: 1 / -1;
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-card {
+     padding: 0.62rem 0.7rem !important;
+     background: rgba(255, 255, 255, 0.62);
+     border: 1px solid rgba(82, 178, 196, 0.1);
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-card span {
+     font-size: clamp(0.78rem, 0.82vw, 0.9rem);
+   }
+
+   .mega-menu-grid-tools-services .mega-menu-card p {
+     font-size: clamp(0.66rem, 0.72vw, 0.76rem);
+     line-height: 1.38;
+   }
+
+   .mega-menu-doctoral {
+     width: min(1160px, calc(100vw - clamp(1.5rem, 4vw, 3rem)));
+     padding: clamp(1.5rem, 3vw, 2.5rem);
+     overflow: hidden;
+     border-color: var(--border-light);
+     background: var(--white);
+     color: var(--obsidian-darkest);
+   }
+
+   .doctoral-mega-layout {
+     display: grid;
+     gap: 1rem;
+   }
+
+   .doctoral-mega-tabs {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.55rem;
+     padding: 0 0 1rem;
+     border-bottom: 1px solid var(--border-light);
+   }
+
+   .doctoral-mega-tab {
+     min-height: 2.35rem;
+     padding: 0.55rem 0.9rem;
+     border: 1px solid var(--border-light);
+     border-radius: var(--r-full);
+     background: var(--surface-light);
+     color: var(--crimson-deep);
+     font-family: inherit;
+     font-size: 0.74rem;
+     font-weight: 700;
+     letter-spacing: 0.02em;
+     cursor: pointer;
+     transition: transform 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+   }
+
+   .doctoral-mega-tab:hover,
+   .doctoral-mega-tab.active {
+     color: var(--obsidian-darkest);
+     background: var(--g-gold);
+     border-color: rgba(240, 201, 90, 0.66);
+     transform: translateY(-2px);
+   }
+
+   .doctoral-mega-panel {
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 1.4rem 2.1rem;
+     padding: 0;
+   }
+
+   .doctoral-mega-item {
+     display: grid;
+     grid-template-columns: minmax(0, 1fr) auto;
+     gap: 0.25rem 0.75rem;
+     padding: 0.5rem 0.65rem;
+     border: 0;
+     border-radius: var(--r-xs);
+     background: transparent;
+     box-shadow: none;
+     transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
+   }
+
+   .doctoral-mega-link:hover {
+     transform: translateX(4px);
+     background: var(--surface-light);
+   }
+
+   .doctoral-mega-item strong {
+     grid-column: 1;
+     color: var(--obsidian-darkest);
+     font-size: 0.9375rem;
+     font-weight: 700;
+     line-height: 1.28;
+   }
+
+   .doctoral-mega-item p {
+     grid-column: 1;
+     margin: 0;
+     color: var(--muted);
+     font-size: 0.8125rem;
+     font-weight: 500;
+     line-height: 1.5;
+   }
+
+   .doctoral-mega-item svg {
+     grid-column: 2;
+     grid-row: 1 / span 2;
+     align-self: center;
+     color: var(--gold-main);
+   }
+
+   .doctoral-mega-item em {
+     grid-column: 2;
+     grid-row: 1;
+     align-self: start;
+     padding: 0.18rem 0.5rem;
+     border-radius: var(--r-full);
+     background: rgba(224, 160, 48, 0.15);
+     color: var(--gold-main);
+     font-style: normal;
+     font-size: 0.58rem;
+     font-weight: 950;
+     letter-spacing: 0.08em;
+     text-transform: uppercase;
+     white-space: nowrap;
+   }
+
+   .mega-menu-doctoral .mega-menu-footer {
+     margin-top: clamp(1.25rem, 2vw, 2rem);
+     border: 1px solid var(--border-light);
+     border-radius: var(--r-sm);
+     background: var(--surface-warm);
+   }
+
+   .mega-menu-doctoral .mega-menu-footer p {
+     color: var(--ink-light);
+   }
+
+   .mega-menu-doctoral .mega-menu-cta:hover {
+     background: var(--gold-main);
+     color: var(--obsidian-darkest) !important;
    }
    
    .mega-menu-footer {
@@ -651,15 +829,17 @@
      border-radius: var(--r-sm);
      background: var(--surface-warm);
      border: 1px solid var(--border-light);
-     flex-wrap: wrap;
+     flex-wrap: nowrap;
    }
    .mega-menu-footer p {
+     flex: 1 1 auto;
      margin: 0;
      font-size: clamp(0.75rem, 0.9vw, 0.875rem);
      color: var(--ink-light);
    }
    
    .mega-menu-cta {
+     flex: 0 0 auto;
      display: inline-flex;
      align-items: center;
      gap: 0.375rem;
@@ -679,12 +859,12 @@
      align-items: center;
      gap: 0.375rem;
      min-height: clamp(2.25rem, 4vh, 2.875rem);
-     padding: 0 clamp(0.75rem, 1.2vw, 1.5rem);
+     padding: 0 clamp(0.65rem, 1vw, 1.1rem);
      border-radius: var(--r-xs);
      background: var(--g-gold);
      color: var(--obsidian-darkest) !important;
      font-weight: 700;
-     font-size: clamp(0.6875rem, 0.8vw, 0.84375rem);
+     font-size: clamp(0.68rem, 0.75vw, 0.8rem);
      box-shadow: var(--shadow-brand);
      white-space: nowrap;
    }
@@ -3959,6 +4139,13 @@
      .final-actions .btn { flex: 1; min-width: 0; }
      .footer-bottom { flex-direction: column; gap: 0.75rem; }
      .mega-menu-grid { grid-template-columns: 1fr; }
+     .mega-menu-grid-tools-services { grid-template-columns: 1fr; }
+     .doctoral-mega-panel { grid-template-columns: 1fr; }
+     .doctoral-mega-tabs { gap: 0.4rem; }
+     .doctoral-mega-tab {
+       font-size: 0.72rem;
+       padding: 0.45rem 0.7rem;
+     }
      .mega-menu-footer { flex-direction: column; align-items: flex-start; }
    }
    
@@ -4053,6 +4240,52 @@
      .mega-menu-grid {
        grid-template-columns: 1fr;
        gap: 0.5rem;
+     }
+     .mega-menu-grid-tools-services .mega-menu-column {
+       grid-template-columns: 1fr;
+       padding: 0.7rem;
+     }
+     .mega-menu-doctoral {
+       border-radius: var(--r-sm);
+     }
+     .doctoral-mega-head {
+       padding: 0.95rem 0.9rem 0.75rem;
+     }
+     .doctoral-mega-head span {
+       font-size: 0.68rem;
+       letter-spacing: 0.12em;
+     }
+     .doctoral-mega-head p {
+       font-size: 0.78rem;
+       line-height: 1.5;
+     }
+     .doctoral-mega-tabs {
+       padding: 0 0.85rem 0.8rem;
+       overflow-x: auto;
+       flex-wrap: nowrap;
+     }
+     .doctoral-mega-tab {
+       flex: 0 0 auto;
+       min-height: 2rem;
+       white-space: nowrap;
+     }
+     .doctoral-mega-panel {
+       padding: 0.75rem 0.85rem 0.95rem;
+       gap: 0.55rem;
+     }
+     .doctoral-mega-item {
+       padding: 0.75rem;
+       border-radius: 0.85rem;
+     }
+     .doctoral-mega-item strong {
+       font-size: 0.82rem;
+     }
+     .doctoral-mega-item p {
+       font-size: 0.7rem;
+       display: -webkit-box;
+       -webkit-line-clamp: 2;
+       -webkit-box-orient: vertical;
+       overflow: hidden;
      }
      .mega-menu-column {
        gap: 0.375rem;
