@@ -1331,6 +1331,7 @@ function JourneySection() {
 
 function UniversitiesSection({ navigate, compact = false }) {
   const universityRailRef = useRef(null);
+  const [selectedUniversity, setSelectedUniversity] = useState(null);
   const slideUniversities = (direction) => {
     universityRailRef.current?.scrollBy({
       left: direction * 380,
@@ -1365,11 +1366,12 @@ function UniversitiesSection({ navigate, compact = false }) {
           </div>
           <div className="university-card-rail" ref={universityRailRef}>
           {partnerUniversities.map((university, index) => (
-            <Link
-              className="university-card"
+            <button
+              type="button"
+              className={selectedUniversity?.name === university.name ? "university-card active" : "university-card"}
               key={university.name}
-              to={universityPath(university)}
-              navigate={navigate}
+              onClick={() => setSelectedUniversity(university)}
+              aria-expanded={selectedUniversity?.name === university.name}
             >
               <div className="university-card-top">
                 <span className="university-logo-plaque" aria-label={`${university.name} logo`}>
@@ -1385,10 +1387,72 @@ function UniversitiesSection({ navigate, compact = false }) {
               <h3>{university.name}</h3>
               <p>{university.overview}</p>
               <span className="university-detail">View university details <ArrowRight size={15} /></span>
-            </Link>
+            </button>
           ))}
           </div>
         </div>
+        {selectedUniversity && (
+          <div className="university-detail-panel reveal visible" role="region" aria-label={`${selectedUniversity.name} pathway details`}>
+            <div className="university-detail-heading">
+              <div>
+                <span className="university-type">Partner institution · {selectedUniversity.country}</span>
+                <h3>{selectedUniversity.name}</h3>
+                <p>{selectedUniversity.focus}</p>
+              </div>
+              <button className="university-detail-close" type="button" aria-label="Close university details" onClick={() => setSelectedUniversity(null)}>
+                <X size={18} aria-hidden="true" />
+              </button>
+            </div>
+            <div className="university-program-stats" aria-label={`${selectedUniversity.name} DBA facts`}>
+              <article>
+                <span>Duration</span>
+                <strong>{selectedUniversity.duration}</strong>
+              </article>
+              <article>
+                <span>Delivery</span>
+                <strong>{selectedUniversity.delivery}</strong>
+              </article>
+              <article>
+                <span>Recognition</span>
+                <strong>{selectedUniversity.accreditation}</strong>
+              </article>
+            </div>
+            <div className="university-detail-content">
+              <article>
+                <strong>Eligibility discussed during profile review</strong>
+                <ul>
+                  {selectedUniversity.highlights.map((item) => (
+                    <li key={item}><CheckCircle2 size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+              <article>
+                <strong>Course and research areas</strong>
+                <ul>
+                  {selectedUniversity.curriculum.map((item) => (
+                    <li key={item}><BookOpen size={16} aria-hidden="true" />{item}</li>
+                  ))}
+                </ul>
+              </article>
+              <article>
+                <strong>Degrees offered</strong>
+                <div className="degree-badge-list">
+                  {(selectedUniversity.degrees || ["DBA"]).map((degree) => (
+                    <strong key={degree}>{degree}</strong>
+                  ))}
+                </div>
+              </article>
+            </div>
+            <div className="university-detail-actions">
+              <p>Brochure, curriculum, fees, recognition notes and timeline are shared after profile review so candidates receive the correct pathway information.</p>
+              <div className="university-detail-buttons">
+                <DownloadButton file={dbaBrochureUrl} label={`${selectedUniversity.name} DBA Brochure`}><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
+                <DownloadButton file={dbaCurriculumUrl} label={`${selectedUniversity.name} DBA Curriculum`}><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
+                <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+              </div>
+            </div>
+          </div>
+        )}
         {!compact && (
           <div className="university-note reveal">
             <ShieldCheck size={22} aria-hidden="true" />

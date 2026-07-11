@@ -2495,6 +2495,9 @@
    }
    
    .university-card {
+     appearance: none;
+     font: inherit;
+     cursor: pointer;
      flex: 0 0 calc((100% - (var(--university-gap, 1.25rem) * 3)) / 4);
      min-width: 0;
      min-height: 27rem;
