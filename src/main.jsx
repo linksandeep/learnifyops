@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   ArrowRight,
@@ -30,6 +30,8 @@ import "./styles.css";
 
 const logo = "/assets/learnifyops-logo-transparent.png";
 const britInstituteUrl = "https://britinstitute.uk/";
+const dbaBrochureUrl = "/assets/learnifyops-dba-brochure.pdf";
+const dbaCurriculumUrl = "/assets/learnifyops-dba-curriculum-overview.pdf";
 
 const navItems = [
   ["Home", "/"],
@@ -317,6 +319,13 @@ const admissionsSteps = [
   ["Formal Academic Presentation", "Submit your finalized dossier directly to the partner institution for formal board evaluation."]
 ];
 
+const admissionsStats = [
+  ["4", "Partner Institutions"],
+  ["1:1", "Profile Review"],
+  ["DBA", "Doctoral Pathway"],
+  ["100%", "Transparent Guidance"]
+];
+
 const eligibility = [
   "Experienced professionals, management consultants, entrepreneurs, and senior directors",
   "A verified Master's degree, MBA, or equivalent senior-level professional qualification",
@@ -330,6 +339,128 @@ const faq = [
   ["What starting support do I receive for my research topic?", "You don't need a polished proposal. Our team helps you refine your area of interest into a viable doctoral research question during the onboarding phase."],
   ["Which partner universities award the final degree?", "We collaborate with accredited institutions including Birchwood University, Kennedy University, Florida Coastal University, and EMIT. Pathways are selected to fit your background and career goals."],
   ["What is the main difference between an MBA and a DBA?", "An MBA covers broad operational and management principles. A DBA focuses on generating new, original business knowledge through scientific research and applied methodologies."]
+];
+
+const heroCapabilities = [
+  ["AI Training", "Practical learning for automation and modern business workflows"],
+  ["LMS Solutions", "Course delivery, learner progress and resource management"],
+  ["CRM Software", "Lead, admissions and placement pipeline visibility"],
+  ["AI Automation", "Agentic workflows for repetitive operational tasks"],
+  ["Job Assistance", "Resume, interview, applications and placement support"],
+  ["Corporate Training", "Upskilling programs for teams and business functions"]
+];
+
+const trustMetrics = [
+  ["4", "Partner Institutions"],
+  ["1:1", "Admission Review"],
+  ["DBA", "Doctoral Pathway"],
+  ["100%", "Transparent Guidance"],
+  ["Global", "Executive Cohort"],
+  ["Flexible", "Learning Format"]
+];
+
+const academicNetworkSignals = [
+  ["University Partnerships", "Partner institutions guide the academic pathway, admissions review and final degree process."],
+  ["Geographic Presence", "A DBA pathway positioned for professionals comparing options across Europe, the United States, Australia and global markets."],
+  ["Executive Program Design", "Doctoral study structured around working professionals, senior managers, founders and corporate advisors."],
+  ["Recognition Pathways", "Institutional, admission and recognition details are discussed clearly before enrollment."]
+];
+
+const dbaTransformationPaths = [
+  {
+    start: "Corporate Leader",
+    path: "Doctor of Business Administration",
+    outcome: "Board-Level Authority",
+    detail: "Convert leadership experience into applied management research and strategic credibility."
+  },
+  {
+    start: "Founder",
+    path: "DBA Research Pathway",
+    outcome: "Industry Thought Leadership",
+    detail: "Use doctoral research to validate business models, market innovation and organizational growth."
+  },
+  {
+    start: "Senior Professional",
+    path: "Executive Doctorate",
+    outcome: "Academic Standing",
+    detail: "Formalize professional expertise through a recognized doctoral pathway built around practical business application."
+  },
+  {
+    start: "Consultant",
+    path: "Applied Business Research",
+    outcome: "Global Credibility",
+    detail: "Strengthen advisory positioning with a research-driven qualification and international academic context."
+  }
+];
+
+const clientProofTiles = [
+  "Education Providers",
+  "Training Institutes",
+  "Recruitment Teams",
+  "SaaS Startups",
+  "SME Operations",
+  "Corporate L&D"
+];
+
+const learnerJourney = [
+  ["Enroll", "Choose your pathway and complete onboarding."],
+  ["Live Classes", "Learn through structured sessions and guided resources."],
+  ["Projects", "Build practical evidence through real workflow assignments."],
+  ["Mentorship", "Get 1-on-1 guidance for skills, profile and direction."],
+  ["Interview Prep", "Practice, refine your resume and improve confidence."],
+  ["Placement", "Use CRM-backed application tracking and support workflows."],
+  ["Community", "Stay connected through long-term learning and career support."]
+];
+
+const comparisonRows = [
+  ["Recorded-only videos", "Live mentorship with guided support"],
+  ["Theory-heavy learning", "Real projects and workflow implementation"],
+  ["No CRM access", "CRM-style career and admissions tracking"],
+  ["No AI tools", "AI automation included in the ecosystem"],
+  ["No LMS visibility", "Dedicated LMS and progress dashboard"],
+  ["Limited after-course help", "Ongoing career and technology support"]
+];
+
+const ecosystemFlow = [
+  "LMS",
+  "Lead Management CRM",
+  "AI Automation",
+  "Student Portal",
+  "Teacher Portal",
+  "Certificates",
+  "Placement Portal",
+  "WhatsApp AI",
+  "Analytics Dashboard"
+];
+
+const successSnapshots = [
+  {
+    name: "Career Switcher",
+    before: "Unstructured applications",
+    after: "Tracked placement pipeline",
+    outcome: "Resume, interview prep and auto-apply workflow support"
+  },
+  {
+    name: "Working Professional",
+    before: "Manual learning progress",
+    after: "LMS-led milestones",
+    outcome: "Clear modules, resources and progress visibility"
+  },
+  {
+    name: "Small Business Team",
+    before: "Spreadsheet-based follow-up",
+    after: "CRM + automation workflow",
+    outcome: "Lead tracking, reminders and productivity improvements"
+  }
+];
+
+const companyTimeline = [
+  ["Foundation", "Built around education, placement and digital operations support."],
+  ["Student Programs", "Expanded into certification programs and career-readiness workflows."],
+  ["CRM Launch", "Introduced lead, admissions and placement tracking systems."],
+  ["LMS Launch", "Centralized learner resources, progress and delivery management."],
+  ["AI Automation", "Added auto-apply, resume, learning and workflow automation tools."],
+  ["Global Expansion", "Positioned services for international learners and business clients."]
 ];
 
 function normalisePath(pathname) {
@@ -382,11 +513,41 @@ function BrandLogo() {
 function Header({ path, navigate }) {
   const [open, setOpen] = useState(false);
   const [openMega, setOpenMega] = useState(null);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     setOpen(false);
     setOpenMega(null);
   }, [path]);
+
+  useEffect(() => {
+    const closeOnScroll = () => {
+      setOpen(false);
+      setOpenMega(null);
+    };
+
+    const closeOnOutsidePointer = (event) => {
+      if (!headerRef.current?.contains(event.target)) {
+        closeOnScroll();
+      }
+    };
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") {
+        closeOnScroll();
+      }
+    };
+
+    window.addEventListener("scroll", closeOnScroll, { passive: true, capture: true });
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      window.removeEventListener("scroll", closeOnScroll, { capture: true });
+      document.removeEventListener("pointerdown", closeOnOutsidePointer);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
 
   const closeMenus = () => {
     setOpen(false);
@@ -394,7 +555,7 @@ function Header({ path, navigate }) {
   };
 
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef} onMouseLeave={() => setOpenMega(null)}>
       <div className="global-bar">
         <div className="container global-bar-inner">
           <span className="global-brandline"><Globe2 size={14} aria-hidden="true" /> Brit Institute Education Ecosystem</span>
@@ -407,11 +568,16 @@ function Header({ path, navigate }) {
           <BrandLogo />
         </Link>
         <div className={open ? "nav-links open" : "nav-links"} id="primary-navigation">
-          <Link to="/" navigate={navigate} className={path === "/" ? "active" : undefined} onNavigate={closeMenus}>
+          <Link to="/" navigate={navigate} className={path === "/" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
             Home
           </Link>
           {megaMenus.map((menu) => (
-            <div className="mega-nav-item" key={menu.key}>
+            <div
+              className="mega-nav-item"
+              key={menu.key}
+              onMouseEnter={() => setOpenMega(menu.key)}
+              onFocus={() => setOpenMega(menu.key)}
+            >
               <button
                 className={openMega === menu.key ? "mega-trigger active" : "mega-trigger"}
                 type="button"
@@ -424,11 +590,11 @@ function Header({ path, navigate }) {
               <MegaMenu id={`mega-${menu.key}`} menu={menu} navigate={navigate} open={openMega === menu.key} onNavigate={closeMenus} />
             </div>
           ))}
-          <Link to="/partnership" navigate={navigate} className={path === "/partnership" ? "active" : undefined} onNavigate={closeMenus}>
+          <Link to="/partnership" navigate={navigate} className={path === "/partnership" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
             Universities
           </Link>
         </div>
-        <Link className="header-cta" to="/contact" navigate={navigate}>
+        <Link className="header-cta" to="/contact" navigate={navigate} onMouseEnter={() => setOpenMega(null)}>
           Request Prospectus <ArrowRight size={16} aria-hidden="true" />
         </Link>
         <button
@@ -493,6 +659,20 @@ function SecondaryButton({ to, navigate, children }) {
   return <Link className="btn btn-secondary" to={to} navigate={navigate}>{children}</Link>;
 }
 
+function DownloadButton({ file, label, className = "", children }) {
+  const openGate = () => {
+    window.dispatchEvent(new CustomEvent("learnifyops:download-gate", {
+      detail: { file, label }
+    }));
+  };
+
+  return (
+    <button className={`download-gate-trigger ${className}`.trim()} type="button" onClick={openGate}>
+      {children || label}
+    </button>
+  );
+}
+
 function SectionIntro({ eyebrow, icon, title, text, align = "center" }) {
   return (
     <div className={`section-intro ${align === "left" ? "left" : ""} reveal`}>
@@ -508,18 +688,13 @@ function HomeHero({ navigate }) {
     <section className="home-hero">
       <div className="container home-hero-grid">
         <div className="hero-copy reveal visible">
-          <Eyebrow icon={GraduationCap}>Prestigious Global Executive Doctorate</Eyebrow>
-          <h1>Forge Strategic Leadership Beyond The <span>Boardroom.</span></h1>
-          <p className="hero-lead">LearnifyOps integrates high-caliber Doctor of Business Administration pathways, enterprise AI learning software, dedicated placement engines, and systems automation to empower professionals and enterprises globally.</p>
-          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>Four accredited international partner universities and a technology-driven student success ecosystem.</span></div>
+          <Eyebrow icon={GraduationCap}>Doctor of Business Administration</Eyebrow>
+          <h1>Earn a DBA pathway built for <span>global executive authority.</span></h1>
+          <p className="hero-lead">LearnifyOps helps experienced managers, founders, consultants and senior professionals compare international DBA pathways, review admissions fit and prepare for research-led business credibility.</p>
+          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>Partner-university DBA admissions guidance with transparent pathway, curriculum and recognition discussions before enrollment.</span></div>
           <div className="hero-actions">
-            <PrimaryButton to="/contact" navigate={navigate}>Request Prospectus</PrimaryButton>
-            <SecondaryButton to="/admissions" navigate={navigate}>Check Your Profile</SecondaryButton>
-          </div>
-          <div className="hero-proof" aria-label="Program highlights">
-            <span><strong>DBA Doctorate</strong>Scholarly Research</span>
-            <span><strong>4 Partners</strong>Accredited Pathways</span>
-            <span><strong>AI Ecosystem</strong>Career Acceleration</span>
+            <PrimaryButton to="/contact" navigate={navigate}>Book DBA Consultation</PrimaryButton>
+            <DownloadButton className="btn btn-secondary" file={dbaBrochureUrl} label="DBA Brochure">Download Brochure</DownloadButton>
           </div>
         </div>
         <div className="hero-visual reveal visible">
@@ -529,6 +704,241 @@ function HomeHero({ navigate }) {
             <strong>Doctoral thesis targeting actual market disruption.</strong>
             <small>London · New York · Sydney · Worldwide</small>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GlobalAcademicNetworkSection({ navigate }) {
+  return (
+    <section className="section academic-network-section">
+      <div className="container academic-network-layout">
+        <div className="academic-network-copy reveal">
+          <Eyebrow icon={Globe2}>Global Academic Network</Eyebrow>
+          <h2>Academic partnerships and institutional signals should be visible before enrollment.</h2>
+          <p>University partnerships, geographic relevance, candidate community and recognition pathways are presented clearly from the first DBA consultation.</p>
+          <PrimaryButton to="/partnership" navigate={navigate}>Explore Partner Universities</PrimaryButton>
+        </div>
+        <div className="academic-network-panel reveal">
+          {academicNetworkSignals.map(([title, text]) => (
+            <article key={title}>
+              <span><CheckCircle2 size={17} aria-hidden="true" /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div className="container academic-logo-marquee reveal" aria-label="Partner institutions">
+        {partnerUniversities.concat(partnerUniversities).map((university, index) => (
+          <span key={`${university.name}-${index}`}>{university.name}</span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function DbaTransformationSection({ navigate }) {
+  return (
+    <section className="section dba-transformation-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="The Transformation Journey"
+          icon={Target}
+          title="From professional achievement to global academic credibility."
+          text="Professionals do not invest in a DBA only for a title. They invest in credibility, authority, recognition and a more research-driven professional identity."
+        />
+        <div className="dba-path-grid">
+          {dbaTransformationPaths.map((item) => (
+            <article className="dba-path-card reveal" key={item.start}>
+              <span>Starting Point</span>
+              <h3>{item.start}</h3>
+              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
+              <span>Pathway</span>
+              <h4>{item.path}</h4>
+              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
+              <span>Outcome</span>
+              <strong>{item.outcome}</strong>
+              <p>{item.detail}</p>
+            </article>
+          ))}
+        </div>
+        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Find Your DBA Path</PrimaryButton></div>
+      </div>
+    </section>
+  );
+}
+
+function TrustIndicatorsSection() {
+  return (
+    <section className="trust-strip">
+      <div className="container trust-grid">
+        {trustMetrics.map(([value, label]) => (
+          <article key={label}>
+            <strong>{value}</strong>
+            <span>{label}</span>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ClientProofSection() {
+  return (
+    <section className="section section-white proof-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Audience Fit"
+          icon={ShieldCheck}
+          title="Built for education teams, business operators and placement-focused programs."
+          text="This section shows the real audience categories LearnifyOps serves without using Brit Institute reviews or unsupplied client claims."
+        />
+        <div className="client-logo-grid">
+          {clientProofTiles.map((item) => (
+            <article className="client-logo-tile reveal" key={item}>
+              <span>{item.split(" ").map((word) => word[0]).join("")}</span>
+              <strong>{item}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LearningJourneySection() {
+  return (
+    <section className="section section-sky journey-path-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Learner Journey"
+          icon={Target}
+          title="A clear path from enrolment to placement readiness."
+          text="Visitors understand the process quickly when the learning, mentorship and placement flow is visible."
+        />
+        <div className="learning-journey">
+          {learnerJourney.map(([title, text], index) => (
+            <article className="journey-step reveal" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyChooseSection() {
+  return (
+    <section className="section section-white comparison-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Why Choose LearnifyOps"
+          icon={Award}
+          title="More than a course platform — a training, technology and placement ecosystem."
+        />
+        <div className="comparison-table reveal">
+          <div className="comparison-head"><span>Typical platforms</span><span>LearnifyOps</span></div>
+          {comparisonRows.map(([others, learnify]) => (
+            <div className="comparison-row" key={others}>
+              <span>{others}</span>
+              <strong><CheckCircle2 size={17} aria-hidden="true" />{learnify}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EcosystemMapSection({ navigate }) {
+  return (
+    <section className="section ecosystem-map-section">
+      <div className="container ecosystem-layout">
+        <div className="ecosystem-copy reveal">
+          <Eyebrow icon={Network}>LearnifyOps Ecosystem</Eyebrow>
+          <h2>One connected product suite for learning, automation and placement operations.</h2>
+          <p>Visitors should immediately see that LearnifyOps is not just training. It combines LMS delivery, CRM visibility, AI automation, portals, certificates and analytics into one operating model.</p>
+          <PrimaryButton to="/contact" navigate={navigate}>Talk to an Expert</PrimaryButton>
+        </div>
+        <div className="ecosystem-device reveal" aria-label="Interactive dashboard preview">
+          <div className="device-top"><span /><span /><span /></div>
+          <div className="device-screen">
+            <aside>
+              <strong>Dashboard</strong>
+              <span>CRM</span>
+              <span>LMS</span>
+              <span>AI Jobs</span>
+              <span>Analytics</span>
+            </aside>
+            <main>
+              <div className="screen-chart"><span style={{ height: "54%" }} /><span style={{ height: "76%" }} /><span style={{ height: "42%" }} /><span style={{ height: "88%" }} /></div>
+              <div className="screen-cards">
+                <span>Students</span>
+                <span>Leads</span>
+                <span>Placements</span>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+      <div className="container ecosystem-flow reveal">
+        {ecosystemFlow.map((item) => <span key={item}>{item}</span>)}
+      </div>
+    </section>
+  );
+}
+
+function SuccessSnapshotsSection() {
+  return (
+    <section className="section section-white success-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Outcome Frameworks"
+          icon={Users}
+          title="Every learner or business journey should show measurable progress."
+          text="These structured outcome cards explain how LearnifyOps supports career movement, LMS visibility and business productivity without using unverified public-review claims."
+        />
+        <div className="success-grid">
+          {successSnapshots.map((story) => (
+            <article className="success-card reveal" key={story.name}>
+              <div className="success-avatar">{story.name.split(" ").map((word) => word[0]).join("")}</div>
+              <span>{story.name}</span>
+              <h3>{story.outcome}</h3>
+              <div className="success-before-after">
+                <p><strong>Before</strong>{story.before}</p>
+                <p><strong>After</strong>{story.after}</p>
+              </div>
+              <span className="proof-ready">Outcome journey</span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CompanyTimelineSection() {
+  return (
+    <section className="section timeline-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Company Timeline"
+          icon={Clock3}
+          title="From training support to a complete AI-enabled education and technology company."
+        />
+        <div className="company-timeline">
+          {companyTimeline.map(([title, text], index) => (
+            <article className="timeline-item reveal" key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -577,6 +987,14 @@ function ProductEcosystemSection({ navigate }) {
               <span className="product-action">Explore integration <ArrowRight size={15} aria-hidden="true" /></span>
             </Link>
           ))}
+        </div>
+        <div className="brit-institute-note reveal">
+          <div>
+            <span>Brit Institute delivery branch</span>
+            <h3>Certification programs, LMS-enabled learning, mentoring, and placement support are delivered through Brit Institute under the LearnifyOps ecosystem.</h3>
+            <p>LearnifyOps builds the technology and automation ecosystem, while Brit Institute focuses on skill certifications, learner support, LMS access, interview preparation, career mentoring, and placement readiness.</p>
+          </div>
+          <a className="btn btn-primary" href={britInstituteUrl} target="_blank" rel="noreferrer">Visit Brit Institute <ArrowRight size={18} aria-hidden="true" /></a>
         </div>
       </div>
     </section>
@@ -678,11 +1096,15 @@ function UniversitiesSection({ navigate, compact = false }) {
       <div className="container">
         <div className="universities-heading reveal">
           <div>
-            <Building2 size={36} style={{ color: "var(--gold-light)", marginBottom: "16px" }} />
-            <h2>Doctoral pathways matched to accredited global institutions.</h2>
+            <span className="universities-badge"><Building2 size={18} aria-hidden="true" /> Partner Universities</span>
+            <h2>DBA pathways matched to international partner institutions.</h2>
           </div>
           <div className="universities-intro">
-            <p>We work closely with candidates to evaluate qualifications, draft academic profiles, and facilitate direct admissions into leading international universities.</p>
+            <p>Review the partner pathways, compare the DBA focus areas, and download the program brochure and curriculum overview before speaking with an advisor.</p>
+            <div className="universities-downloads">
+              <DownloadButton file={dbaBrochureUrl} label="DBA Brochure"><FileText size={16} aria-hidden="true" /> Download Brochure</DownloadButton>
+              <DownloadButton file={dbaCurriculumUrl} label="DBA Curriculum"><BookOpen size={16} aria-hidden="true" /> Download Curriculum</DownloadButton>
+            </div>
             {compact && <Link className="text-link" to="/partnership" navigate={navigate}>View Partners <ArrowRight size={17} /></Link>}
           </div>
         </div>
@@ -743,7 +1165,11 @@ function UniversitiesSection({ navigate, compact = false }) {
             </div>
             <div className="university-detail-actions">
               <p>Degree awarding, recognition, fees, timeline and final curriculum structure are confirmed during the selected institution’s profile review.</p>
-              <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+              <div className="university-detail-buttons">
+                <DownloadButton file={dbaBrochureUrl} label="DBA Brochure"><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
+                <DownloadButton file={dbaCurriculumUrl} label="DBA Curriculum"><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
+                <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+              </div>
             </div>
           </div>
         )}
@@ -879,12 +1305,12 @@ function TestimonialSection() {
 
 function AdmissionsSection({ navigate }) {
   return (
-    <section className="section section-white">
+    <section className="section admissions-section">
       <div className="container admissions-layout">
         <div className="admissions-copy reveal">
           <Eyebrow icon={ShieldCheck}>Entry Standards</Eyebrow>
-          <h2>Who should apply for the DBA pathway?</h2>
-          <p>Successful candidates demonstrate the intellectual curiosity, analytical capacity, and management maturity required to execute independent empirical research. Every profile is evaluated individually.</p>
+          <h2>Your profile review should confirm fit before you apply.</h2>
+          <p>Before selecting a partner-university DBA pathway, we review your academic background, leadership experience, research direction and documentation readiness. The goal is simple: help you apply only when the route is clear, credible and aligned with your executive goals.</p>
           <ul className="check-list">
             {eligibility.map((item) => <li key={item}><CheckCircle2 size={18} />{item}</li>)}
           </ul>
@@ -893,6 +1319,14 @@ function AdmissionsSection({ navigate }) {
         <div className="admissions-steps reveal">
           {admissionsSteps.map(([title, text], index) => (
             <article key={title}><span>{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+          ))}
+        </div>
+        <div className="admissions-stat-card reveal" aria-label="Admissions support highlights">
+          {admissionsStats.map(([value, label]) => (
+            <article key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </article>
           ))}
         </div>
       </div>
@@ -922,8 +1356,8 @@ function ContactSection({ handleSubmit, formState, formStatus }) {
           <h2>Schedule a confidential profiles discussion.</h2>
           <p>Share your academic background, research interests, or corporate tech consulting requirements. An expert will guide you through credit reviews, university pathways, and deployment timelines.</p>
           <div className="contact-lines">
-            <a href="mailto:info@learnifyops.com"><Mail size={18} />contact@learnifyops.com</a>
-            <a href="tel:+447520664011"><Phone size={18} />+44 7520 664011</a>
+            <a href="mailto:info@learnifyops.com"><Mail size={18} />info@learnifyops.com</a>
+            <a href="tel:+447447177848"><Phone size={18} />+44 7447 177848</a>
             <span><MapPin size={18} />United Kingdom & India Admissions Support Office</span>
             <span><Globe2 size={18} />Consultations scheduled across UK, USA, Australia, and Middle East time zones.</span>
           </div>
@@ -948,11 +1382,11 @@ function ContactSection({ handleSubmit, formState, formStatus }) {
   );
 }
 
-function FinalCta({ navigate }) {
+function FinalCta({ navigate, tone = "doctoral", title = "Accelerate your leadership with a research-driven DBA pathway." }) {
   return (
-    <section className="final-cta">
+    <section className={`final-cta final-cta-${tone}`}>
       <div className="container final-cta-inner reveal">
-        <div><Eyebrow icon={GraduationCap}>Academic Onboarding</Eyebrow><h2>Accelerate your leadership with doctoral research and enterprise software tools.</h2></div>
+        <div><Eyebrow icon={GraduationCap}>Academic Onboarding</Eyebrow><h2>{title}</h2></div>
         <div className="final-actions">
           <PrimaryButton to="/contact" navigate={navigate}>Consult An Advisor</PrimaryButton>
           <SecondaryButton to="/program" navigate={navigate}>View Program Details</SecondaryButton>
@@ -962,16 +1396,118 @@ function FinalCta({ navigate }) {
   );
 }
 
+function DownloadGateModal({ request, onClose }) {
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
+
+  if (!request) return null;
+
+  const triggerDownload = () => {
+    const link = document.createElement("a");
+    link.href = request.file;
+    link.download = request.file.split("/").pop() || request.label;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  };
+
+  const handleDownloadLead = async (event) => {
+    event.preventDefault();
+    setStatus("saving");
+    setMessage("Saving your details...");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get("name")?.toString().trim(),
+      email: formData.get("email")?.toString().trim(),
+      phone: formData.get("phone")?.toString().trim(),
+      document: request.label,
+      source: "download_gate",
+      page: window.location.pathname,
+      consent: formData.get("consent") === "on",
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      const previous = JSON.parse(localStorage.getItem("learnifyops-download-leads") || "[]");
+      localStorage.setItem("learnifyops-download-leads", JSON.stringify([...previous, payload]));
+    } catch {
+      // Local storage can be unavailable in strict browser modes; the form should still work.
+    }
+
+    try {
+      await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          interest: `Download: ${request.label}`,
+          message: `Requested ${request.label} from ${window.location.pathname}`
+        })
+      });
+    } catch {
+      // If the API is not available in the static build, keep the gated download flow working.
+    }
+
+    setStatus("success");
+    setMessage("Thank you. Your download is starting now.");
+    triggerDownload();
+    window.setTimeout(onClose, 900);
+  };
+
+  return (
+    <div className="download-modal-backdrop" role="presentation">
+      <div className="download-modal" role="dialog" aria-modal="true" aria-labelledby="download-modal-title">
+        <button className="download-modal-close" type="button" onClick={onClose} aria-label="Close download form">
+          <X size={18} aria-hidden="true" />
+        </button>
+        <Eyebrow icon={FileText}>Before Download</Eyebrow>
+        <h2 id="download-modal-title">Enter your details to download the {request.label}.</h2>
+        <p>We use this information to share DBA admissions guidance and follow up on your program enquiry.</p>
+        <form className="download-form" onSubmit={handleDownloadLead}>
+          <label htmlFor="download-name">Full name</label>
+          <input id="download-name" name="name" type="text" autoComplete="name" required placeholder="Your name" />
+          <label htmlFor="download-email">Email address</label>
+          <input id="download-email" name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
+          <label htmlFor="download-phone">Phone number</label>
+          <input id="download-phone" name="phone" type="tel" autoComplete="tel" required placeholder="+44 / +91 / +1..." />
+          <label className="consent-row" htmlFor="download-consent">
+            <input id="download-consent" name="consent" type="checkbox" required />
+            <span>I consent to be contacted about the DBA program and document I requested.</span>
+          </label>
+          <button className="btn btn-primary" type="submit" disabled={status === "saving"}>
+            {status === "saving" ? "Preparing..." : `Download ${request.label}`} <ArrowRight size={18} aria-hidden="true" />
+          </button>
+          {message && <p className={`download-status ${status}`}>{message}</p>}
+        </form>
+      </div>
+    </div>
+  );
+}
+
 function HomePage({ navigate }) {
-  return <><HomeHero navigate={navigate} /><ProgramFacts /><ProductEcosystemSection navigate={navigate} /><TechnologyServicesSection navigate={navigate} /><ValueSection /><UniversitiesSection navigate={navigate} compact /><ResearchSection navigate={navigate} /><JourneySection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return (
+    <>
+      <HomeHero navigate={navigate} />
+      <TrustIndicatorsSection />
+      <GlobalAcademicNetworkSection navigate={navigate} />
+      <ProgramFacts />
+      <DbaTransformationSection navigate={navigate} />
+      <ValueSection />
+      <UniversitiesSection navigate={navigate} compact />
+      <ResearchSection navigate={navigate} />
+      <AudienceSection navigate={navigate} />
+      <FinalCta navigate={navigate} />
+    </>
+  );
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research for organizational execution" title="Earn a doctoral degree designed around corporate decision-making." text="Combine quantitative research methodologies with strategic reflection in an accredited, modular DBA pathway structured for busy leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research for organizational execution" title="Earn a doctoral degree designed around corporate decision-making." text="Combine quantitative research methodologies with strategic reflection in an accredited, modular DBA pathway structured for busy leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
 }
 
 function CurriculumPage({ navigate }) {
-  return <><PageHero eyebrow="Curriculum Framework" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Empirical study, strategic value" title="Modular coursework leading to a defense-ready dissertation." text="Formulate frameworks, collect datasets, and author new management insights that address live market bottlenecks." /><CurriculumSection /><JourneySection /><ProductEcosystemSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Curriculum Framework" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Empirical study, strategic value" title="Modular coursework leading to a defense-ready dissertation." text="Review the DBA structure, research milestones, dissertation preparation and academic support available through the partner pathway selected during admissions." /><CurriculumSection /><JourneySection /><FinalCta navigate={navigate} tone="curriculum" title="Review the DBA curriculum before choosing your pathway." /></>;
 }
 
 function PageHeroImmersive({ eyebrow, icon, title, text, image, caption = "Global DBA pathway" }) {
@@ -993,19 +1529,19 @@ function PageHeroImmersive({ eyebrow, icon, title, text, image, caption = "Globa
 }
 
 function ExperiencePage({ navigate }) {
-  return <><PageHeroImmersive eyebrow="Executive Experience" icon={Network} image="/assets/dba-experience-hero-v2.jpg" caption="Prestigious global network" title="Global cohorts. Peer critiques. Modular flexibility." text="Study alongside directors, consultants, and founders who bring valuable operational data and strategic insight into the learning ecosystem." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><TechnologyServicesSection navigate={navigate} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Executive Experience" icon={Network} tone="executive" image="/assets/dba-experience-hero-v2.jpg" caption="Global DBA peer network" title="Learn within a globally connected executive cohort." text="The DBA experience is built for senior professionals who want academic structure, peer critique, flexible milestones and research conversations connected to real executive practice." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} tone="network" title="Join a DBA pathway designed for senior professional momentum." /></>;
 }
 
 function AdmissionsPage({ navigate }) {
-  return <><PageHero eyebrow="Admissions Profile" icon={ShieldCheck} tone="warm" image="/assets/dba-admissions-hero-v2.jpg" caption="Rigorous, personalized screening" title="Your leadership background is the primary dataset for doctoral study." text="Schedule an initial profile assessment with an advisor to verify qualifications, review transfer credits, and align academic interests." /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Admissions Profile" icon={ShieldCheck} tone="warm" image="/assets/dba-admissions-hero-v2.jpg" caption="Rigorous, personalized screening" title="Start with a profile review before selecting your DBA pathway." text="Share your academic background, leadership experience and research goals so an advisor can confirm fit, documentation requirements and partner-university options." /><AdmissionsSection navigate={navigate} /><FaqSection /><FinalCta navigate={navigate} tone="admissions" title="Start with a profile review before selecting a DBA pathway." /></>;
 }
 
 function PartnershipPage({ navigate }) {
-  return <><PageHero eyebrow="Partner Network" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="International pathways" title="Admissions matched directly to your career destination." text="Explore our network of accredited universities, then work with our advisors to prepare a dossier that secures admissions into the right program." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="Admissions Consulting" icon={Globe2} title="A structured process from qualification review to formal enrollment." text="We remove administrative complexity, helping you select a pathway, write research topics, and gather professional recommendations." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Accredited Matching</h3><p>Verify that your awarded credentials hold academic value across global jurisdictions.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Onboarding Counsel</h3><p>Draft research objectives and statements of motivation that align with faculty interests.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>Institutional Reviews</h3><p>Compare modular schedules, credit requirements, and fees across four partner institutions.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Guaranteed Transparency</h3><p>Obtain clear advice on degree awarding, academic recognition, and program costs before applying.</p></article></div></div></section><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Partner Network" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="International pathways" title="Admissions matched directly to your career destination." text="Explore our network of accredited universities, then work with our advisors to prepare a dossier that secures admissions into the right program." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="Admissions Consulting" icon={Globe2} title="A structured process from qualification review to formal enrollment." text="We remove administrative complexity, helping you select a pathway, write research topics, and gather professional recommendations." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Accredited Matching</h3><p>Verify that your awarded credentials hold academic value across global jurisdictions.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Onboarding Counsel</h3><p>Draft research objectives and statements of motivation that align with faculty interests.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>Institutional Reviews</h3><p>Compare modular schedules, credit requirements, and fees across four partner institutions.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Guaranteed Transparency</h3><p>Obtain clear advice on degree awarding, academic recognition, and program costs before applying.</p></article></div></div></section><FinalCta navigate={navigate} tone="partner" title="Compare partner institutions before you commit to a DBA route." /></>;
 }
 
 function ContactPage({ navigate, contactProps }) {
-  return <><PageHero eyebrow="Advisor Consultation" icon={Mail} tone="contact" image="/assets/dba-contact-hero-v2.jpg" caption="Start with a profile review" title="Explore executive pathways and corporate software options." text="Schedule a consultation with an advisor to review credentials, request prospectus documents, or discuss enterprise SaaS integrations." /><ContactSection {...contactProps} /><FinalCta navigate={navigate} /></>;
+  return <><PageHero eyebrow="Advisor Consultation" icon={Mail} tone="contact" image="/assets/dba-contact-hero-v2.jpg" caption="Start with a profile review" title="Explore DBA admissions pathways with an academic advisor." text="Schedule a consultation to review your credentials, request DBA prospectus documents, and understand the right partner-university pathway for your goals." /><ContactSection {...contactProps} /><FinalCta navigate={navigate} tone="contact" title="Start your DBA consultation with clarity and confidence." /></>;
 }
 
 function Footer({ navigate }) {
@@ -1014,7 +1550,7 @@ function Footer({ navigate }) {
       <div className="container footer-grid">
         <div className="footer-main">
           <Link className="footer-brand" to="/" navigate={navigate}><BrandLogo /></Link>
-          <p>LearnifyOps offers prestigious DBA program guidance, enterprise AI systems, and operations software integration for global students and enterprises.</p>
+          <p>LearnifyOps provides DBA pathway guidance, admissions review, partner-university comparison, and academic onboarding support for experienced professionals.</p>
           <span className="footer-disclaimer">University selection, course syllabi, fees, and awarding models are confirmed during the admissions process.</span>
         </div>
         <div className="footer-links">
@@ -1030,7 +1566,7 @@ function Footer({ navigate }) {
           <Link to="/contact" navigate={navigate}>Book Discussion</Link>
         </div>
       </div>
-      <div className="container footer-bottom"><span>Copyright 2026 LearnifyOps. All rights reserved.</span><span>DBA Pathways · Enterprise Systems · Tech Consulting</span></div>
+      <div className="container footer-bottom"><span>Copyright 2026 LearnifyOps. All rights reserved.</span><span>DBA Pathways · Partner Universities · Admissions Guidance</span></div>
     </footer>
   );
 }
@@ -1040,6 +1576,7 @@ function App() {
   const [formStatus, setFormStatus] = useState("");
   const [formState, setFormState] = useState("idle");
   const [cookieDismissed, setCookieDismissed] = useState(() => localStorage.getItem("learnifyops-cookie-note") === "dismissed");
+  const [downloadRequest, setDownloadRequest] = useState(null);
 
   useEffect(() => {
     document.querySelectorAll(".reveal").forEach((element) => element.classList.remove("visible"));
@@ -1059,6 +1596,12 @@ function App() {
     const page = navItems.find(([, route]) => route === path)?.[0] || "Home";
     document.title = path === "/" ? "Global DBA Program | LearnifyOps" : `${page} | LearnifyOps`;
   }, [path]);
+
+  useEffect(() => {
+    const openDownloadGate = (event) => setDownloadRequest(event.detail);
+    window.addEventListener("learnifyops:download-gate", openDownloadGate);
+    return () => window.removeEventListener("learnifyops:download-gate", openDownloadGate);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -1108,6 +1651,7 @@ function App() {
       <a className="skip-link" href="#main">Skip to content</a>
       <Header path={path} navigate={navigate} />
       <main id="main">{pages[path] || pages["/"]}</main>
+      <DownloadGateModal request={downloadRequest} onClose={() => setDownloadRequest(null)} />
       {!cookieDismissed && (
         <div className="cookie-note" role="region" aria-label="Cookie notice">
           <p><strong>GDPR Statement:</strong> This website uses local storage exclusively for session performance. No marketing cookies are active.</p>
