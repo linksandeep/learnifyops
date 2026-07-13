@@ -1,0 +1,23 @@
+{
+  "name": "LearnifyOps",
+  "short_name": "LearnifyOps",
+  "description": "International DBA pathway guidance, admissions support and partner-university comparison for experienced professionals.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#f0a51f",
+  "icons": [
+    {
+      "src": "/assets/learnifyops-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/learnifyops-logo-transparent.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

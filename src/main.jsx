@@ -29,6 +29,8 @@ import {
 import "./styles.css";
 
 const logo = "/assets/learnifyops-logo-transparent.png";
+const siteUrl = "https://learnifyops.com";
+const siteLogo = `${siteUrl}/assets/learnifyops-logo-transparent.png`;
 const britInstituteUrl = "https://britinstitute.uk/";
 const dbaBrochureUrl = "/assets/learnifyops-dba-brochure.pdf";
 const dbaCurriculumUrl = "/assets/learnifyops-dba-curriculum-overview.pdf";
@@ -651,6 +653,127 @@ function normalisePath(pathname) {
   const clean = pathname.replace(/\/$/, "") || "/";
   if (getUniversityByPath(clean)) return clean;
   return navItems.some(([, path]) => path === clean) ? clean : "/";
+}
+
+const defaultSeo = {
+  title: "International DBA Program Pathways | LearnifyOps",
+  description: "LearnifyOps helps experienced professionals, executives and entrepreneurs explore international Doctor of Business Administration pathways, partner universities, admissions guidance and flexible doctoral study options for India, Europe, the USA, the UK and Australia.",
+  keywords: "Doctor of Business Administration, DBA program, DBA for Indian executives, online DBA India, international DBA, executive DBA, global DBA, DBA partner universities, DBA admissions guidance"
+};
+
+const seoByPath = {
+  "/": defaultSeo,
+  "/program": {
+    title: "Doctor of Business Administration Program | LearnifyOps",
+    description: "Explore a flexible Doctor of Business Administration pathway for experienced professionals seeking executive growth, research-led business expertise and international academic positioning.",
+    keywords: "DBA program, Doctor of Business Administration program, executive DBA, DBA for working professionals, international business doctorate"
+  },
+  "/curriculum": {
+    title: "DBA Curriculum and Research Framework | LearnifyOps",
+    description: "Review DBA curriculum themes including executive leadership, business research, governance, strategy, organizational transformation and applied doctoral research.",
+    keywords: "DBA curriculum, Doctor of Business Administration subjects, DBA research, executive leadership curriculum, business doctorate modules"
+  },
+  "/experience": {
+    title: "Global DBA Experience for Executives | LearnifyOps",
+    description: "Learn how global cohorts, peer critique, flexible milestones and advisor-led research support help experienced professionals complete doctoral study.",
+    keywords: "global DBA cohort, executive doctoral experience, flexible DBA, DBA for senior managers, DBA Europe USA Australia India"
+  },
+  "/admissions": {
+    title: "DBA Admissions and Profile Review | LearnifyOps",
+    description: "Start a confidential DBA profile review to assess eligibility, professional experience, admissions fit, partner university options and next steps.",
+    keywords: "DBA admissions, DBA eligibility, DBA profile review, Doctor of Business Administration admission India, DBA application support"
+  },
+  "/partnership": {
+    title: "DBA Partner Universities | LearnifyOps",
+    description: "Compare LearnifyOps partner university pathways for DBA, PhD and honorary doctorate routes, including curriculum focus, delivery model and admissions guidance.",
+    keywords: "DBA partner universities, international DBA universities, Kennedy University DBA, Birchwood University DBA, Florida Coastal University DBA, EMIT DBA"
+  },
+  "/contact": {
+    title: "Request DBA Prospectus and Consultation | LearnifyOps",
+    description: "Request a DBA prospectus, curriculum overview or confidential advisor consultation for international doctoral pathway guidance.",
+    keywords: "request DBA prospectus, DBA brochure, DBA consultation, DBA advisor, doctoral admissions guidance"
+  }
+};
+
+function setHeadTag(selector, attribute, value) {
+  if (!value) return;
+  let element = document.head.querySelector(selector);
+  if (!element) {
+    element = document.createElement(selector.startsWith("meta") ? "meta" : "link");
+    const match = selector.match(/\[(name|property|rel)="([^"]+)"\]/);
+    if (match) element.setAttribute(match[1], match[2]);
+    document.head.appendChild(element);
+  }
+  element.setAttribute(attribute, value);
+}
+
+function setJsonLd(id, data) {
+  let script = document.getElementById(id);
+  if (!script) {
+    script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = id;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(data);
+}
+
+function buildSeo(path) {
+  const university = getUniversityByPath(path);
+  if (university) {
+    return {
+      title: `${university.programTitle} | LearnifyOps Partner University`,
+      description: `${university.programTitle}: ${university.overview} Review duration, delivery, eligibility, curriculum highlights and admissions guidance.`,
+      keywords: `${university.name}, ${university.programTitle}, DBA university, Doctor of Business Administration, ${university.focus}, international DBA`,
+      url: `${siteUrl}${universityPath(university)}`,
+      type: "article",
+      university
+    };
+  }
+
+  return {
+    ...(seoByPath[path] || defaultSeo),
+    url: `${siteUrl}${path === "/" ? "/" : path}`,
+    type: "website"
+  };
+}
+
+function applySeo(path) {
+  const seo = buildSeo(path);
+  document.title = seo.title;
+  setHeadTag('meta[name="description"]', "content", seo.description);
+  setHeadTag('meta[name="keywords"]', "content", seo.keywords);
+  setHeadTag('link[rel="canonical"]', "href", seo.url);
+  setHeadTag('meta[property="og:title"]', "content", seo.title);
+  setHeadTag('meta[property="og:description"]', "content", seo.description);
+  setHeadTag('meta[property="og:url"]', "content", seo.url);
+  setHeadTag('meta[property="og:type"]', "content", seo.type);
+  setHeadTag('meta[property="og:image"]', "content", siteLogo);
+  setHeadTag('meta[property="og:image:alt"]', "content", "LearnifyOps logo");
+  setHeadTag('meta[name="twitter:title"]', "content", seo.title);
+  setHeadTag('meta[name="twitter:description"]', "content", seo.description);
+  setHeadTag('meta[name="twitter:image"]', "content", siteLogo);
+
+  setJsonLd("learnifyops-page-schema", {
+    "@context": "https://schema.org",
+    "@type": seo.university ? "Course" : "WebPage",
+    "name": seo.title,
+    "description": seo.description,
+    "url": seo.url,
+    "image": siteLogo,
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "LearnifyOps",
+      "url": siteUrl,
+      "logo": siteLogo
+    },
+    ...(seo.university ? {
+      "educationalLevel": "Doctoral",
+      "courseMode": seo.university.delivery,
+      "about": seo.university.focus,
+      "timeRequired": seo.university.duration
+    } : {})
+  });
 }
 
 function useRoute() {
@@ -1970,9 +2093,7 @@ function App() {
   }, [path]);
 
   useEffect(() => {
-    const university = getUniversityByPath(path);
-    const page = university?.name || navItems.find(([, route]) => route === path)?.[0] || "Home";
-    document.title = path === "/" ? "Global DBA Program | LearnifyOps" : `${page} | LearnifyOps`;
+    applySeo(path);
   }, [path]);
 
   useEffect(() => {
