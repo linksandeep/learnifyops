@@ -436,7 +436,7 @@ const valuePillars = [
   },
   {
     icon: Network,
-    title: "Global Cohort Network",
+    title: "Global Executive Network",
     text: "Collaborate alongside an international network of senior managers, founders, and industry champions representing global markets."
   }
 ];
@@ -532,7 +532,7 @@ const trustMetrics = [
   ["1:1", "Admission Review"],
   ["DBA", "Doctoral Pathway"],
   ["100%", "Transparent Guidance"],
-  ["Global", "Executive Cohort"],
+  ["Global", "Executive Network"],
   ["Flexible", "Learning Format"]
 ];
 
@@ -675,8 +675,8 @@ const seoByPath = {
   },
   "/experience": {
     title: "Global DBA Experience for Executives | LearnifyOps",
-    description: "Learn how global cohorts, peer critique, flexible milestones and advisor-led research support help experienced professionals complete doctoral study.",
-    keywords: "global DBA cohort, executive doctoral experience, flexible DBA, DBA for senior managers, DBA Europe USA Australia India"
+    description: "Learn how global peer exchange, critique sessions, flexible milestones and advisor-led research support help experienced professionals complete doctoral study.",
+    keywords: "global DBA network, executive doctoral experience, flexible DBA, DBA for senior managers, DBA Europe USA Australia India"
   },
   "/admissions": {
     title: "DBA Admissions and Profile Review | LearnifyOps",
@@ -1116,14 +1116,18 @@ function DbaTransformationSection({ navigate }) {
         <div className="dba-path-grid">
           {dbaTransformationPaths.map((item) => (
             <article className="dba-path-card reveal" key={item.start}>
-              <span>Starting Point</span>
-              <h3>{item.start}</h3>
-              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
-              <span>Pathway</span>
-              <h4>{item.path}</h4>
-              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
-              <span>Outcome</span>
-              <strong>{item.outcome}</strong>
+              <div className="path-step">
+                <span>Starting Point</span>
+                <h3>{item.start}</h3>
+              </div>
+              <div className="path-step">
+                <span>Pathway</span>
+                <h4>{item.path}</h4>
+              </div>
+              <div className="path-step">
+                <span>Outcome</span>
+                <strong>{item.outcome}</strong>
+              </div>
               <p>{item.detail}</p>
             </article>
           ))}
@@ -1766,10 +1770,10 @@ function CohortSection() {
         <div className="split-copy reveal">
           <Eyebrow icon={Network}>Executive Experience</Eyebrow>
           <h2>Learn within a prestigious, globally connected peer ecosystem.</h2>
-          <p>The LearnifyOps cohort model connects you with executives, founders, and consultants across major trade zones. Collaborate on modules, critique research frameworks, and build lifelong professional relationships.</p>
+          <p>LearnifyOps connects you with executives, founders, and consultants across major trade zones. Collaborate on modules, critique research frameworks, and build lifelong professional relationships.</p>
           <div className="mini-grid">
             <article><Globe2 size={22} /><strong>Global Perspective</strong><span>Examine management trends across US, European, and Asian markets.</span></article>
-            <article><Users size={22} /><strong>C-Suite Cohorts</strong><span>Collaborate alongside experienced founders and corporate directors.</span></article>
+            <article><Users size={22} /><strong>C-Suite Network</strong><span>Collaborate alongside experienced founders and corporate directors.</span></article>
             <article><Clock3 size={22} /><strong>Flexible Milestones</strong><span>Structured deadlines allowing you to continue active employment.</span></article>
             <article><BookOpen size={22} /><strong>Advisor Supervision</strong><span>1-on-1 supervision from research faculty throughout your thesis.</span></article>
           </div>
@@ -1779,7 +1783,7 @@ function CohortSection() {
           <span className="experience-node node-europe">United Kingdom</span>
           <span className="experience-node node-america">North America</span>
           <span className="experience-node node-australia">Australia</span>
-          <span className="experience-node node-global">Global Cohort</span>
+          <span className="experience-node node-global">Global Network</span>
           <div className="experience-quote">
             <Network size={24} aria-hidden="true" />
             <strong>Unified ambition. Global perspective.</strong>
@@ -2029,7 +2033,7 @@ function PageHeroImmersive({ eyebrow, icon, title, text, image, caption = "Globa
 }
 
 function ExperiencePage({ navigate }) {
-  return <><PageHero eyebrow="Executive Experience" icon={Network} tone="executive" image="/assets/dba-experience-hero-v2.jpg" caption="Global DBA peer network" title="Learn within a globally connected executive cohort." text="The DBA experience is built for senior professionals who want academic structure, peer critique, flexible milestones and research conversations connected to real executive practice." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} tone="network" title="Join a DBA pathway designed for senior professional momentum." /></>;
+  return <><PageHero eyebrow="Executive Experience" icon={Network} tone="executive" image="/assets/dba-experience-hero-v2.jpg" caption="Global DBA peer network" title="Learn within a globally connected executive network." text="The DBA experience is built for senior professionals who want academic structure, peer critique, flexible milestones and research conversations connected to real executive practice." /><CohortSection /><TestimonialSection /><AudienceSection navigate={navigate} /><FinalCta navigate={navigate} tone="network" title="Join a DBA pathway designed for senior professional momentum." /></>;
 }
 
 function AdmissionsPage({ navigate }) {
