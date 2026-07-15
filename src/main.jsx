@@ -34,6 +34,12 @@ const siteLogo = `${siteUrl}/assets/learnifyops-logo-transparent.png`;
 const britInstituteUrl = "https://britinstitute.uk/";
 const dbaBrochureUrl = "/assets/learnifyops-dba-brochure.pdf";
 const dbaCurriculumUrl = "/assets/learnifyops-dba-curriculum-overview.pdf";
+const dbaProgramHeroTitles = [
+  "Build doctoral authority for executive leadership.",
+  "Turn executive experience into DBA-level research.",
+  "Earn a DBA built around strategic business decisions.",
+  "Advance with a research-driven DBA pathway."
+];
 
 const navItems = [
   ["Home", "/"],
@@ -1696,7 +1702,7 @@ function AudienceSection({ navigate }) {
   return (
     <section className="section section-sky">
       <div className="container">
-        <SectionIntro eyebrow="Candidate Cohorts" icon={Users} title="Designed for ambitious managers ready to achieve board-level credibility." />
+        <SectionIntro eyebrow="Candidate Fit" icon={Users} title="Designed for ambitious managers ready to achieve board-level credibility." />
         <div className="audience-grid">
           {audience.map(([title, text]) => <article className="audience-card reveal" key={title}><h3>{title}</h3><p>{text}</p></article>)}
         </div>
@@ -1801,7 +1807,7 @@ function TestimonialSection() {
       <div className="container quote-inner reveal">
         <Quote size={36} aria-hidden="true" />
         <blockquote>"A Doctor of Business Administration empowers seasoned executives to conceptualize complex corporate behavior and orchestrate systemic transformation."</blockquote>
-        <p>Strategic Cohort Positioning for Professional Scholars</p>
+        <p>Strategic Peer Positioning for Professional Scholars</p>
       </div>
     </section>
   );
@@ -2007,7 +2013,8 @@ function HomePage({ navigate }) {
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research-led executive doctorate" title="Earn a research-led DBA for executive decision-making." text="Build doctoral-level business authority through structured research, strategic reflection and a flexible pathway designed for experienced working leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
+  const [heroTitle] = useState(() => dbaProgramHeroTitles[Math.floor(Math.random() * dbaProgramHeroTitles.length)]);
+  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research-led executive doctorate" title={heroTitle} text="Build doctoral-level business authority through structured research, strategic reflection and a flexible pathway designed for experienced working leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
 }
 
 function CurriculumPage({ navigate }) {
