@@ -62,7 +62,160 @@
    
      scrollbar-width: thin;
      scrollbar-color: var(--crimson-main) var(--surface-light);
-   }
+}
+
+/* ============================================================
+   Final balance pass: partner universities + compact CTAs
+   Keeps the existing visual language, but fixes oversized/empty layouts.
+   ============================================================ */
+.universities-section {
+  padding-top: clamp(3.25rem, 5vw, 4.75rem);
+  padding-bottom: clamp(3rem, 5vw, 4.25rem);
+}
+
+.universities-heading {
+  align-items: center;
+  gap: clamp(1.5rem, 3.4vw, 3rem);
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.universities-heading h2 {
+  max-width: 12.75ch;
+  margin: 0;
+  font-size: clamp(2rem, 3.45vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.052em;
+}
+
+.universities-badge {
+  margin-bottom: clamp(0.85rem, 1.4vw, 1.15rem);
+}
+
+.universities-intro {
+  align-self: center;
+  max-width: 42rem;
+}
+
+.universities-intro p {
+  margin-bottom: 0.8rem;
+  line-height: 1.55;
+}
+
+.universities-downloads {
+  gap: 0.55rem;
+  margin-bottom: 0.7rem;
+}
+
+.universities-downloads a,
+.universities-downloads .download-gate-trigger {
+  min-height: 2.35rem;
+  padding: 0 0.85rem;
+  font-size: 0.75rem;
+}
+
+.universities-compare-list {
+  gap: 0.45rem;
+  margin: 0.1rem 0 0.65rem;
+}
+
+.universities-compare-list span {
+  min-height: 2.05rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.72rem;
+}
+
+.universities-intro .text-link {
+  margin-top: 0.15rem;
+}
+
+.final-cta {
+  padding: clamp(1.5rem, 4vw, 2.75rem) 0;
+}
+
+.final-cta-inner {
+  min-height: 0;
+  padding: clamp(1.35rem, 3vw, 2.25rem) clamp(1.25rem, 4vw, 3rem);
+  border-radius: clamp(1rem, 2vw, 1.55rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.final-cta-inner::after {
+  right: clamp(-4rem, -4vw, -2rem);
+  bottom: clamp(-4rem, -4vw, -2rem);
+  width: clamp(8rem, 17vw, 14rem);
+  height: clamp(8rem, 17vw, 14rem);
+  border-width: clamp(0.9rem, 2vw, 1.4rem);
+  opacity: 0.45;
+}
+
+.final-cta-inner h2 {
+  max-width: 18ch;
+  font-size: clamp(1.45rem, 2.8vw, 2.65rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.final-cta-inner p {
+  max-width: 44rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.55;
+}
+
+.final-actions {
+  gap: 0.7rem;
+}
+
+.final-actions .btn {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+}
+
+@media (max-width: 900px) {
+  .universities-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .universities-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .universities-heading h2 {
+    max-width: 100%;
+  }
+
+  .universities-intro {
+    max-width: 100%;
+  }
+
+  .universities-compare-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .final-cta-inner {
+    display: grid;
+  }
+
+  .final-actions,
+  .final-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .universities-compare-list {
+    grid-template-columns: 1fr;
+  }
+
+  .universities-downloads a,
+  .universities-downloads .download-gate-trigger {
+    width: 100%;
+    justify-content: center;
+  }
+}
    
    /* ----- SCROLLBAR ----- */
    ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -4143,14 +4296,14 @@
      font-size: clamp(0.8125rem, 0.9vw, 0.90625rem);
    }
 
-   .footer-grid {
-     display: grid;
-     grid-template-columns: minmax(280px, 1.15fr) minmax(150px, 0.58fr) minmax(170px, 0.64fr) minmax(240px, 0.82fr);
-     gap: clamp(1.4rem, 3.2vw, 3.2rem);
-     align-items: start;
-     margin-bottom: clamp(1.35rem, 3vw, 2rem);
-     padding-inline: clamp(0.25rem, 1.2vw, 1rem);
-   }
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.05fr) minmax(130px, 0.48fr) minmax(155px, 0.55fr) minmax(320px, 0.92fr);
+  gap: clamp(1.25rem, 2.8vw, 2.8rem);
+  align-items: start;
+  margin-bottom: clamp(1.35rem, 3vw, 2rem);
+  padding-inline: clamp(0.25rem, 1.2vw, 1rem);
+}
 
    .footer-main {
      max-width: 430px;
@@ -4202,37 +4355,100 @@
      font-size: 0.86rem;
    }
 
-   .footer-contact {
-     gap: 0.72rem;
-     justify-items: start;
-   }
+.footer-contact {
+  gap: 0.72rem;
+  justify-items: stretch;
+}
 
-   .footer-contact-chip {
-     display: inline-flex;
-     align-items: center;
-     gap: 0.55rem;
-     width: 100%;
-     max-width: 260px;
-     padding: 0.58rem 0.76rem;
-     border: 1px solid rgba(255, 255, 255, 0.11);
-     border-radius: 999px;
-     background: rgba(255, 255, 255, 0.045);
-     color: rgba(255, 255, 255, 0.72) !important;
-     font-size: 0.88rem;
-     line-height: 1.2;
-     overflow-wrap: anywhere;
-   }
+.footer-contact-card {
+  width: 100%;
+  max-width: 360px;
+  padding: 0.82rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
 
-   .footer-contact-chip:hover {
-     border-color: rgba(231, 166, 39, 0.34);
-     background: rgba(231, 166, 39, 0.1);
-     color: var(--white) !important;
-   }
+.footer-contact-intro {
+  margin: 0 0 0.72rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
 
-   .footer-contact-chip svg {
-     flex: 0 0 auto;
-     color: var(--gold-light);
-   }
+.footer-contact-list {
+  display: grid;
+  gap: 0.58rem;
+}
+
+.footer-contact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.68rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.66rem 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.74) !important;
+  line-height: 1.2;
+  transition: color 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.footer-contact-chip:hover {
+  border-color: rgba(231, 166, 39, 0.34);
+  background: rgba(231, 166, 39, 0.1);
+  color: var(--white) !important;
+  transform: translateY(-1px);
+}
+
+.footer-contact-icon {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--gold-light);
+  background: rgba(231, 166, 39, 0.1);
+  border: 1px solid rgba(231, 166, 39, 0.18);
+}
+
+.footer-contact-icon svg {
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.footer-contact-copy {
+  min-width: 0;
+  display: grid;
+  gap: 0.08rem;
+}
+
+.footer-contact-copy span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.footer-contact-copy b {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact-chip[href^="mailto"] .footer-contact-copy b {
+  font-size: 0.82rem;
+}
    
    .footer-bottom {
      border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -5057,67 +5273,66 @@
      .university-detail-actions .btn { width: 100%; }
      .quote-band blockquote { font-size: 1.125rem; }
      .quote-band { padding: 2.5rem 0; }
-     .footer {
-       padding: 2rem 0 1.15rem;
-     }
-     .footer-grid {
-       grid-template-columns: repeat(2, minmax(0, 1fr));
-       gap: 1.45rem 1rem;
-       margin-bottom: 1.35rem;
-       padding-inline: 0.15rem;
-     }
-     .footer-main {
-       grid-column: 1 / -1;
-       max-width: none;
-     }
-     .footer-brand .brand-logo {
-       width: 74px;
-       margin-bottom: 0.85rem;
-     }
-     .footer-main p {
-       max-width: none;
-       font-size: 0.98rem;
-       line-height: 1.48;
-     }
-     .footer-disclaimer {
-       max-width: none;
-       font-size: 0.84rem;
-       line-height: 1.45;
-       margin-top: 0.65rem;
-     }
-     .footer-links {
-       gap: 0.48rem;
-     }
-     .footer-links strong {
-       font-size: 0.66rem;
-       letter-spacing: 0.14em;
-       margin-bottom: 0.2rem;
-     }
-     .footer-links a {
-       font-size: 0.9rem;
-     }
-     .footer-contact {
-       grid-column: 1 / -1;
-       display: grid;
-       grid-template-columns: 1fr;
-       gap: 0.62rem;
-     }
-     .footer-contact-chip {
-       width: 100%;
-       max-width: none;
-       padding: 0.62rem 0.75rem;
-       font-size: 0.9rem;
-       border-radius: 1rem;
-       overflow-wrap: normal;
-     }
-     .footer-bottom {
-       flex-direction: column;
-       gap: 0.5rem;
-       text-align: center;
-       padding-top: 1rem;
-       font-size: 0.76rem;
-       line-height: 1.45;
-     }
+/* --- Minimalist Contact List --- */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.footer-contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent !important;   /* No background */
+  padding: 0.2rem 0 !important;         /* No horizontal padding */
+  border: none !important;              /* No border */
+  border-radius: 0 !important;
+  text-decoration: none;
+  color: #d0d7e3;
+  font-size: 0.9rem;
+  backdrop-filter: none !important;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-chip:hover {
+  background: transparent !important;
+  transform: none !important;
+  border-color: transparent !important;
+  color: #ffffff;
+}
+
+.footer-contact-icon {
+  color: #6b7280; /* subtle gray icon */
+  flex-shrink: 0;
+}
+
+.footer-contact-chip:hover .footer-contact-icon {
+  color: #ffffff;
+}
+
+.footer-contact-copy {
+  display: flex;
+  flex-direction: row;        /* Put label and value on same line */
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
+
+.footer-contact-copy span {
+  font-size: 0.75rem;
+  text-transform: none;       /* Remove UPPERCASE if you prefer */
+  color: #8a96a8;
+  font-weight: 400;
+}
+
+.footer-contact-copy b {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #e8edf5;
+}
      .consent-row { flex-wrap: wrap; }
      .check-list li { font-size: 0.875rem; }
      .split-copy h2 { font-size: 1.75rem; }
