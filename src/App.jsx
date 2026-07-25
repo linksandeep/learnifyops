@@ -533,6 +533,76 @@ const heroCapabilities = [
   ["Corporate Training", "Upskilling programs for teams and business functions"]
 ];
 
+const heroVisualSlides = [
+  {
+    image: "/assets/dba-home-hero-v2.jpg",
+    alt: "International executives participating in a strategic DBA roundtable",
+    label: "Roundtable",
+    eyebrow: "Prestigious Executive Pathway",
+    title: "Doctoral thesis targeting actual market disruption.",
+    meta: "London · New York · Sydney · Worldwide"
+  },
+  {
+    image: "/assets/dba-executive-hero.png",
+    alt: "Executive candidate studying a doctoral business strategy pathway",
+    label: "Executive",
+    eyebrow: "Leadership Research",
+    title: "Shape senior experience into board-level academic authority.",
+    meta: "Executive coaching · Research planning"
+  },
+  {
+    image: "/assets/dba-applied-research.png",
+    alt: "Applied business research workspace with charts and academic planning",
+    label: "Research",
+    eyebrow: "Applied Research Studio",
+    title: "Build a defendable project from live business evidence.",
+    meta: "Topic design · Methods · Dissertation support"
+  }
+];
+
+const visualStorySlides = [
+  {
+    label: "Research Studio",
+    image: "/assets/dba-applied-research.png",
+    alt: "Applied business research workspace for doctoral planning",
+    title: "Convert executive challenges into a structured research roadmap.",
+    text: "Map leadership problems into topic design, research method, evidence plan and dissertation milestones with a clearer doctoral workflow.",
+    stat: "4-stage",
+    statLabel: "research readiness map",
+    points: ["Topic shaping", "Methods mapping", "Evidence planning"]
+  },
+  {
+    label: "Partner Network",
+    image: "/assets/dba-universities-hero-v2.jpg",
+    alt: "University pathway discussion for international DBA candidates",
+    title: "Compare partner routes through an advisor-led decision system.",
+    text: "Review eligibility, delivery format, documents, curriculum fit and recognition notes before committing to a university pathway.",
+    stat: "6",
+    statLabel: "institution routes shown",
+    points: ["Eligibility fit", "Delivery mode", "Recognition notes"]
+  },
+  {
+    label: "AI + LMS",
+    image: "/assets/learnifyops-ai-hero.png",
+    alt: "AI learning and platform automation interface",
+    title: "Connect advisory, learning visibility and AI-enabled operations.",
+    text: "Bring LMS signals, profile notes, automation and student-support workflows into a single operational view.",
+    stat: "Live",
+    statLabel: "tool ecosystem preview",
+    points: ["LMS signals", "AI assistant", "CRM visibility"]
+  },
+  {
+    label: "Career Support",
+    image: "/assets/youth-uk-ready.png",
+    alt: "Career-ready learner preparing for international professional opportunities",
+    title: "Coordinate mentoring, profile review and placement readiness.",
+    text: "Show how academic advisory, professional profile support and career preparation connect across the wider LearnifyOps ecosystem.",
+    stat: "1:1",
+    statLabel: "mentor-led support",
+    points: ["Profile review", "Interview prep", "Placement tracking"]
+  }
+];
+
 const trustMetrics = [
   ["5K+", "Admissions Guided"],
   ["1:1", "Admission Review"],
@@ -1054,6 +1124,17 @@ function SectionIntro({ eyebrow, icon, title, text, align = "center" }) {
 }
 
 function HomeHero({ navigate }) {
+  const [activeHeroVisual, setActiveHeroVisual] = useState(0);
+  const heroVisual = heroVisualSlides[activeHeroVisual];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveHeroVisual((current) => (current + 1) % heroVisualSlides.length);
+    }, 5200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <section className="home-hero">
       <div className="container home-hero-grid">
@@ -1068,11 +1149,101 @@ function HomeHero({ navigate }) {
           </div>
         </div>
         <div className="hero-visual reveal visible">
-          <img src="/assets/dba-home-hero-v2.jpg" alt="International executives participating in a strategic DBA roundtable" />
+          <img key={heroVisual.image} src={heroVisual.image} alt={heroVisual.alt} />
+          <div className="hero-visual-tabs" aria-label="Hero image selector">
+            {heroVisualSlides.map((slide, index) => (
+              <button
+                type="button"
+                className={activeHeroVisual === index ? "active" : undefined}
+                key={slide.label}
+                onClick={() => setActiveHeroVisual(index)}
+                aria-label={`Show ${slide.label} visual`}
+                aria-pressed={activeHeroVisual === index}
+              >
+                {String(index + 1).padStart(2, "0")}
+                <span>{slide.label}</span>
+              </button>
+            ))}
+          </div>
           <div className="hero-visual-card">
-            <span>Prestigious Executive Pathway</span>
-            <strong>Doctoral thesis targeting actual market disruption.</strong>
-            <small>London · New York · Sydney · Worldwide</small>
+            <span>{heroVisual.eyebrow}</span>
+            <strong>{heroVisual.title}</strong>
+            <small>{heroVisual.meta}</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VisualStorySection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const selected = visualStorySlides[activeSlide];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % visualStorySlides.length);
+    }, 7000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="section visual-story-section">
+      <div className="container visual-story-layout">
+        <div className="visual-story-copy reveal">
+          <Eyebrow icon={Sparkles}>Interactive Experience</Eyebrow>
+          <h2>An executive-grade pathway cockpit, not a static brochure.</h2>
+          <p>Move through research planning, partner comparison, AI-enabled learning support and career readiness with a more refined visual system.</p>
+          <div className="visual-story-tabs" role="tablist" aria-label="Visual story controls">
+            {visualStorySlides.map((slide, index) => (
+              <button
+                type="button"
+                role="tab"
+                className={activeSlide === index ? "active" : undefined}
+                key={slide.label}
+                onClick={() => setActiveSlide(index)}
+                onMouseEnter={() => setActiveSlide(index)}
+                aria-selected={activeSlide === index}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {slide.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="visual-story-stage reveal" role="tabpanel" aria-live="polite">
+          <div className="visual-story-image">
+            <img key={selected.image} src={selected.image} alt={selected.alt} />
+            <div className="visual-story-scan" aria-hidden="true" />
+          </div>
+          <div className="visual-story-card">
+            <span>{selected.stat}</span>
+            <small>{selected.statLabel}</small>
+            <h3>{selected.title}</h3>
+            <p>{selected.text}</p>
+            <div className="visual-story-points">
+              {selected.points.map((point) => (
+                <strong key={point}><CheckCircle2 size={15} aria-hidden="true" />{point}</strong>
+              ))}
+            </div>
+          </div>
+          <div className="visual-story-thumbs" aria-label="Image thumbnails">
+            {visualStorySlides.map((slide, index) => (
+              <button
+                type="button"
+                className={activeSlide === index ? "active" : undefined}
+                key={slide.image}
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Select ${slide.label}`}
+              >
+                <img src={slide.image} alt="" />
+              </button>
+            ))}
+          </div>
+          <div className="visual-story-progress" aria-hidden="true">
+            <span key={selected.label} />
           </div>
         </div>
       </div>
@@ -2012,6 +2183,7 @@ function HomePage({ navigate }) {
       <HomeHero navigate={navigate} />
       <TrustIndicatorsSection />
       <GlobalAcademicNetworkSection navigate={navigate} />
+      <VisualStorySection />
       <ProgramFacts />
       <DbaTransformationSection navigate={navigate} />
       <ValueSection />
