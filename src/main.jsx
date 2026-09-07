@@ -20,6 +20,7 @@ import {
   Network,
   Phone,
   Quote,
+  Search,
   ShieldCheck,
   Sparkles,
   Target,
@@ -28,14 +29,14 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
-const logo = "/assets/learnifyops-logo-transparent.png";
+const logo = "/assets/learnify-logo.jpg";
 const britInstituteUrl = "https://britinstitute.uk/";
 const dbaBrochureUrl = "/assets/learnifyops-dba-brochure.pdf";
 const dbaCurriculumUrl = "/assets/learnifyops-dba-curriculum-overview.pdf";
 
 const navItems = [
   ["Home", "/"],
-  ["DBA Program", "/program"],
+  ["DBA Programme", "/program"],
   ["Curriculum", "/curriculum"],
   ["Experience", "/experience"],
   ["Admissions", "/admissions"],
@@ -52,11 +53,11 @@ const partnerUniversities = [
     country: "USA",
     programTitle: "Kennedy University DBA",
     focus: "Executive strategy, governance and applied management research",
-    overview: "Kennedy University's Doctor of Business Administration pathway combines rigorous academic scholarship with practical executive experience for working leaders.",
+    overview: "A DBA pathway for experienced professionals seeking to connect applied business research with strategy, governance and leadership practice within a flexible study structure.",
     duration: "24–48 months",
     delivery: "Online, part-time, hybrid",
-    accreditation: "ASIC; AACSB/ACBSP recognition details reviewed during profile assessment",
-    about: "A US-based institution positioned for online executive education, flexible doctoral research and applied business scholarship.",
+    accreditation: "Institutional and recognition information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Minimum 8+ years of professional experience in business, management or a related field",
       "Bachelor's degree or equivalent professional accomplishment",
@@ -80,11 +81,11 @@ const partnerUniversities = [
     country: "USA / International",
     programTitle: "Birchwood University DBA",
     focus: "Innovation, entrepreneurship and organizational transformation",
-    overview: "A DBA pathway positioned for professionals who want to study growth, transformation and practical business model development.",
+    overview: "A DBA pathway for experienced professionals interested in applied research across entrepreneurship, organisational change, innovation and practical business model development.",
     duration: "24–48 months",
     delivery: "Online, flexible executive format",
-    accreditation: "Recognition and awarding route confirmed during profile review",
-    about: "A partner university route for entrepreneurs, transformation leaders and senior managers seeking applied doctoral credibility.",
+    accreditation: "Institutional and awarding information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Suitable for entrepreneurs, managers and transformation leaders",
       "Professional leadership background considered during entry review",
@@ -108,11 +109,11 @@ const partnerUniversities = [
     country: "USA",
     programTitle: "Florida Coastal University DBA",
     focus: "Global business, operational excellence and leadership practice",
-    overview: "A DBA pathway for professionals seeking stronger research-led decision-making, leadership credibility and business execution capability.",
+    overview: "A DBA pathway for experienced professionals exploring applied research in global business, operational performance, leadership practice and evidence-based decision-making.",
     duration: "24–48 months",
     delivery: "Online and part-time study options",
-    accreditation: "Institutional recognition details confirmed during admissions review",
-    about: "A DBA route for professionals who want to connect leadership practice with global business research and operational excellence.",
+    accreditation: "Institutional and recognition information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Business leadership pathway for experienced candidates",
       "Applied research connected to executive practice",
@@ -136,11 +137,11 @@ const partnerUniversities = [
     country: "United Kingdom",
     programTitle: "London School of Business and Science DBA Pathway",
     focus: "Applied leadership, business strategy and executive research practice",
-    overview: "A UK-focused DBA pathway for working professionals who want structured doctoral study connected to leadership, consulting and organizational performance.",
+    overview: "A DBA pathway for working professionals comparing applied business research in leadership, consulting, strategy and organisational performance within a flexible study format.",
     duration: "24–48 months",
     delivery: "Online, blended and executive-friendly",
-    accreditation: "Institutional recognition and awarding route confirmed during admissions review",
-    about: "A business and science focused institution pathway positioned for professionals comparing UK-oriented executive education options.",
+    accreditation: "Institutional and awarding information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Suitable for managers, founders and business consultants",
       "Professional leadership experience considered during profile review",
@@ -164,11 +165,11 @@ const partnerUniversities = [
     country: "International",
     programTitle: "Dunster Business School DBA",
     focus: "International business, leadership practice and applied executive scholarship",
-    overview: "A DBA pathway for senior professionals seeking an internationally positioned business doctorate with practical research application.",
+    overview: "A DBA pathway for senior professionals interested in international business, leadership practice and structured research focused on practical management questions.",
     duration: "24–48 months",
     delivery: "Online and part-time executive study",
-    accreditation: "Recognition, awarding and documentation details reviewed during profile assessment",
-    about: "A business-school pathway for executives who want to connect professional experience with structured doctoral research and leadership credibility.",
+    accreditation: "Institutional and awarding information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Designed for experienced managers and senior professionals",
       "Suitable for international executive and consulting profiles",
@@ -192,11 +193,11 @@ const partnerUniversities = [
     country: "International",
     programTitle: "EMIT DBA Pathway",
     focus: "Technology management, AI automation and enterprise systems",
-    overview: "A technology-oriented pathway for professionals who want to connect management research with digital transformation and enterprise systems.",
+    overview: "A technology-oriented DBA pathway for professionals interested in applied management research across digital transformation, enterprise systems, automation and organisational change.",
     duration: "24–48 months",
     delivery: "Online, modular, executive-friendly",
-    accreditation: "Recognition and institutional pathway confirmed during review",
-    about: "A technology-management focused route for founders, operators and consultants connecting business research with digital transformation.",
+    accreditation: "Institutional and awarding information provided before enrolment",
+    about: "Programme, awarding and institutional information is provided during the university comparison process and should be independently reviewed before enrolment.",
     highlights: [
       "Relevant for founders, consultants and tech-enabled managers",
       "Connects business research with digital transformation",
@@ -332,12 +333,12 @@ const navToolItems = [
 const toolsServicesMenuColumns = [
   {
     title: "Tools",
-    intro: "In-house tools built by LearnifyOps to support our student ecosystem, admissions visibility, LMS delivery and placement workflows.",
+    intro: "",
     items: navToolItems
   },
   {
     title: "Services",
-    intro: "We help businesses build, automate and scale with enterprise-grade technology solutions across custom software, AI automation, CRM platforms and digital transformation.",
+    intro: "",
     items: [
       { title: "Build & Automate SaaS Products", text: "Turn ideas into scalable SaaS platforms with product design, development, deployment and support." },
       { title: "AI Automation Solutions", text: "Use AI-powered automation to remove repetitive tasks and improve operational efficiency." },
@@ -369,9 +370,9 @@ const doctoralMenuTabs = [
   {
     label: "Honorary Doctorate",
     items: [
-      { title: "Professional Impact Review", text: "Recognition route based on leadership, contribution and verified achievements.", to: "/contact" },
+      { title: "Professional Impact Review", text: "Eligibility criteria and institutional requirements are explained before any application begins.", to: "/contact" },
       { title: "Institutional Eligibility Check", text: "Final criteria are confirmed by the selected awarding institution.", to: "/contact" },
-      { title: "Profile Documentation", text: "Support for achievement summaries, references and recognition evidence.", to: "/contact" }
+      { title: "Profile Documentation", text: "Support for achievement summaries, references and required institutional evidence.", to: "/contact" }
     ]
   },
   {
@@ -390,7 +391,14 @@ const megaMenus = [
     label: "DBA Program",
     columns: dbaMenuColumns,
     footer: "Premium doctoral positioning for executives, entrepreneurs and senior managers.",
-    cta: { label: "Request Prospectus", to: "/contact" }
+    cta: { label: "Request Prospectus", to: "/contact" },
+    feature: {
+      eyebrow: "DBA PATHWAY",
+      title: "A research-led DBA for experienced professionals.",
+      text: "Compare delivery formats, university options and admissions requirements before you apply.",
+      image: "/assets/dba-program-hero-v2.jpg",
+      to: "/program"
+    }
   },
   {
     key: "doctoral",
@@ -398,54 +406,85 @@ const megaMenus = [
     type: "doctoral",
     tabs: doctoralMenuTabs,
     footer: "DBA university pages open directly. PhD and honorary doctorate routes start with a confidential profile discussion.",
-    cta: { label: "Schedule Profile Discussion", to: "/contact" }
+    cta: { label: "Schedule Profile Discussion", to: "/contact" },
+    feature: {
+      eyebrow: "INTERNATIONAL PATHWAYS",
+      title: "Explore the institutions behind your next step.",
+      text: "Review DBA pathway information, then start with a confidential profile discussion.",
+      image: "/assets/dba-universities-hero-v2.jpg",
+      to: "/partnership"
+    }
   },
   {
     key: "certification",
     label: "Certification Program",
     columns: certificationMenuColumns,
     footer: "Certification programs, LMS access and placement-support tools are delivered by Brit Institute, a branch under LearnifyOps.",
-    cta: { label: "Visit Brit Institute Website", href: britInstituteUrl, external: true }
+    cta: { label: "Visit Brit Institute Website", href: britInstituteUrl, external: true },
+    feature: {
+      eyebrow: "PROFESSIONAL LEARNING",
+      title: "Build practical skills for the work ahead.",
+      text: "Explore career-focused certifications, mentorship and placement support through Brit Institute.",
+      image: "/assets/youth-empowerment.png",
+      to: "/contact"
+    }
   },
   {
     key: "tools-services",
     label: "Tools & Services",
     columns: toolsServicesMenuColumns,
     footer: "Our tools support the LearnifyOps student ecosystem, while our services help outside businesses build software, automation and growth systems.",
-    cta: { label: "Discuss with Team", to: "/contact" }
+    cta: { label: "Discuss with Team", to: "/contact" },
+    feature: {
+      eyebrow: "BUILD WITH LEARNIFYOPS",
+      title: "Technology designed around real operating needs.",
+      text: "From AI automation to custom software, build a clearer and more capable workflow.",
+      image: "/assets/global-ai-hero.png",
+      to: "/contact"
+    }
   }
 ];
 
 const valuePillars = [
   {
-    icon: BriefcaseBusiness,
-    title: "Executive Foresight",
-    text: "Develop the leadership acumen, strategic agility, and research-backed perspective needed to steer complex organizations."
-  },
-  {
     icon: FileSearch,
-    title: "Applied Scientific Research",
-    text: "Address genuine corporate bottlenecks by converting rigorous research methodologies into immediately actionable business value."
+    title: "Advanced Research Skills",
+    text: "Evaluate evidence, conduct structured research and develop defensible conclusions for complex business and management questions."
   },
   {
-    icon: Clock3,
-    title: "Designed for Active Executives",
-    text: "A flexible, high-caliber doctoral curriculum structure allowing seasoned professionals to continue their leadership careers."
+    icon: Target,
+    title: "Strategic Decision-Making",
+    text: "Apply research and analytical frameworks to complex organisational challenges, strategic choices and long-term planning."
+  },
+  {
+    icon: Award,
+    title: "Professional Credibility",
+    text: "Demonstrate advanced expertise within a professional, industry or specialist field through structured doctoral study."
+  },
+  {
+    icon: Lightbulb,
+    title: "Thought Leadership",
+    text: "Develop original research around an industry, organisational or management challenge relevant to your professional experience."
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Career Flexibility",
+    text: "Support professional development across leadership, consulting, entrepreneurship and academic-practitioner roles."
   },
   {
     icon: Network,
-    title: "Global Cohort Network",
-    text: "Collaborate alongside an international network of senior managers, founders, and industry champions representing global markets."
+    title: "International Network",
+    text: "Connect with experienced professionals across industries and markets while developing your research perspective."
   }
 ];
 
 const audience = [
-  ["Senior Executive Leaders", "Scale your strategic influence from operational head to board-level visionary decision-maker."],
-  ["Entrepreneurs & Founders", "Validate market innovations, scale business models, and create original IP through research."],
-  ["Strategy Consultants", "Build authoritative, research-backed credentials that drive corporate advisory value at the highest levels."],
-  ["Public Sector Administrators", "Apply scientific research paradigms to public policy, institutional modernization, and systemic reforms."],
-  ["Corporate Directors", "Deepen quantitative and qualitative analytical capabilities to steer board-level strategy."],
-  ["Academic Practitioners", "Bridge the gap between theoretical business models and actual market execution with doctoral distinction."]
+  ["Senior Managers & Executives", "Develop advanced research, strategic analysis and evidence-based decision-making capabilities."],
+  ["Entrepreneurs & Founders", "Research business models, innovation, growth and organisational challenges within a doctoral framework."],
+  ["Consultants", "Build deeper subject-matter expertise and research capability relevant to advisory work."],
+  ["Corporate Directors", "Apply advanced research methods to strategy, governance and organisational transformation."],
+  ["Public Sector Leaders", "Research institutional performance, policy and complex organisational challenges."],
+  ["Academic & Industry Practitioners", "Combine professional experience with advanced applied business research."]
 ];
 
 const curriculum = [
@@ -461,8 +500,8 @@ const curriculum = [
   },
   {
     number: "03",
-    title: "Global Disruption & Growth Strategies",
-    text: "Investigate market shifts, technological disruptions, and systemic operations that enable sustainable international scaling."
+    title: "International Business & Growth Strategy",
+    text: "Investigate market conditions, innovation and operational choices affecting responsible growth across international markets."
   },
   {
     number: "04",
@@ -472,33 +511,62 @@ const curriculum = [
 ];
 
 const journey = [
-  ["Contextualize", "Define your academic vision, target research domains, and readiness for rigorous executive study."],
-  ["Formulate", "Build analytical frameworks, master research methodologies, and outline your literature review."],
-  ["Investigate", "Execute field studies and empirical data collection under direct academic mentorship and supervisor reviews."],
-  ["Synthesize", "Defend your thesis, publish findings, and implement structural transformation inside your organization."]
+  ["Eligibility Review", "Review your academic background, professional experience and objectives."],
+  ["University Comparison", "Identify DBA pathways aligned with your candidate profile and study preferences."],
+  ["Programme Consultation", "Understand the institution, structure, fees, study format and requirements."],
+  ["Application Support", "Prepare the documentation required for the applicable admissions process."],
+  ["Enrolment", "Complete the selected institution's admissions and onboarding requirements."],
+  ["Research Journey", "Progress through modules, research development and dissertation requirements set by the selected institution."]
+];
+
+const researchTopics = [
+  "Business strategy",
+  "Leadership",
+  "Organisational change",
+  "Digital transformation",
+  "Entrepreneurship",
+  "Operations",
+  "Marketing",
+  "Finance",
+  "Governance",
+  "Innovation",
+  "International business",
+  "Human capital"
+];
+
+const appliedResearchSteps = [
+  "Define a research problem",
+  "Review academic literature",
+  "Select an appropriate methodology",
+  "Collect qualitative or quantitative evidence",
+  "Analyse findings",
+  "Develop conclusions",
+  "Produce a doctoral dissertation"
 ];
 
 const outcomes = [
-  "Spearhead large-scale corporate transformations with deep research-backed authority",
-  "Design innovative solutions to complex organizational challenges using scholarly methods",
-  "Enhance professional credibility for board positions, consulting, and advisory appointments",
-  "Tap into a prestigious global network of research scholars and corporate leaders",
-  "Publish peer-reviewed contributions that advance modern management paradigms",
-  "Elevate your career trajectory into C-suite leadership, specialized consulting, or academia"
+  "Evaluate evidence and make defensible conclusions",
+  "Apply qualitative and quantitative research methods",
+  "Develop an evidence-based response to a management problem",
+  "Communicate complex research to professional audiences",
+  "Build specialist knowledge in a relevant business field",
+  "Prepare and defend a doctoral dissertation where required"
 ];
 
 const admissionsSteps = [
-  ["Initial Profile Assessment", "Submit your executive resume and academic history for a comprehensive fit analysis."],
-  ["Admissions Counsel Consultation", "Clarify program delivery models, align research goals, and select the target university pathway."],
-  ["Document Drafting Guidance", "Receive detailed support in drafting your research statement and gathering academic references."],
-  ["Formal Academic Presentation", "Submit your finalized dossier directly to the partner institution for formal board evaluation."]
+  ["Academic Eligibility", "Review previous qualifications against institution-specific entry requirements."],
+  ["Professional Experience", "Assess relevant management, leadership, consulting or specialist experience."],
+  ["Research Interests", "Identify potential doctoral research areas connected to your experience and goals."],
+  ["University Options", "Compare applicable DBA pathways across the LearnifyOps partner network."],
+  ["Programme Structure", "Understand modules, dissertation requirements, study format and expected duration."],
+  ["Fees & Enrolment", "Receive institution-specific fees and enrolment information before making a commitment."]
 ];
 
 const admissionsStats = [
-  ["5K+", "Admissions Guided"],
-  ["1:1", "Profile Review"],
-  ["DBA", "Doctoral Pathway"],
-  ["100%", "Transparent Guidance"]
+  ["1:1", "Admissions Review"],
+  ["Clear", "University Comparison"],
+  ["Flexible", "Study Options"],
+  ["Applied", "Business Research"]
 ];
 
 const eligibility = [
@@ -512,8 +580,8 @@ const eligibility = [
 const faq = [
   ["How is the program structured for active professionals?", "The DBA is built from the ground up for working leaders. Modular coursework and digital delivery allow you to study seamlessly alongside your corporate career."],
   ["What starting support do I receive for my research topic?", "You don't need a polished proposal. Our team helps you refine your area of interest into a viable doctoral research question during the onboarding phase."],
-  ["Which partner universities award the final degree?", "We collaborate with partner institutions including Kennedy University, Birchwood University, Florida Coastal University, London School of Business and Science, Dunster Business School, and EMIT. Pathways are selected to fit your background and career goals."],
-  ["What is the main difference between an MBA and a DBA?", "An MBA covers broad operational and management principles. A DBA focuses on generating new, original business knowledge through scientific research and applied methodologies."]
+  ["How are awarding arrangements explained?", "Programme delivery and awarding arrangements vary by pathway. LearnifyOps explains the available information before enrolment and encourages candidates to verify it independently."],
+  ["What is the main difference between an MBA and a DBA?", "An MBA covers broad management principles. A DBA focuses on applying established research methods to a substantial business or management problem."]
 ];
 
 const heroCapabilities = [
@@ -526,46 +594,23 @@ const heroCapabilities = [
 ];
 
 const trustMetrics = [
-  ["5K+", "Admissions Guided"],
-  ["1:1", "Admission Review"],
-  ["DBA", "Doctoral Pathway"],
-  ["100%", "Transparent Guidance"],
-  ["Global", "Executive Cohort"],
-  ["Flexible", "Learning Format"]
+  ["International", "Partner Universities"],
+  ["1:1", "Admissions Review"],
+  ["Flexible", "Study Options"],
+  ["Applied", "Business Research"],
+  ["International", "Candidate Network"],
+  ["Clear", "Admissions Guidance"]
 ];
 
 const academicNetworkSignals = [
-  ["University Partnerships", "Partner institutions guide the academic pathway, admissions review and final degree process."],
-  ["Geographic Presence", "A DBA pathway positioned for professionals comparing options across Europe, the United States, Australia and global markets."],
-  ["Executive Program Design", "Doctoral study structured around working professionals, senior managers, founders and corporate advisors."],
-  ["Recognition Pathways", "Institutional, admission and recognition details are discussed clearly before enrollment."]
-];
-
-const dbaTransformationPaths = [
-  {
-    start: "Corporate Leader",
-    path: "Doctor of Business Administration",
-    outcome: "Board-Level Authority",
-    detail: "Convert leadership experience into applied management research and strategic credibility."
-  },
-  {
-    start: "Founder",
-    path: "DBA Research Pathway",
-    outcome: "Industry Thought Leadership",
-    detail: "Use doctoral research to validate business models, market innovation and organizational growth."
-  },
-  {
-    start: "Senior Professional",
-    path: "Executive Doctorate",
-    outcome: "Academic Standing",
-    detail: "Formalize professional expertise through a recognized doctoral pathway built around practical business application."
-  },
-  {
-    start: "Consultant",
-    path: "Applied Business Research",
-    outcome: "Global Credibility",
-    detail: "Strengthen advisory positioning with a research-driven qualification and international academic context."
-  }
+  ["University and Awarding Institution", "Understand which organisation delivers the programme and which institution makes the award, where applicable."],
+  ["Programme Structure", "Compare taught modules, research stages and dissertation requirements before applying."],
+  ["Entry Requirements", "Review academic, professional and English-language requirements for each available route."],
+  ["Research Expectations", "Understand proposal, methodology, supervision and dissertation expectations."],
+  ["Study Format and Duration", "Compare online, blended or other available formats and expected completion times."],
+  ["Programme Fees", "Receive institution-specific fee information before making a commitment."],
+  ["Institutional Information", "Review recognition and institutional information independently before enrolment."],
+  ["Application Process", "Understand required documents, admissions stages and onboarding steps."]
 ];
 
 const clientProofTiles = [
@@ -691,7 +736,11 @@ function Link({ to, navigate, children, className, onNavigate, ...props }) {
   );
 }
 
-function BrandLogo() {
+function BrandLogo({ variant = "full" }) {
+  if (variant === "navigation") {
+    return <span className="brand-mark"><img src={logo} alt="LearnifyOps" /></span>;
+  }
+
   return <img className="brand-logo" src={logo} alt="LearnifyOps" />;
 }
 
@@ -740,7 +789,8 @@ function Header({ path, navigate }) {
   };
 
   return (
-    <header className="site-header" ref={headerRef} onMouseLeave={() => setOpenMega(null)}>
+    <>
+      <header className={path === "/" ? "site-header home-header" : "site-header"} ref={headerRef} onMouseLeave={() => setOpenMega(null)}>
       <div className="global-bar">
         <div className="container global-bar-inner">
           <span className="global-brandline"><Globe2 size={14} aria-hidden="true" /> Brit Institute Education Ecosystem</span>
@@ -750,12 +800,9 @@ function Header({ path, navigate }) {
       </div>
       <nav className="nav container" aria-label="Primary navigation">
         <Link className="brand" to="/" navigate={navigate} aria-label="LearnifyOps DBA home">
-          <BrandLogo />
+          <BrandLogo variant="navigation" />
         </Link>
         <div className={open ? "nav-links open" : "nav-links"} id="primary-navigation">
-          <Link to="/" navigate={navigate} className={path === "/" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
-            Home
-          </Link>
           {megaMenus.map((menu) => (
             <React.Fragment key={menu.key}>
               <div
@@ -781,9 +828,12 @@ function Header({ path, navigate }) {
               )}
             </React.Fragment>
           ))}
+          <Link to="/admissions" navigate={navigate} className={path === "/admissions" ? "active" : undefined} onMouseEnter={() => setOpenMega(null)} onNavigate={closeMenus}>
+            Admissions
+          </Link>
         </div>
-        <Link className="header-cta" to="/contact" navigate={navigate} onMouseEnter={() => setOpenMega(null)}>
-          Request Prospectus <ArrowRight size={16} aria-hidden="true" />
+        <Link className="header-search" to="/contact" navigate={navigate} onMouseEnter={() => setOpenMega(null)} aria-label="Contact LearnifyOps">
+          <Search size={24} aria-hidden="true" />
         </Link>
         <button
           className="nav-toggle"
@@ -796,7 +846,9 @@ function Header({ path, navigate }) {
           {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>
       </nav>
-    </header>
+      </header>
+      <div className={openMega ? "mega-page-overlay open" : "mega-page-overlay"} aria-hidden="true" />
+    </>
   );
 }
 
@@ -812,70 +864,83 @@ function MegaMenu({ id, menu, navigate, open, onNavigate }) {
 
   return (
     <div className={menuClassName} id={id} role="region" aria-label={`${menu.label} menu`}>
-      {menu.type === "doctoral" ? (
-        <div className="doctoral-mega-layout">
-          <div className="doctoral-mega-tabs" role="tablist" aria-label="Doctoral route categories">
-            {menu.tabs.map((tab) => (
-              <button
-                key={tab.label}
-                type="button"
-                className={activeDoctoralTab?.label === tab.label ? "doctoral-mega-tab active" : "doctoral-mega-tab"}
-                onMouseEnter={() => setActiveTab(tab.label)}
-                onFocus={() => setActiveTab(tab.label)}
-                onClick={() => setActiveTab(tab.label)}
-                role="tab"
-                aria-selected={activeDoctoralTab?.label === tab.label}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-          <div className="doctoral-mega-panel" role="tabpanel">
-            {activeDoctoralTab?.items.map((item) => (
-              item.to ? (
-                <Link
-                  key={item.title}
-                  to={item.to}
-                  navigate={navigate}
-                  className="doctoral-mega-item doctoral-mega-link"
-                  onNavigate={onNavigate}
-                >
-                  <strong>{item.title}</strong>
-                  <p>{item.text}</p>
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              ) : (
-                <article className="doctoral-mega-item" key={item.title}>
-                  <strong>{item.title}</strong>
-                  <p>{item.text}</p>
-                </article>
-              )
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className={menu.key === "tools-services" ? "mega-menu-grid mega-menu-grid-tools-services" : "mega-menu-grid"}>
-          {menu.columns.map((column) => (
-            <div className="mega-menu-column" key={column.title}>
-              <strong>{column.title}</strong>
-              {column.intro && <p className="mega-menu-column-intro">{column.intro}</p>}
-              {column.items.map((item) => (
-                item.to ? (
-                  <Link key={item.title} to={item.to} navigate={navigate} className="mega-menu-card" onNavigate={onNavigate}>
-                    <span>{item.title}</span>
-                    <p>{item.text}</p>
-                  </Link>
-                ) : (
-                  <article className="mega-menu-card" key={item.title}>
-                    <span>{item.title}</span>
-                    <p>{item.text}</p>
-                  </article>
-                )
+      <div className="mega-menu-main">
+        <div className="mega-menu-content">
+          {menu.type === "doctoral" ? (
+            <div className="doctoral-mega-layout">
+              <div className="doctoral-mega-tabs" role="tablist" aria-label="Doctoral route categories">
+                {menu.tabs.map((tab) => (
+                  <button
+                    key={tab.label}
+                    type="button"
+                    className={activeDoctoralTab?.label === tab.label ? "doctoral-mega-tab active" : "doctoral-mega-tab"}
+                    onMouseEnter={() => setActiveTab(tab.label)}
+                    onFocus={() => setActiveTab(tab.label)}
+                    onClick={() => setActiveTab(tab.label)}
+                    role="tab"
+                    aria-selected={activeDoctoralTab?.label === tab.label}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+              <div className="doctoral-mega-panel" role="tabpanel">
+                {activeDoctoralTab?.items.map((item) => (
+                  item.to ? (
+                    <Link
+                      key={item.title}
+                      to={item.to}
+                      navigate={navigate}
+                      className="doctoral-mega-item doctoral-mega-link"
+                      onNavigate={onNavigate}
+                    >
+                      <strong>{item.title}</strong>
+                      <p>{item.text}</p>
+                      <ArrowRight size={16} aria-hidden="true" />
+                    </Link>
+                  ) : (
+                    <article className="doctoral-mega-item" key={item.title}>
+                      <strong>{item.title}</strong>
+                      <p>{item.text}</p>
+                    </article>
+                  )
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className={menu.key === "tools-services" ? "mega-menu-grid mega-menu-grid-tools-services" : "mega-menu-grid"}>
+              {menu.columns.map((column) => (
+                <div className="mega-menu-column" key={column.title}>
+                  <strong>{column.title}</strong>
+                  {column.intro && <p className="mega-menu-column-intro">{column.intro}</p>}
+                  {column.items.map((item) => (
+                    item.to ? (
+                      <Link key={item.title} to={item.to} navigate={navigate} className="mega-menu-card" onNavigate={onNavigate}>
+                        <span>{item.title}</span>
+                        <p>{item.text}</p>
+                      </Link>
+                    ) : (
+                      <article className="mega-menu-card" key={item.title}>
+                        <span>{item.title}</span>
+                        <p>{item.text}</p>
+                      </article>
+                    )
+                  ))}
+                </div>
               ))}
             </div>
-          ))}
+          )}
         </div>
-      )}
+        <Link className="mega-feature" to={menu.feature.to} navigate={navigate} onNavigate={onNavigate}>
+          <img src={menu.feature.image} alt="" />
+          <div className="mega-feature-copy">
+            <span>{menu.feature.eyebrow}</span>
+            <strong>{menu.feature.title}</strong>
+            <p>{menu.feature.text}</p>
+            <i><ArrowRight size={21} aria-hidden="true" /></i>
+          </div>
+        </Link>
+      </div>
       <div className="mega-menu-footer">
         <p>{menu.footer}</p>
         {menu.cta.external ? (
@@ -930,20 +995,20 @@ function HomeHero({ navigate }) {
       <div className="container home-hero-grid">
         <div className="hero-copy reveal visible">
           <Eyebrow icon={GraduationCap}>Doctor of Business Administration</Eyebrow>
-          <h1>Earn a DBA pathway built for <span>global executive authority.</span></h1>
-          <p className="hero-lead">LearnifyOps helps experienced managers, founders, consultants and senior professionals compare international DBA pathways, review admissions fit and prepare for research-led business credibility.</p>
-          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>Partner-university DBA admissions guidance with transparent pathway, curriculum and recognition discussions before enrollment.</span></div>
+          <h1>Advance your career with a DBA designed for <span>experienced professionals.</span></h1>
+          <p className="hero-lead">Compare DBA pathways from international partner institutions, understand your eligibility, and receive personalised admissions support from application through enrolment.</p>
+          <div className="partnership-note"><Building2 size={18} aria-hidden="true" /><span>For senior managers, founders, consultants, directors and experienced professionals developing their research and strategic decision-making capabilities.</span></div>
           <div className="hero-actions">
             <PrimaryButton to="/contact" navigate={navigate}>Book DBA Consultation</PrimaryButton>
-            <DownloadButton className="btn btn-secondary" file={dbaBrochureUrl} label="DBA Brochure">Download Brochure</DownloadButton>
+            <DownloadButton className="btn btn-secondary" file={dbaBrochureUrl} label="DBA Programme Brochure">Download Programme Brochure</DownloadButton>
           </div>
         </div>
         <div className="hero-visual reveal visible">
           <img src="/assets/dba-home-hero-v2.jpg" alt="International executives participating in a strategic DBA roundtable" />
           <div className="hero-visual-card">
-            <span>Prestigious Executive Pathway</span>
-            <strong>Doctoral thesis targeting actual market disruption.</strong>
-            <small>London · New York · Sydney · Worldwide</small>
+            <span>Compare International DBA Pathways</span>
+            <strong>University options, eligibility and admissions guidance in one place.</strong>
+            <small>United Kingdom · Europe · Middle East · Asia · International</small>
           </div>
         </div>
       </div>
@@ -956,9 +1021,9 @@ function GlobalAcademicNetworkSection({ navigate }) {
     <section className="section academic-network-section">
       <div className="container academic-network-layout">
         <div className="academic-network-copy reveal">
-          <Eyebrow icon={Globe2}>Global Academic Network</Eyebrow>
-          <h2>Academic partnerships and institutional signals should be visible before enrollment.</h2>
-          <p>University partnerships, geographic relevance, candidate community and recognition pathways are presented clearly from the first DBA consultation.</p>
+          <Eyebrow icon={Globe2}>International DBA Pathways</Eyebrow>
+          <h2>Compare universities before you make your decision.</h2>
+          <p>LearnifyOps helps professionals evaluate DBA programmes based on their background, research interests, preferred study format and career goals.</p>
           <PrimaryButton to="/partnership" navigate={navigate}>Explore Partner Universities</PrimaryButton>
         </div>
         <div className="academic-network-panel reveal">
@@ -975,37 +1040,6 @@ function GlobalAcademicNetworkSection({ navigate }) {
         {partnerUniversities.concat(partnerUniversities).map((university, index) => (
           <span key={`${university.name}-${index}`}>{university.name}</span>
         ))}
-      </div>
-    </section>
-  );
-}
-
-function DbaTransformationSection({ navigate }) {
-  return (
-    <section className="section dba-transformation-section">
-      <div className="container">
-        <SectionIntro
-          eyebrow="The Transformation Journey"
-          icon={Target}
-          title="From professional achievement to global academic credibility."
-          text="Professionals do not invest in a DBA only for a title. They invest in credibility, authority, recognition and a more research-driven professional identity."
-        />
-        <div className="dba-path-grid">
-          {dbaTransformationPaths.map((item) => (
-            <article className="dba-path-card reveal" key={item.start}>
-              <span>Starting Point</span>
-              <h3>{item.start}</h3>
-              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
-              <span>Pathway</span>
-              <h4>{item.path}</h4>
-              <div className="path-arrow"><ArrowRight size={18} aria-hidden="true" /></div>
-              <span>Outcome</span>
-              <strong>{item.outcome}</strong>
-              <p>{item.detail}</p>
-            </article>
-          ))}
-        </div>
-        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Find Your DBA Path</PrimaryButton></div>
       </div>
     </section>
   );
@@ -1264,13 +1298,13 @@ function TechnologyServicesSection({ navigate }) {
 
 function ValueSection() {
   return (
-    <section className="section section-white">
+    <section className="section section-white benefits-section">
       <div className="container">
         <SectionIntro
-          eyebrow="Academic Authority"
+          eyebrow="Professional Development"
           icon={Award}
-          title="Doctoral rigor engineered for immediate enterprise impact."
-          text="A Doctor of Business Administration equips you to formulate original insights, defend management decisions, and author solutions to critical bottlenecks."
+          title="Why pursue a DBA?"
+          text="A Doctor of Business Administration can strengthen research capability, strategic thinking and specialist expertise. Career outcomes depend on the individual and their context."
         />
         <div className="value-grid">
           {valuePillars.map(({ icon: Icon, title, text }) => (
@@ -1292,35 +1326,57 @@ function ResearchSection({ navigate, image = "/assets/dba-home-research-v2.jpg",
       <div className="container split-layout">
         <div className="split-image reveal">
           <img src={image} alt="Executive doctoral candidate reviewing applied research with an academic supervisor" />
-          <div className="image-badge"><BookOpen size={18} aria-hidden="true" />Empirical Fieldwork</div>
+          <div className="image-badge"><BookOpen size={18} aria-hidden="true" />Applied Business Research</div>
         </div>
         <div className="split-copy reveal">
-          <Eyebrow icon={Lightbulb}>Scientific Management Paradigm</Eyebrow>
-          <h2>Transform live corporate challenges into your doctoral dissertation.</h2>
-          <p>We believe doctoral research should yield immediate, observable market value. Your active corporate environment serves as the primary dataset, allowing you to solve organizational friction while earning your degree.</p>
-          <ul className="check-list">
-            <li><CheckCircle2 size={18} />Synthesize academic frameworks with corporate decisions</li>
-            <li><CheckCircle2 size={18} />Enhance empirical, qualitative, and quantitative analysis</li>
-            <li><CheckCircle2 size={18} />Author an original, publishable contribution to management literature</li>
-          </ul>
-          <PrimaryButton to="/program" navigate={navigate}>Explore DBA Pathway</PrimaryButton>
+          <Eyebrow icon={Lightbulb}>From Experience to Doctoral Research</Eyebrow>
+          <h2>Turn your professional expertise into structured business research.</h2>
+          <p>A DBA applies established research methodologies to important business and management problems. Your research area should reflect your experience, interests and the requirements of your selected institution.</p>
+          <div className="research-topic-grid" aria-label="Potential DBA research areas">
+            {researchTopics.map((topic) => <span key={topic}>{topic}</span>)}
+          </div>
+          <PrimaryButton to="/program" navigate={navigate}>Explore the DBA Programme</PrimaryButton>
         </div>
       </div>
     </section>
   );
 }
 
-function JourneySection() {
+function JourneySection({ navigate }) {
   return (
-    <section className="section section-white">
+    <section className="section section-white dba-journey-section">
       <div className="container">
-        <SectionIntro eyebrow="Doctoral Roadmap" icon={Target} title="A structured transition from executive leadership to management research." />
+        <SectionIntro eyebrow="Your DBA Journey" icon={Target} title="A clear pathway from eligibility review to doctoral research." />
         <div className="journey-grid">
           {journey.map(([title, text], index) => (
             <article className="journey-card reveal" key={title}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{title}</h3>
               <p>{text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="center-action"><PrimaryButton to="/contact" navigate={navigate}>Book a DBA Consultation</PrimaryButton></div>
+      </div>
+    </section>
+  );
+}
+
+function AppliedResearchSection() {
+  return (
+    <section className="section section-sky applied-research-section">
+      <div className="container">
+        <SectionIntro
+          eyebrow="Applied Research Process"
+          icon={FileSearch}
+          title="Research a business challenge that matters to your career."
+          text="DBA candidates may investigate a relevant organisational, industry or management challenge using structured academic research methods."
+        />
+        <div className="research-process-grid">
+          {appliedResearchSteps.map((step, index) => (
+            <article className="research-process-card reveal" key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{step}</h3>
             </article>
           ))}
         </div>
@@ -1345,15 +1401,15 @@ function UniversitiesSection({ navigate, compact = false }) {
         <div className="universities-heading reveal">
           <div>
             <span className="universities-badge"><Building2 size={18} aria-hidden="true" /> Partner Universities</span>
-            <h2>DBA pathways matched to international partner institutions.</h2>
+            <h2>Compare international DBA partner institutions.</h2>
           </div>
           <div className="universities-intro">
-            <p>Review the partner pathways, compare the DBA focus areas, and download the program brochure and curriculum overview before speaking with an advisor.</p>
+            <p>Review programme focus, study format, entry information and research areas before speaking with an admissions adviser.</p>
             <div className="universities-downloads">
-              <DownloadButton file={dbaBrochureUrl} label="DBA Brochure"><FileText size={16} aria-hidden="true" /> Download Brochure</DownloadButton>
+              <DownloadButton file={dbaBrochureUrl} label="DBA Programme Brochure"><FileText size={16} aria-hidden="true" /> Download DBA Brochure</DownloadButton>
               <DownloadButton file={dbaCurriculumUrl} label="DBA Curriculum"><BookOpen size={16} aria-hidden="true" /> Download Curriculum</DownloadButton>
             </div>
-            {compact && <Link className="text-link" to="/partnership" navigate={navigate}>View Partners <ArrowRight size={17} /></Link>}
+            {compact && <Link className="text-link" to="/partnership" navigate={navigate}>View Partner Institutions <ArrowRight size={17} /></Link>}
           </div>
         </div>
         <div className="university-carousel-shell reveal">
@@ -1413,7 +1469,7 @@ function UniversitiesSection({ navigate, compact = false }) {
                 <strong>{selectedUniversity.delivery}</strong>
               </article>
               <article>
-                <span>Recognition</span>
+                <span>Institutional information</span>
                 <strong>{selectedUniversity.accreditation}</strong>
               </article>
             </div>
@@ -1444,11 +1500,11 @@ function UniversitiesSection({ navigate, compact = false }) {
               </article>
             </div>
             <div className="university-detail-actions">
-              <p>Brochure, curriculum, fees, recognition notes and timeline are shared after profile review so candidates receive the correct pathway information.</p>
+              <p>Programme structure, fees, timeline, awarding arrangements and institutional information are confirmed before enrolment.</p>
               <div className="university-detail-buttons">
                 <DownloadButton file={dbaBrochureUrl} label={`${selectedUniversity.name} DBA Brochure`}><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
                 <DownloadButton file={dbaCurriculumUrl} label={`${selectedUniversity.name} DBA Curriculum`}><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
-                <PrimaryButton to="/contact" navigate={navigate}>Request Profile Review</PrimaryButton>
+                <PrimaryButton to="/contact" navigate={navigate}>Check Your Eligibility</PrimaryButton>
               </div>
             </div>
           </div>
@@ -1458,9 +1514,9 @@ function UniversitiesSection({ navigate, compact = false }) {
             <ShieldCheck size={22} aria-hidden="true" />
             <div>
               <strong>Transparent Admissions Guidance</strong>
-              <p>Course fees, modular timelines, dissertation defense regulations, and credit transfers vary per institution. We guarantee transparent options during your profile review.</p>
+              <p>Fees, duration, dissertation requirements and awarding arrangements vary by institution. Candidates should review institution-specific information before enrolment.</p>
             </div>
-            <PrimaryButton to="/contact" navigate={navigate}>Consult An Advisor</PrimaryButton>
+            <PrimaryButton to="/contact" navigate={navigate}>Book a DBA Consultation</PrimaryButton>
           </div>
         )}
       </div>
@@ -1501,7 +1557,7 @@ function UniversityDetailPage({ navigate, university }) {
                 <strong>{university.delivery}</strong>
               </article>
               <article>
-                <span>Recognition</span>
+                <span>Institutional information</span>
                 <strong>{university.accreditation}</strong>
               </article>
             </div>
@@ -1531,7 +1587,7 @@ function UniversityDetailPage({ navigate, university }) {
                     <strong key={degree}>{degree}</strong>
                   ))}
                 </div>
-                <p>Final degree route, recognition and awarding details are confirmed during the candidate profile review.</p>
+                <p>Programme structure, awarding arrangements and institutional information are confirmed before enrolment and should be independently reviewed.</p>
               </article>
               <article>
                 <span>Course areas available</span>
@@ -1551,7 +1607,7 @@ function UniversityDetailPage({ navigate, university }) {
               </article>
             </div>
             <div className="university-detail-actions">
-              <p>Brochure, curriculum, recognition notes, fees and timeline are shared after a profile review so candidates receive the correct pathway information.</p>
+              <p>Programme structure, fees, timeline, awarding arrangements and institutional information are confirmed before enrolment.</p>
               <div className="university-detail-buttons">
                 <DownloadButton file={dbaBrochureUrl} label={`${university.name} DBA Brochure`}><FileText size={16} aria-hidden="true" /> Brochure</DownloadButton>
                 <DownloadButton file={dbaCurriculumUrl} label={`${university.name} DBA Curriculum`}><BookOpen size={16} aria-hidden="true" /> Curriculum</DownloadButton>
@@ -1569,11 +1625,16 @@ function AudienceSection({ navigate }) {
   return (
     <section className="section section-sky">
       <div className="container">
-        <SectionIntro eyebrow="Candidate Cohorts" icon={Users} title="Designed for ambitious managers ready to achieve board-level credibility." />
+        <SectionIntro
+          eyebrow="Candidate Profile"
+          icon={Users}
+          title="Who is the DBA for?"
+          text="Built for professionals with significant business and leadership experience."
+        />
         <div className="audience-grid">
           {audience.map(([title, text]) => <article className="audience-card reveal" key={title}><h3>{title}</h3><p>{text}</p></article>)}
         </div>
-        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Review Entry Profile</PrimaryButton></div>
+        <div className="center-action"><PrimaryButton to="/admissions" navigate={navigate}>Check Your Eligibility</PrimaryButton></div>
       </div>
     </section>
   );
@@ -1602,9 +1663,9 @@ function OutcomesSection() {
     <section className="section section-sky">
       <div className="container outcome-layout">
         <div className="outcome-copy reveal">
-          <Eyebrow icon={Award}>Executive Milestones</Eyebrow>
-          <h2>Earn credentials backed by academic rigor.</h2>
-          <p>Gain the research literacy, statistical insight, and public defense capability to advise board members, lead transitions, and author management frameworks.</p>
+          <Eyebrow icon={Award}>Research Capabilities</Eyebrow>
+          <h2>Develop practical doctoral research skills.</h2>
+          <p>Build the research literacy, analytical judgement and communication skills required for applied business research.</p>
         </div>
         <div className="outcome-list reveal">
           {outcomes.map((item) => <div key={item}><CheckCircle2 size={19} aria-hidden="true" /><span>{item}</span></div>)}
@@ -1642,11 +1703,11 @@ function CohortSection() {
       <div className="container split-layout reverse">
         <div className="split-copy reveal">
           <Eyebrow icon={Network}>Executive Experience</Eyebrow>
-          <h2>Learn within a prestigious, globally connected peer ecosystem.</h2>
+          <h2>Learn with experienced professionals across industries and markets.</h2>
           <p>The LearnifyOps cohort model connects you with executives, founders, and consultants across major trade zones. Collaborate on modules, critique research frameworks, and build lifelong professional relationships.</p>
           <div className="mini-grid">
             <article><Globe2 size={22} /><strong>Global Perspective</strong><span>Examine management trends across US, European, and Asian markets.</span></article>
-            <article><Users size={22} /><strong>C-Suite Cohorts</strong><span>Collaborate alongside experienced founders and corporate directors.</span></article>
+            <article><Users size={22} /><strong>Experienced Peers</strong><span>Collaborate with founders, managers, consultants and corporate directors.</span></article>
             <article><Clock3 size={22} /><strong>Flexible Milestones</strong><span>Structured deadlines allowing you to continue active employment.</span></article>
             <article><BookOpen size={22} /><strong>Advisor Supervision</strong><span>1-on-1 supervision from research faculty throughout your thesis.</span></article>
           </div>
@@ -1685,25 +1746,17 @@ function AdmissionsSection({ navigate }) {
     <section className="section admissions-section">
       <div className="container admissions-layout">
         <div className="admissions-copy reveal">
-          <Eyebrow icon={ShieldCheck}>Entry Standards</Eyebrow>
-          <h2>Your profile review should confirm fit before you apply.</h2>
-          <p>Before selecting a partner-university DBA pathway, we review your academic background, leadership experience, research direction and documentation readiness. The goal is simple: help you apply only when the route is clear, credible and aligned with your executive goals.</p>
+          <Eyebrow icon={ShieldCheck}>Admissions Review</Eyebrow>
+          <h2>Find the DBA pathway that fits your experience and goals.</h2>
+          <p>LearnifyOps reviews your profile, explains applicable university options and helps you understand the information required before you apply.</p>
           <ul className="check-list">
             {eligibility.map((item) => <li key={item}><CheckCircle2 size={18} />{item}</li>)}
           </ul>
-          <PrimaryButton to="/contact" navigate={navigate}>Submit Profile Review</PrimaryButton>
+          <PrimaryButton to="/contact" navigate={navigate}>Request an Eligibility Review</PrimaryButton>
         </div>
         <div className="admissions-steps reveal">
           {admissionsSteps.map(([title, text], index) => (
             <article key={title}><span>{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>
-          ))}
-        </div>
-        <div className="admissions-stat-card reveal" aria-label="Admissions support highlights">
-          {admissionsStats.map(([value, label]) => (
-            <article key={label}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </article>
           ))}
         </div>
       </div>
@@ -1759,14 +1812,14 @@ function ContactSection({ handleSubmit, formState, formStatus }) {
   );
 }
 
-function FinalCta({ navigate, tone = "doctoral", title = "Accelerate your leadership with a research-driven DBA pathway." }) {
+function FinalCta({ navigate, tone = "doctoral", title = "Start Your DBA Journey", eyebrow = "Speak with a DBA admissions adviser.", text = "Discuss your professional background, career goals and research interests and explore DBA pathways available through the LearnifyOps partner network." }) {
   return (
     <section className={`final-cta final-cta-${tone}`}>
       <div className="container final-cta-inner reveal">
-        <div><Eyebrow icon={GraduationCap}>Academic Onboarding</Eyebrow><h2>{title}</h2></div>
+        <div><Eyebrow icon={GraduationCap}>{eyebrow}</Eyebrow><h2>{title}</h2>{text && <p>{text}</p>}</div>
         <div className="final-actions">
-          <PrimaryButton to="/contact" navigate={navigate}>Consult An Advisor</PrimaryButton>
-          <SecondaryButton to="/program" navigate={navigate}>View Program Details</SecondaryButton>
+          <PrimaryButton to="/contact" navigate={navigate}>Book a DBA Consultation</PrimaryButton>
+          <SecondaryButton to="/program" navigate={navigate}>View Programme Details</SecondaryButton>
         </div>
       </div>
     </section>
@@ -1862,29 +1915,213 @@ function DownloadGateModal({ request, onClose }) {
   );
 }
 
+function PurposeMedallion({ type }) {
+  const icons = {
+    learning: (
+      <svg viewBox="0 0 112 112" aria-hidden="true">
+        <circle cx="56" cy="56" r="52" fill="#b6e5c4" />
+        <path d="M40 28c-13 6-19 20-15 34 3 10 10 16 18 19v14h32V76c7-7 10-17 8-27-3-15-15-25-29-25-5 0-9 1-14 4Z" fill="#008c75" />
+        <path d="M72 72H57l-7 9h28l-6-9Z" fill="#008c75" />
+        <g fill="#004c48">
+          <circle cx="55" cy="52" r="14" />
+          <rect x="52" y="32" width="6" height="11" rx="2" /><rect x="52" y="61" width="6" height="11" rx="2" />
+          <rect x="35" y="49" width="11" height="6" rx="2" /><rect x="64" y="49" width="11" height="6" rx="2" />
+          <rect x="40" y="38" width="6" height="10" rx="2" transform="rotate(-45 43 43)" /><rect x="65" y="56" width="6" height="10" rx="2" transform="rotate(-45 68 61)" />
+          <rect x="64" y="38" width="6" height="10" rx="2" transform="rotate(45 67 43)" /><rect x="40" y="56" width="6" height="10" rx="2" transform="rotate(45 43 61)" />
+        </g>
+        <circle cx="55" cy="52" r="6" fill="#38b889" />
+      </svg>
+    ),
+    research: (
+      <svg viewBox="0 0 112 112" aria-hidden="true">
+        <circle cx="56" cy="56" r="52" fill="#00564f" />
+        <path d="M56 4a52 52 0 0 1 0 104Z" fill="#009d78" />
+        <path d="M57 27c-12 0-21 10-21 22 0 7 3 12 8 16 3 3 5 6 5 11h15c0-5 2-8 5-11 5-4 8-9 8-16 0-12-9-22-20-22Z" fill="#a6e7b9" />
+        <path d="M49 80h15M50 86h13M53 92h7" fill="none" stroke="#9ce2b1" strokeWidth="4" strokeLinecap="round" />
+        <path d="m52 47 6-6 8 8M58 41v20" fill="none" stroke="#008b74" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M78 30v19M78 30l-8 8M78 30l8 8" fill="none" stroke="#c3f0ca" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    leadership: (
+      <svg viewBox="0 0 112 112" aria-hidden="true">
+        <circle cx="56" cy="56" r="52" fill="#00564f" />
+        <path d="M56 4a52 52 0 0 1 0 104Z" fill="#004a45" />
+        <path d="M57 18v76" stroke="#a4e6b6" strokeWidth="3" /><path d="M57 19h16l-7 8 7 8H57" fill="#9bdcaa" />
+        <path d="M50 39C38 40 30 49 27 62c11 1 21-4 25-15-1 14-7 24-19 30 9 3 20 0 26-8" fill="#00a376" />
+        <path d="M66 47c8 2 14 8 18 16-10 0-17-5-20-14 1 11 7 18 17 22-8 5-18 4-25-2" fill="#00b987" />
+        <path d="M30 86c11-2 21-6 26-15M82 87c-10-2-19-7-25-16" fill="none" stroke="#7ed7a1" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    ),
+    global: (
+      <svg viewBox="0 0 112 112" aria-hidden="true">
+        <circle cx="56" cy="56" r="52" fill="#00a67d" />
+        <circle cx="56" cy="56" r="24" fill="none" stroke="#85e1b2" strokeWidth="2" />
+        <path d="M32 56h48M56 32c8 7 11 15 11 24s-3 17-11 24M56 32c-8 7-11 15-11 24s3 17 11 24M37 43h38M37 69h38" fill="none" stroke="#85e1b2" strokeWidth="2" strokeLinecap="round" />
+        <path d="M21 52c1-15 12-27 27-31M44 16l5 6-8 2M91 60c-2 15-14 27-29 30M68 96l-5-6 8-3" fill="none" stroke="#c4f4cd" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    )
+  };
+
+  return <span className={`editorial-purpose-icon editorial-purpose-icon-${type}`}>{icons[type]}</span>;
+}
+
 function HomePage({ navigate }) {
   return (
-    <>
-      <HomeHero navigate={navigate} />
-      <TrustIndicatorsSection />
-      <GlobalAcademicNetworkSection navigate={navigate} />
-      <ProgramFacts />
-      <DbaTransformationSection navigate={navigate} />
-      <ValueSection />
-      <UniversitiesSection navigate={navigate} compact />
-      <ResearchSection navigate={navigate} />
-      <AudienceSection navigate={navigate} />
-      <FinalCta navigate={navigate} />
-    </>
+    <div className="editorial-home">
+      <section className="editorial-world-hero">
+        <div className="editorial-world-copy container reveal visible">
+          <span>GLOBAL EXECUTIVE EDUCATION</span>
+          <h1>Learn, research and lead on a global stage.</h1>
+          <p>LearnifyOps helps experienced professionals compare doctoral pathways and translate ambition into applied business research.</p>
+          <PrimaryButton to="/contact" navigate={navigate}>Speak to an adviser</PrimaryButton>
+        </div>
+        <img src="/assets/earth-realistic-map-corrected.svg" alt="Illustrated world map representing LearnifyOps' international network" />
+        <div className="editorial-world-note">International DBA pathways · flexible executive study</div>
+      </section>
+
+      <section className="editorial-spotlight section">
+        <div className="container">
+          <div className="editorial-label">FEATURED PATHWAY</div>
+          <div className="editorial-spotlight-card reveal">
+            <div className="editorial-spotlight-image">
+              <img src="/assets/dba-home-hero-v2.jpg" alt="Executive professionals in a strategic business discussion" />
+            </div>
+            <div className="editorial-spotlight-copy">
+              <span>DOCTOR OF BUSINESS ADMINISTRATION</span>
+              <h2>Build research that changes how business moves.</h2>
+              <p>Explore flexible DBA pathways designed around leadership experience, meaningful business questions and a world of professional perspectives.</p>
+              <Link className="editorial-text-link" to="/program" navigate={navigate}>Discover the DBA programme <ArrowRight size={17} /></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-purpose section">
+        <div className="container">
+          <div className="editorial-statement reveal">
+            <p>LearnifyOps connects experienced professionals with the <strong>research tools, university pathways and admissions guidance</strong> to examine challenges that matter — and make a considered contribution to the future of business.</p>
+          </div>
+          <div className="editorial-principles">
+            {[
+              ["learning", "Applied research", "Turn a real management challenge into a structured doctoral investigation."],
+              ["research", "Global perspective", "Compare options and study alongside professionals across markets and industries."],
+              ["leadership", "Executive community", "Learn within a focused peer network built around practical leadership experience."],
+              ["global", "Guided decisions", "Move from initial profile review to programme selection with confidence."]
+            ].map(([type, title, text]) => (
+              <article className="editorial-principle reveal" key={title}>
+                <PurposeMedallion type={type} />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-stories section">
+        <div className="container">
+          <div className="editorial-section-head reveal"><div><div className="editorial-label">WHAT'S NEW</div><h2>Ideas, guidance and useful next steps.</h2></div><Link className="editorial-text-link" to="/program" navigate={navigate}>View DBA overview <ArrowRight size={17} /></Link></div>
+          <div className="editorial-story-grid">
+            {[
+              ["dba-home-research-v2.jpg", "How to choose a DBA research area", "From a professional challenge to a credible, focused question."],
+              ["dba-program-hero-v2.jpg", "A flexible route to doctoral study", "Understand programme structure, commitments and milestones."],
+              ["dba-admissions-hero-v2.jpg", "Preparing for a profile review", "What to have ready before you compare university pathways."]
+            ].map(([image, title, text]) => (
+              <article className="editorial-story-card reveal" key={title}>
+                <img src={`/assets/${image}`} alt="" />
+                <div><span>GUIDE</span><h3>{title}</h3><p>{text}</p><Link to="/contact" navigate={navigate} aria-label={`Read more about ${title}`}><ArrowRight size={18} /></Link></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-programme section">
+        <div className="container editorial-programme-grid">
+          <div className="editorial-programme-poster reveal">
+            <img src="/assets/dba-applied-research.png" alt="Professional reviewing an applied business research project" />
+            <div><span>RESEARCH-LED</span><strong>Designed for ambitious professionals.</strong></div>
+          </div>
+          <div className="editorial-programme-copy reveal">
+            <div className="editorial-label">DISCOVER LEARNIFYOPS</div>
+            <h2>Find a pathway that respects where you've already been — and where you're headed.</h2>
+            <p>We support the early work of comparing delivery formats, entry criteria, research expectations and institution information before you decide to apply.</p>
+            <div className="editorial-programme-links">
+              <Link to="/program" navigate={navigate}>DBA programme <ArrowRight size={16} /></Link>
+              <Link to="/partnership" navigate={navigate}>Partner universities <ArrowRight size={16} /></Link>
+              <Link to="/admissions" navigate={navigate}>Admissions review <ArrowRight size={16} /></Link>
+              <Link to="/curriculum" navigate={navigate}>Curriculum framework <ArrowRight size={16} /></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-impact">
+        <div className="container">
+          <span>WHY LEARNIFYOPS</span>
+          <h2>Clarity for a defining professional decision.</h2>
+          <p>From shortlisting institutions through to understanding the academic journey ahead, each conversation is built around your experience and goals.</p>
+          <div className="editorial-metrics">
+            <div><strong>1:1</strong><small>admissions profile review</small></div>
+            <div><strong>6</strong><small>partner institution pathways</small></div>
+            <div><strong>24–48</strong><small>months of flexible study options</small></div>
+            <div><strong>Global</strong><small>executive and research perspective</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-insights section">
+        <div className="container">
+          <div className="editorial-section-head reveal"><div><div className="editorial-label">INSIGHTS & HIGHLIGHTS</div><h2>Explore the work behind the degree.</h2></div><Link className="editorial-text-link" to="/curriculum" navigate={navigate}>Explore curriculum <ArrowRight size={17} /></Link></div>
+          <div className="editorial-insight-grid">
+            {[
+              ["dba-experience-hero-v2.jpg", "Executive experience", "Build a research practice alongside your professional life."],
+              ["dba-universities-hero-v2.jpg", "International pathways", "Understand the institutions and formats that fit your plans."],
+              ["dba-program-research-v2.jpg", "Applied business research", "Use rigorous methods to investigate an important management question."]
+            ].map(([image, title, text]) => <article className="editorial-insight-card reveal" key={title}><img src={`/assets/${image}`} alt="" /><div><h3>{title}</h3><p>{text}</p><Link to="/program" navigate={navigate} aria-label={`Read more about ${title}`}><ArrowRight size={22} /></Link></div></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-locations section">
+        <div className="container">
+          <div className="editorial-label">OUR GLOBAL OUTLOOK</div>
+          <h2 className="editorial-location-title reveal">A learning network built across borders.</h2>
+          <div className="editorial-location-grid">
+            {[
+              ["dba-universities-hero-v2.jpg", "Partner university network", "Compare international institutions and their DBA delivery routes."],
+              ["dba-experience-hero-v2.jpg", "Executive cohorts", "Exchange perspectives with experienced peers working across industries."],
+              ["dba-contact-hero-v2.jpg", "Admissions support", "Start with a structured, confidential conversation about your fit."],
+              ["dba-home-research-v2.jpg", "Research relevance", "Ground each research decision in the problem you want to solve."]
+            ].map(([image, title, text]) => <article className="editorial-location-card reveal" key={title}><img src={`/assets/${image}`} alt="" /><div><h3>{title}</h3><p>{text}</p><Link to="/contact" navigate={navigate}><ArrowRight size={16} /></Link></div></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-events section">
+        <div className="container">
+          <div className="editorial-section-head reveal"><div><div className="editorial-label">START HERE</div><h2>Plan your next conversation.</h2></div><Link className="editorial-text-link" to="/contact" navigate={navigate}>Request a prospectus <ArrowRight size={17} /></Link></div>
+          <div className="editorial-event-grid">
+            <Link className="editorial-event-card reveal" to="/contact" navigate={navigate}><span>01</span><img src="/assets/dba-contact-hero-v2.jpg" alt="" /><div><small>CONSULTATION</small><h3>Book a DBA consultation</h3><p>Discuss your profile, interests and potential next steps.</p></div></Link>
+            <Link className="editorial-event-card reveal" to="/partnership" navigate={navigate}><span>02</span><img src="/assets/dba-universities-hero-v2.jpg" alt="" /><div><small>UNIVERSITY OPTIONS</small><h3>Compare partner pathways</h3><p>Review structure, study formats and institutional information.</p></div></Link>
+            <Link className="editorial-event-card reveal" to="/curriculum" navigate={navigate}><span>03</span><img src="/assets/dba-curriculum-hero-v2.jpg" alt="" /><div><small>CURRICULUM</small><h3>Explore the framework</h3><p>See the learning and research phases involved in a DBA.</p></div></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="editorial-closing">
+        <div className="container editorial-closing-inner reveal"><div><span>READY WHEN YOU ARE</span><h2>Make your experience the starting point for original research.</h2></div><div><PrimaryButton to="/contact" navigate={navigate}>Book a consultation</PrimaryButton><SecondaryButton to="/program" navigate={navigate}>About the programme</SecondaryButton></div></div>
+      </section>
+    </div>
   );
 }
 
 function ProgramPage({ navigate }) {
-  return <><PageHero eyebrow="DBA Program" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Research-led executive doctorate" title="Earn a research-led DBA for executive decision-making." text="Build doctoral-level business authority through structured research, strategic reflection and a flexible pathway designed for experienced working leaders." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn executive experience into doctoral-level business research." /></>;
+  return <><PageHero eyebrow="DBA Programme" icon={GraduationCap} tone="midnight" image="/assets/dba-program-hero-v2.jpg" caption="Applied business research doctorate" title="A research-led DBA for experienced professionals." text="Develop advanced research and strategic decision-making capabilities through a flexible pathway designed for working professionals." /><ProgramFacts /><ValueSection /><OutcomesSection /><ResearchSection navigate={navigate} image="/assets/dba-program-research-v2.jpg" variant="program" /><FinalCta navigate={navigate} tone="research" title="Turn professional experience into structured business research." /></>;
 }
 
 function CurriculumPage({ navigate }) {
-  return <><PageHero eyebrow="Curriculum Framework" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Empirical study, strategic value" title="Modular coursework leading to a defense-ready dissertation." text="Review the DBA structure, research milestones, dissertation preparation and academic support available through the partner pathway selected during admissions." /><CurriculumSection /><JourneySection /><FinalCta navigate={navigate} tone="curriculum" title="Review the DBA curriculum before choosing your pathway." /></>;
+  return <><PageHero eyebrow="Curriculum Framework" icon={BookOpen} tone="editorial" image="/assets/dba-curriculum-hero-v2.jpg" caption="Empirical study, strategic value" title="Modular coursework leading to a defence-ready dissertation." text="Review the DBA structure, research milestones, dissertation preparation and academic support available through the partner pathway selected during admissions." /><CurriculumSection /><JourneySection navigate={navigate} /><FinalCta navigate={navigate} tone="curriculum" title="Review the DBA curriculum before choosing your pathway." /></>;
 }
 
 function PageHeroImmersive({ eyebrow, icon, title, text, image, caption = "Global DBA pathway" }) {
@@ -1914,7 +2151,7 @@ function AdmissionsPage({ navigate }) {
 }
 
 function PartnershipPage({ navigate }) {
-  return <><PageHero eyebrow="Partner Network" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="International pathways" title="Admissions matched directly to your career destination." text="Explore our network of accredited universities, then work with our advisors to prepare a dossier that secures admissions into the right program." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="Admissions Consulting" icon={Globe2} title="A structured process from qualification review to formal enrollment." text="We remove administrative complexity, helping you select a pathway, write research topics, and gather professional recommendations." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Accredited Matching</h3><p>Verify that your awarded credentials hold academic value across global jurisdictions.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Onboarding Counsel</h3><p>Draft research objectives and statements of motivation that align with faculty interests.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>Institutional Reviews</h3><p>Compare modular schedules, credit requirements, and fees across four partner institutions.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Guaranteed Transparency</h3><p>Obtain clear advice on degree awarding, academic recognition, and program costs before applying.</p></article></div></div></section><FinalCta navigate={navigate} tone="partner" title="Compare partner institutions before you commit to a DBA route." /></>;
+  return <><PageHero eyebrow="Partner Network" icon={Building2} tone="campus" image="/assets/dba-universities-hero-v2.jpg" caption="International pathways" title="Compare DBA pathways before you apply." text="Review the available partner institutions, then speak with an adviser about eligibility, programme structure, fees, study format and application requirements." /><UniversitiesSection navigate={navigate} /><section className="section section-white"><div className="container"><SectionIntro eyebrow="Admissions Guidance" icon={Globe2} title="A structured process from qualification review to enrolment." text="LearnifyOps helps you compare suitable routes, prepare documents and understand institution-specific requirements." /><div className="value-grid"><article className="value-card reveal"><span className="icon-box"><FileText size={23} /></span><h3>Eligibility Review</h3><p>Compare your academic and professional profile with the published requirements for each applicable pathway.</p></article><article className="value-card reveal"><span className="icon-box"><Users size={23} /></span><h3>Application Support</h3><p>Prepare research objectives, motivation statements and supporting documents for the relevant admissions process.</p></article><article className="value-card reveal"><span className="icon-box"><Building2 size={23} /></span><h3>Institution Comparison</h3><p>Compare programme structure, expected duration, study format, fees and research requirements across six partner institutions.</p></article><article className="value-card reveal"><span className="icon-box"><ShieldCheck size={23} /></span><h3>Decision Support</h3><p>Review awarding arrangements and institutional information before enrolment, with independent verification encouraged.</p></article></div></div></section><FinalCta navigate={navigate} tone="partner" title="Compare partner institutions before you commit to a DBA route." /></>;
 }
 
 function ContactPage({ navigate, contactProps }) {
@@ -1927,11 +2164,11 @@ function Footer({ navigate }) {
       <div className="container footer-grid">
         <div className="footer-main">
           <Link className="footer-brand" to="/" navigate={navigate}><BrandLogo /></Link>
-          <p>LearnifyOps provides DBA pathway guidance, admissions review, partner-university comparison, and academic onboarding support for experienced professionals.</p>
-          <span className="footer-disclaimer">University selection, course syllabi, fees, and awarding models are confirmed during the admissions process.</span>
+          <p>LearnifyOps provides DBA programme comparison, admissions guidance and onboarding support for experienced professionals considering international doctoral pathways.</p>
+          <span className="footer-disclaimer">Programme structure, awarding institution, admission requirements, fees, duration and recognition information vary by institution and are confirmed before enrolment.</span>
         </div>
         <div className="footer-links">
-          <strong>DBA Program</strong>
+          <strong>DBA Programme</strong>
           <Link to="/program" navigate={navigate}>Overview</Link>
           <Link to="/curriculum" navigate={navigate}>Curriculum</Link>
           <Link to="/experience" navigate={navigate}>Experience</Link>
@@ -1972,7 +2209,7 @@ function App() {
   useEffect(() => {
     const university = getUniversityByPath(path);
     const page = university?.name || navItems.find(([, route]) => route === path)?.[0] || "Home";
-    document.title = path === "/" ? "Global DBA Program | LearnifyOps" : `${page} | LearnifyOps`;
+    document.title = path === "/" ? "Doctor of Business Administration (DBA) | LearnifyOps" : `${page} | LearnifyOps`;
   }, [path]);
 
   useEffect(() => {
