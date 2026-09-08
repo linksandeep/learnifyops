@@ -53,6 +53,7 @@ const partnerUniversities = [
     country: "USA",
     programTitle: "Kennedy University DBA",
     focus: "Executive strategy, governance and applied management research",
+    menuText: "Strategy, governance and applied research.",
     overview: "A DBA pathway for experienced professionals seeking to connect applied business research with strategy, governance and leadership practice within a flexible study structure.",
     duration: "24–48 months",
     delivery: "Online, part-time, hybrid",
@@ -81,6 +82,7 @@ const partnerUniversities = [
     country: "USA / International",
     programTitle: "Birchwood University DBA",
     focus: "Innovation, entrepreneurship and organizational transformation",
+    menuText: "Innovation and business transformation.",
     overview: "A DBA pathway for experienced professionals interested in applied research across entrepreneurship, organisational change, innovation and practical business model development.",
     duration: "24–48 months",
     delivery: "Online, flexible executive format",
@@ -109,6 +111,7 @@ const partnerUniversities = [
     country: "USA",
     programTitle: "Florida Coastal University DBA",
     focus: "Global business, operational excellence and leadership practice",
+    menuText: "Global business and leadership practice.",
     overview: "A DBA pathway for experienced professionals exploring applied research in global business, operational performance, leadership practice and evidence-based decision-making.",
     duration: "24–48 months",
     delivery: "Online and part-time study options",
@@ -137,6 +140,7 @@ const partnerUniversities = [
     country: "United Kingdom",
     programTitle: "London School of Business and Science DBA Pathway",
     focus: "Applied leadership, business strategy and executive research practice",
+    menuText: "Applied leadership and business strategy.",
     overview: "A DBA pathway for working professionals comparing applied business research in leadership, consulting, strategy and organisational performance within a flexible study format.",
     duration: "24–48 months",
     delivery: "Online, blended and executive-friendly",
@@ -165,6 +169,7 @@ const partnerUniversities = [
     country: "International",
     programTitle: "Dunster Business School DBA",
     focus: "International business, leadership practice and applied executive scholarship",
+    menuText: "International business and executive leadership.",
     overview: "A DBA pathway for senior professionals interested in international business, leadership practice and structured research focused on practical management questions.",
     duration: "24–48 months",
     delivery: "Online and part-time executive study",
@@ -193,6 +198,7 @@ const partnerUniversities = [
     country: "International",
     programTitle: "EMIT DBA Pathway",
     focus: "Technology management, AI automation and enterprise systems",
+    menuText: "Technology, AI and enterprise systems.",
     overview: "A technology-oriented DBA pathway for professionals interested in applied management research across digital transformation, enterprise systems, automation and organisational change.",
     duration: "24–48 months",
     delivery: "Online, modular, executive-friendly",
@@ -239,28 +245,28 @@ const technologyServices = [
 ];
 
 const certificationProgramFeatures = [
-  ["Advanced Skill Certifications", "Rigorous programs designed to equip professionals with immediate, high-value skills requested by modern employers."],
-  ["Dedicated Placement Assistance", "Direct pipelines to partner enterprises, mock interviews, and active placement matchmaking."],
-  ["1-on-1 Executive Mentorship", "Personalized guidance from industry veterans to build confidence and strategic decision-making capability."],
-  ["Executive CV & LinkedIn Optimization", "Transforming professional profiles to capture the attention of corporate headhunters and executive recruiters."],
-  ["Free Access to Career Automation Suite", "Full access to our proprietary tools for target applications and market outreach."],
-  ["End-to-End Career Acceleration", "From program onboarding to job placement, we offer active, hands-on support every step of the way."]
+  ["Advanced Skill Certifications", "Industry-ready skills for modern careers."],
+  ["Dedicated Placement Assistance", "Mock interviews, guidance and role matching."],
+  ["1-on-1 Executive Mentorship", "Personal guidance from experienced mentors."],
+  ["Executive CV & LinkedIn Optimization", "Strengthen your executive CV and LinkedIn profile."],
+  ["Free Access to Career Automation Suite", "Career tools for applications and outreach."],
+  ["End-to-End Career Acceleration", "Support from enrolment through placement."]
 ];
 
 const dbaMenuColumns = [
   {
     title: "DBA Pathway",
     items: [
-      { title: "Program Overview", text: "Doctor of Business Administration pathway for experienced professionals.", to: "/program" },
-      { title: "Curriculum Framework", text: "Research-led learning with practical business application.", to: "/curriculum" },
-      { title: "Executive Experience", text: "Global peers, flexible learning and guided doctoral research.", to: "/experience" }
+      { title: "Program Overview", text: "Executive DBA study for experienced professionals.", to: "/program" },
+      { title: "Curriculum Framework", text: "Research-led learning for business practice.", to: "/curriculum" },
+      { title: "Executive Experience", text: "Flexible study with global executive peers.", to: "/experience" }
     ]
   },
   {
     title: "Admissions Process",
     items: [
-      { title: "Profile Review", text: "Understand academic fit, professional readiness and next steps.", to: "/admissions" },
-      { title: "Partner Universities", text: "Explore Kennedy, Birchwood, Florida Coastal and EMIT pathways.", to: "/partnership" },
+      { title: "Profile Review", text: "Academic fit, experience and next steps.", to: "/admissions" },
+      { title: "Partner Universities", text: "Compare partner university DBA pathways.", to: "/partnership" },
       { title: "Request Prospectus", text: "Start a confidential conversation with our team.", to: "/contact" }
     ]
   }
@@ -314,19 +320,19 @@ const servicesMenuColumns = [
 const navToolItems = [
   {
     title: "Career Automation",
-    text: "AI-powered Auto-Apply, opportunity matching and smart career workflows that help students save time, increase interview chances and move faster toward employment."
+    text: "Auto-apply, matching and career workflows."
   },
   {
     title: "Enterprise Learning Management System",
-    text: "Enterprise LMS, Adaptive AI Learning Assistant, live classes, assessments, certificates and real-time learner progress tracking in one unified platform."
+    text: "Learning, assessments and progress tracking."
   },
   {
     title: "Student Success",
-    text: "Professional CV Optimizer, Student Milestone Dashboard and Executive Career Placement Portal for resume improvement, academic tracking and placement support."
+    text: "CV tools, milestones and placement support."
   },
   {
     title: "Operations Systems",
-    text: "Strategic Career Tracking Analytics plus Enterprise CRM & Admissions Console for lead management, student engagement, automation and data-led decisions."
+    text: "Admissions, CRM and performance analytics."
   }
 ];
 
@@ -340,12 +346,12 @@ const toolsServicesMenuColumns = [
     title: "Services",
     intro: "",
     items: [
-      { title: "Build & Automate SaaS Products", text: "Turn ideas into scalable SaaS platforms with product design, development, deployment and support." },
-      { title: "AI Automation Solutions", text: "Use AI-powered automation to remove repetitive tasks and improve operational efficiency." },
-      { title: "Custom Software Development", text: "Create tailored web, mobile and enterprise applications aligned with business workflows." },
-      { title: "Marketing Technology", text: "Build automated lead funnels, campaign workflows, analytics and customer acquisition systems." },
-      { title: "CRM & Lead Management", text: "Deploy CRM systems to manage leads, automate follow-ups and improve sales pipelines." },
-      { title: "Technology Consulting", text: "Define technology strategy, modernize operations, adopt AI and build scalable digital systems." }
+      { title: "Build & Automate SaaS Products", text: "Strategy, build and launch support." },
+      { title: "AI Automation Solutions", text: "Automate repetitive work with AI." },
+      { title: "Custom Software Development", text: "Web, mobile and enterprise applications." },
+      { title: "Marketing Technology", text: "Funnels, campaigns and analytics." },
+      { title: "CRM & Lead Management", text: "Lead pipelines, follow-ups and visibility." },
+      { title: "Technology Consulting", text: "AI adoption and digital growth strategy." }
     ]
   }
 ];
@@ -355,7 +361,7 @@ const doctoralMenuTabs = [
     label: "DBA",
     items: partnerUniversities.map((university) => ({
       title: university.programTitle,
-      text: university.focus,
+      text: university.menuText,
       to: `/universities/${university.slug}`,
       badge: university.country
     }))
@@ -363,24 +369,24 @@ const doctoralMenuTabs = [
   {
     label: "PhD",
     items: [
-      { title: "PhD Pathway Review", text: "Research doctorate options are reviewed after academic profile screening.", to: "/contact" },
-      { title: "Supervisor Fit Discussion", text: "Topic readiness, academic background and supervisor fit are discussed confidentially.", to: "/contact" }
+      { title: "PhD Pathway Review", text: "Review doctorate options for your profile.", to: "/contact" },
+      { title: "Supervisor Fit Discussion", text: "Discuss topic readiness and supervisor fit.", to: "/contact" }
     ]
   },
   {
     label: "Honorary Doctorate",
     items: [
-      { title: "Professional Impact Review", text: "Eligibility criteria and institutional requirements are explained before any application begins.", to: "/contact" },
-      { title: "Institutional Eligibility Check", text: "Final criteria are confirmed by the selected awarding institution.", to: "/contact" },
-      { title: "Profile Documentation", text: "Support for achievement summaries, references and required institutional evidence.", to: "/contact" }
+      { title: "Professional Impact Review", text: "Review leadership impact and eligibility.", to: "/contact" },
+      { title: "Institutional Eligibility Check", text: "Confirm requirements with the awarding institution.", to: "/contact" },
+      { title: "Profile Documentation", text: "Prepare achievements, references and evidence.", to: "/contact" }
     ]
   },
   {
     label: "Overview",
     items: [
-      { title: "DBA Program Overview", text: "Understand the Doctor of Business Administration pathway for working leaders.", to: "/program" },
-      { title: "Profile-first Guidance", text: "We confirm fit, documentation and institution options before enrollment.", to: "/admissions" },
-      { title: "Partner Institution Comparison", text: "Review available institutions, delivery models and degree routes.", to: "/partnership" }
+      { title: "DBA Program Overview", text: "Understand the executive DBA pathway.", to: "/program" },
+      { title: "Profile-first Guidance", text: "Confirm fit, documents and university options.", to: "/admissions" },
+      { title: "Partner Institution Comparison", text: "Compare institutions, formats and degree routes.", to: "/partnership" }
     ]
   }
 ];
@@ -390,7 +396,7 @@ const megaMenus = [
     key: "dba",
     label: "DBA Program",
     columns: dbaMenuColumns,
-    footer: "Premium doctoral positioning for executives, entrepreneurs and senior managers.",
+    footer: "For executives, entrepreneurs and senior managers.",
     cta: { label: "Request Prospectus", to: "/contact" },
     feature: {
       eyebrow: "DBA PATHWAY",
@@ -405,7 +411,7 @@ const megaMenus = [
     label: "Doctoral",
     type: "doctoral",
     tabs: doctoralMenuTabs,
-    footer: "DBA university pages open directly. PhD and honorary doctorate routes start with a confidential profile discussion.",
+    footer: "DBA pages open directly; other routes begin with a profile discussion.",
     cta: { label: "Schedule Profile Discussion", to: "/contact" },
     feature: {
       eyebrow: "INTERNATIONAL PATHWAYS",
@@ -419,7 +425,7 @@ const megaMenus = [
     key: "certification",
     label: "Certification Program",
     columns: certificationMenuColumns,
-    footer: "Certification programs, LMS access and placement-support tools are delivered by Brit Institute, a branch under LearnifyOps.",
+    footer: "Delivered by Brit Institute, part of LearnifyOps.",
     cta: { label: "Visit Brit Institute Website", href: britInstituteUrl, external: true },
     feature: {
       eyebrow: "PROFESSIONAL LEARNING",
