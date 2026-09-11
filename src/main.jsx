@@ -753,6 +753,7 @@ function BrandLogo({ variant = "full" }) {
 function Header({ path, navigate }) {
   const [open, setOpen] = useState(false);
   const [openMega, setOpenMega] = useState(null);
+  const [mobileMenuTop, setMobileMenuTop] = useState(null);
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -794,6 +795,29 @@ function Header({ path, navigate }) {
     setOpenMega(null);
   };
 
+  const toggleNavigation = () => {
+    const compactViewport = window.matchMedia("(max-width: 1180px)").matches;
+    const headerHeight = Math.ceil(headerRef.current?.getBoundingClientRect().height || 72);
+
+    setMobileMenuTop(compactViewport ? headerHeight : null);
+    setOpen((current) => !current);
+    setOpenMega(null);
+  };
+
+  const mobileMenuStyle = open && mobileMenuTop
+    ? {
+        position: "fixed",
+        zIndex: 1001,
+        top: `${mobileMenuTop}px`,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        height: "fit-content",
+        maxHeight: "none",
+        overflowY: "auto"
+      }
+    : undefined;
+
   return (
     <>
       <header className={path === "/" ? "site-header home-header" : "site-header"} ref={headerRef} onMouseLeave={() => setOpenMega(null)}>
@@ -808,7 +832,7 @@ function Header({ path, navigate }) {
         <Link className="brand" to="/" navigate={navigate} aria-label="LearnifyOps DBA home">
           <BrandLogo variant="navigation" />
         </Link>
-        <div className={open ? "nav-links open" : "nav-links"} id="primary-navigation">
+        <div className={open ? "nav-links open" : "nav-links"} id="primary-navigation" style={mobileMenuStyle}>
           {megaMenus.map((menu) => (
             <React.Fragment key={menu.key}>
               <div
@@ -847,7 +871,7 @@ function Header({ path, navigate }) {
           aria-label="Toggle navigation"
           aria-controls="primary-navigation"
           aria-expanded={open}
-          onClick={() => setOpen(!open)}
+          onClick={toggleNavigation}
         >
           {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>

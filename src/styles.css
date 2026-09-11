@@ -7,48 +7,48 @@
 
    /* ----- THEME TOKENS: Executive Premium Palette ----- */
    :root {
-     --crimson-deep: #21677f;
-     --crimson-main: #4090b0;
-     --crimson-bright: #2f9fc8;
-     --crimson-light: #9fd8e8;
-     --crimson-soft: #edf8fb;
+     --crimson-deep: #006b58;
+     --crimson-main: #008b70;
+     --crimson-bright: #19aa85;
+     --crimson-light: #a9e3d2;
+     --crimson-soft: #e8f7f1;
 
-     --obsidian-darkest: #151719;
-     --obsidian-dark: #202326;
-     --obsidian-mid: #30363a;
-     --obsidian-light: #4b555b;
-     --obsidian-border: #68747a;
+     --obsidian-darkest: #123b34;
+     --obsidian-dark: #174b41;
+     --obsidian-mid: #226154;
+     --obsidian-light: #4f7068;
+     --obsidian-border: #8fb8ad;
 
-     --gold-dark: #9d6716;
-     --gold-main: #e0a030;
-     --gold-light: #f4c45d;
-     --gold-pale: #fff4dc;
+     --gold-dark: #006b58;
+     --gold-main: #079878;
+     --gold-light: #75d8b9;
+     --gold-pale: #e9f8f2;
 
-     --ink: #1c2327;
-     --ink-light: #526169;
-     --muted: #7b898f;
-     --muted-light: #c4cdd1;
+     --ink: #183c35;
+     --ink-light: #5c746e;
+     --muted: #718a83;
+     --muted-light: #c9ddd7;
      --white: #ffffff;
-     --surface-light: #f7fbfb;
-     --surface-warm: #fff8ea;
-   
-     --g-crimson: linear-gradient(135deg, #2f8faf 0%, #59bfd7 100%);
-     --g-hero: radial-gradient(circle at 78% 22%, rgba(64, 144, 176, 0.18) 0%, transparent 32%), radial-gradient(circle at 15% 8%, rgba(224, 160, 48, 0.14) 0%, transparent 28%), linear-gradient(135deg, #ffffff 0%, #f7fbfb 55%, #fff8ea 100%);
-     --g-gold: linear-gradient(135deg, #d88d1d 0%, #f4c45d 100%);
-     --g-dark-card: linear-gradient(145deg, #151719 0%, #30363a 100%);
-     --g-light-card: linear-gradient(145deg, #ffffff 0%, #f7fbfb 100%);
-     --g-accent-glow: radial-gradient(circle at 50% 0%, rgba(64,144,176,0.16) 0%, transparent 70%);
-   
-     --border-light: rgba(64, 144, 176, 0.09);
-     --border-mid: rgba(64, 144, 176, 0.18);
-     --border-brand: rgba(64, 144, 176, 0.32);
-     --border-gold-soft: rgba(224, 160, 48, 0.22);
-   
-     --shadow-sm: 0 4px 12px rgba(12, 10, 10, 0.03);
-     --shadow-md: 0 12px 30px rgba(12, 10, 10, 0.06);
-     --shadow-lg: 0 24px 50px rgba(12, 10, 10, 0.1);
-     --shadow-xl: 0 40px 90px rgba(12, 10, 10, 0.15);
-     --shadow-brand: 0 14px 36px rgba(64, 144, 176, 0.22);
+     --surface-light: #f5faf8;
+     --surface-warm: #edf8f3;
+
+     --g-crimson: linear-gradient(135deg, #007862 0%, #27b58b 100%);
+     --g-hero: radial-gradient(circle at 78% 22%, rgba(0, 139, 112, 0.13) 0%, transparent 32%), radial-gradient(circle at 15% 8%, rgba(117, 216, 185, 0.18) 0%, transparent 28%), linear-gradient(135deg, #ffffff 0%, #f5faf8 55%, #edf8f3 100%);
+     --g-gold: linear-gradient(135deg, #007862 0%, #27b58b 100%);
+     --g-dark-card: linear-gradient(145deg, #075e50 0%, #0d7965 100%);
+     --g-light-card: linear-gradient(145deg, #ffffff 0%, #f5faf8 100%);
+     --g-accent-glow: radial-gradient(circle at 50% 0%, rgba(0, 139, 112, 0.14) 0%, transparent 70%);
+
+     --border-light: rgba(0, 107, 88, 0.11);
+     --border-mid: rgba(0, 107, 88, 0.2);
+     --border-brand: rgba(0, 139, 112, 0.34);
+     --border-gold-soft: rgba(0, 139, 112, 0.22);
+
+     --shadow-sm: 0 4px 12px rgba(5, 84, 69, 0.04);
+     --shadow-md: 0 12px 30px rgba(5, 84, 69, 0.08);
+     --shadow-lg: 0 24px 50px rgba(5, 84, 69, 0.12);
+     --shadow-xl: 0 40px 90px rgba(5, 84, 69, 0.16);
+     --shadow-brand: 0 14px 36px rgba(0, 139, 112, 0.2);
    
      --r-xs: 6px;
      --r-sm: 10px;
@@ -5874,4 +5874,454 @@
   .site-header .mega-menu-card,
   .site-header .doctoral-mega-item { min-height: 0; }
   .site-header .mega-menu-footer { align-items: flex-start; }
+}
+
+/* ============================================================
+   SITEWIDE WHITE & GREEN THEME
+   ============================================================ */
+body,
+main {
+  background: #ffffff;
+  color: #183c35;
+}
+
+.section-soft,
+.section-warm,
+.section-sky,
+.section-dark,
+.admissions-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f1faf6 100%);
+  color: #183c35;
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark p {
+  color: #183c35 !important;
+}
+
+.btn-primary,
+.services-section .btn-primary,
+.final-cta-inner .btn-primary {
+  background: #007b65;
+  color: #ffffff !important;
+  box-shadow: 0 12px 28px rgba(0, 123, 101, 0.2);
+}
+
+.btn-primary:hover,
+.services-section .btn-primary:hover,
+.final-cta-inner .btn-primary:hover {
+  background: #005e4f;
+  box-shadow: 0 16px 32px rgba(0, 123, 101, 0.26);
+}
+
+.btn-secondary {
+  border-color: rgba(0, 123, 101, 0.28);
+  background: #ffffff;
+  color: #006b58;
+}
+
+.btn-secondary:hover {
+  border-color: #008b70;
+  color: #005e4f;
+}
+
+.btn-outline {
+  border-color: rgba(0, 123, 101, 0.34);
+  background: #ffffff;
+  color: #006b58 !important;
+}
+
+.btn-outline:hover {
+  border-color: #008b70;
+  background: #e8f7f1;
+  color: #005e4f !important;
+}
+
+.page-hero,
+.page-hero-midnight,
+.page-hero-editorial,
+.page-hero-warm,
+.page-hero-executive,
+.page-hero-campus,
+.page-hero-contact,
+.page-hero-immersive {
+  background:
+    radial-gradient(circle at 86% 12%, rgba(25, 170, 133, 0.13), transparent 30%),
+    radial-gradient(circle at 12% 84%, rgba(117, 216, 185, 0.15), transparent 28%),
+    #ffffff;
+  color: #183c35;
+}
+
+.page-hero::after {
+  border-color: rgba(0, 139, 112, 0.1);
+}
+
+.page-hero-copy h1,
+.page-hero-midnight h1,
+.page-hero-campus .page-hero-copy h1,
+.page-hero-immersive .page-hero-copy h1 {
+  color: #123b34 !important;
+}
+
+.page-hero-copy p,
+.page-hero-midnight p,
+.page-hero-campus .page-hero-copy p,
+.page-hero-immersive .page-hero-copy p {
+  color: #5c746e !important;
+}
+
+.page-hero-warm .page-hero-copy,
+.page-hero-executive .page-hero-copy,
+.page-hero-contact .page-hero-copy {
+  border-color: rgba(0, 123, 101, 0.18);
+  background: linear-gradient(135deg, #ffffff, #f2faf7);
+  box-shadow: 0 20px 52px rgba(5, 84, 69, 0.08);
+}
+
+.page-hero-executive .page-hero-copy {
+  border-left-color: #008b70;
+}
+
+.page-hero-midnight .page-hero-image::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 139, 112, 0.75));
+}
+
+.page-caption,
+.page-hero-campus .page-caption,
+.page-hero-immersive .page-caption {
+  border-color: rgba(0, 123, 101, 0.22);
+  background: #e8f7f1;
+  color: #006b58 !important;
+}
+
+.page-hero-image img,
+.page-hero-immersive > .page-hero-image {
+  border-color: rgba(0, 123, 101, 0.18);
+  box-shadow: 0 24px 64px rgba(5, 84, 69, 0.12);
+}
+
+.services-section {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(25, 170, 133, 0.13), transparent 32%),
+    #f2faf7;
+  color: #183c35;
+}
+
+.services-copy h2,
+.services-copy p {
+  color: #183c35;
+}
+
+.services-copy p {
+  color: #5c746e;
+}
+
+.services-panel span {
+  border-color: rgba(0, 123, 101, 0.16);
+  background: #ffffff;
+  color: #183c35;
+  box-shadow: 0 10px 26px rgba(5, 84, 69, 0.06);
+}
+
+.services-panel span svg {
+  color: #008b70;
+}
+
+.quote-band,
+.experience-canvas,
+.timeline-section,
+.final-cta-inner {
+  background:
+    radial-gradient(circle at 84% 14%, rgba(117, 216, 185, 0.22), transparent 32%),
+    linear-gradient(135deg, #005e4f 0%, #007b65 100%);
+}
+
+.quote-band::after,
+.final-cta-inner::after {
+  border-color: rgba(117, 216, 185, 0.16);
+}
+
+.quote-band svg,
+.quote-band p,
+.timeline-item > span {
+  color: #a8ead3;
+}
+
+.experience-node {
+  background: #19aa85;
+}
+
+.experience-quote {
+  background: rgba(0, 74, 61, 0.9);
+}
+
+.admissions-copy,
+.admissions-steps article,
+.admissions-stat-card {
+  border-color: rgba(0, 123, 101, 0.16);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(117, 216, 185, 0.14), transparent 34%),
+    #ffffff;
+}
+
+.admissions-steps article:hover {
+  border-color: rgba(0, 139, 112, 0.38);
+}
+
+.admissions-steps article > span {
+  background: #007b65;
+  color: #ffffff;
+}
+
+.admissions-stat-card article {
+  background: #f7fcfa;
+}
+
+.universities-section {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(117, 216, 185, 0.18), transparent 30%),
+    #f2faf7;
+  color: #183c35;
+}
+
+.universities-section h2,
+.universities-section h3,
+.universities-section strong {
+  color: #123b34 !important;
+}
+
+.universities-section p,
+.universities-section li {
+  color: #5c746e !important;
+}
+
+.universities-badge,
+.university-carousel-top > span,
+.university-type,
+.university-country-pill,
+.university-detail,
+.university-program-stats span,
+.university-about-certificate span,
+.university-offerings span {
+  border-color: rgba(0, 123, 101, 0.24);
+  background: #e8f7f1;
+  color: #006b58 !important;
+}
+
+.universities-downloads a,
+.universities-downloads .download-gate-trigger,
+.university-detail-buttons > a,
+.university-detail-buttons .download-gate-trigger,
+.university-carousel-controls button {
+  border-color: rgba(0, 123, 101, 0.22);
+  background: #ffffff;
+  color: #006b58 !important;
+}
+
+.university-carousel-shell,
+.university-detail-panel,
+.university-note {
+  border-color: rgba(0, 123, 101, 0.16);
+  background: #ffffff;
+  box-shadow: 0 20px 56px rgba(5, 84, 69, 0.08);
+}
+
+.university-card {
+  border-color: rgba(0, 123, 101, 0.16);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(25, 170, 133, 0.12), transparent 30%),
+    #ffffff;
+  box-shadow: 0 16px 42px rgba(5, 84, 69, 0.08);
+}
+
+.university-card:hover,
+.university-card:focus-visible,
+.university-card.active {
+  border-color: rgba(0, 139, 112, 0.52);
+  box-shadow: 0 22px 52px rgba(5, 84, 69, 0.12);
+}
+
+.university-card h3,
+.university-detail-heading h3,
+.university-detail-content strong,
+.university-program-stats strong {
+  color: #123b34 !important;
+}
+
+.university-card p,
+.university-detail-heading p,
+.university-detail-actions p,
+.university-detail-content li,
+.university-offerings p,
+.university-about-certificate p {
+  color: #5c746e !important;
+}
+
+.university-logo-plaque,
+.university-mark {
+  background: linear-gradient(135deg, #007b65, #21ad87);
+  color: #ffffff !important;
+  box-shadow: 0 12px 28px rgba(0, 123, 101, 0.18);
+}
+
+.university-logo-plaque strong {
+  color: #ffffff !important;
+}
+
+.university-program-stats article,
+.university-detail-content article,
+.university-offerings article,
+.university-about-certificate article {
+  border-color: rgba(0, 123, 101, 0.14);
+  background: #f7fcfa;
+}
+
+.university-detail-close {
+  border-color: rgba(0, 123, 101, 0.24);
+  color: #006b58;
+}
+
+.certificate-preview {
+  border-color: rgba(0, 123, 101, 0.22);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(117, 216, 185, 0.2), transparent 34%),
+    #ffffff;
+  box-shadow: inset 0 0 0 0.5rem rgba(0, 123, 101, 0.05);
+}
+
+.certificate-preview svg,
+.certificate-preview strong {
+  color: #006b58;
+}
+
+.degree-badge-list strong,
+.course-chip-list em,
+.study-format-list strong {
+  border-color: rgba(0, 123, 101, 0.2);
+  background: #e8f7f1;
+  color: #006b58 !important;
+}
+
+.universities-downloads a:hover,
+.universities-downloads .download-gate-trigger:hover,
+.university-detail-buttons > a:hover,
+.university-detail-buttons .download-gate-trigger:hover,
+.university-carousel-controls button:hover {
+  border-color: #008b70;
+  background: #e8f7f1;
+}
+
+.final-cta-admissions .final-cta-inner,
+.final-cta-research .final-cta-inner,
+.final-cta-curriculum .final-cta-inner,
+.final-cta-network .final-cta-inner,
+.final-cta-partner .final-cta-inner,
+.final-cta-contact .final-cta-inner {
+  border-color: rgba(117, 216, 185, 0.3);
+  background:
+    radial-gradient(circle at 84% 14%, rgba(117, 216, 185, 0.22), transparent 32%),
+    linear-gradient(135deg, #005e4f 0%, #007b65 100%);
+}
+
+.final-cta-inner .eyebrow,
+.final-cta-admissions .final-cta-inner .eyebrow {
+  color: #a8ead3 !important;
+}
+
+.final-cta-inner .btn-secondary,
+.final-cta-admissions .final-cta-inner .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.footer {
+  background: #005e4f;
+  color: rgba(236, 255, 248, 0.74);
+}
+
+.footer-links a:hover,
+.footer-links strong {
+  color: #a8ead3;
+}
+
+.footer-bottom {
+  border-top-color: rgba(168, 234, 211, 0.2);
+}
+
+.cookie-note {
+  border-color: rgba(117, 216, 185, 0.34);
+  background: #005e4f;
+}
+
+/* ============================================================
+   MOBILE NAVIGATION · keep the expanded menu above page content
+   ============================================================ */
+@media (max-width: 1180px) {
+  .site-header,
+  .site-header.home-header {
+    z-index: 1000;
+  }
+
+  .site-header .nav-links.open {
+    position: fixed;
+    z-index: 1001;
+    top: var(--navigation-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    padding: 0.875rem clamp(1rem, 4vw, 1.5rem) 2rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 0;
+    border-top: 1px solid #d9e5e1;
+    border-radius: 0;
+    background: #ffffff;
+    box-shadow: 0 1.25rem 2.5rem rgba(3, 35, 31, 0.16);
+    gap: 0;
+    overscroll-behavior: contain;
+  }
+
+  .site-header .nav-links.open > a,
+  .site-header .nav-links.open .mega-trigger {
+    display: flex;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 0.25rem;
+    border-bottom: 1px solid #dfe9e6;
+    color: #17342e;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 0.975rem;
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .site-header .nav-links.open > a:hover,
+  .site-header .nav-links.open > a:focus-visible,
+  .site-header .nav-links.open .mega-trigger:hover,
+  .site-header .nav-links.open .mega-trigger:focus-visible {
+    background: #f0f8f5;
+    color: #007760;
+    outline: none;
+  }
+
+  .site-header .nav-links.open .mega-nav-item {
+    width: 100%;
+  }
+
+  .site-header .nav-links.open .mega-menu,
+  .site-header .nav-links.open .mega-menu-doctoral {
+    position: static;
+    width: 100%;
+    max-height: none;
+    margin: 0;
+    border-radius: 0;
+  }
 }
