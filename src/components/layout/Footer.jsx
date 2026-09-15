@@ -7,7 +7,7 @@ export default function Footer({ navigate, logo }) {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-main">
-          <Link className="footer-brand" to="/" navigate={navigate}><BrandLogo logo={logo} /></Link>
+          {/* <Link className="footer-brand" to="/" navigate={navigate}><BrandLogo logo={logo} /></Link> */}
           <p>LearnifyOps is the parent ecosystem behind Brit Institute—bringing together UK-focused AI and data analytics learning, doctoral pathways, career technology and placement support.</p>
           <span className="footer-disclaimer">Brit Institute delivers career-focused learning, mentoring and placement readiness. LearnifyOps develops the technology, analytics and automation ecosystem that supports it.</span>
         </div>

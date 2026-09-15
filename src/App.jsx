@@ -26,6 +26,7 @@ import {
   X
 } from "lucide-react";
 import Footer from "./components/Footer.jsx";
+import FloatingContact from "./components/FloatingContact.jsx";
 import "./styles.css";
 
 const logo = "/assets/learnifyops-logo-transparent.png";
@@ -2206,6 +2207,7 @@ function App() {
         </div>
       )}
       <Footer navigate={navigate} />
+      <FloatingContact hidden={Boolean(downloadRequest)} cookieNoticeVisible={!cookieDismissed} />
     </>
   );
 }

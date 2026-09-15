@@ -4,6 +4,7 @@ import "./styles.css";
 import { createRouteHelpers } from "./hooks/useRoute.js";
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import FloatingContact from "./components/FloatingContact.jsx";
 import { UniversityDetailPage } from "./components/content/UniversitySections.jsx";
 import { DownloadGateModal } from "./components/content/AdmissionsSections.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -115,6 +116,7 @@ function App() {
         </div>
       )}
       <Footer navigate={navigate} logo={logo} />
+      <FloatingContact hidden={Boolean(downloadRequest)} cookieNoticeVisible={!cookieDismissed} />
     </>
   );
 }

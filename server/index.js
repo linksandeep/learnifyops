@@ -2,6 +2,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
+import { ENQUIRY_MODAL_SOURCE, ENQUIRY_PROGRAMMES, ENQUIRY_PURPOSES } from "../src/data/contactOptions.js";
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ const enquirySchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true, maxlength: 120 },
     email: { type: String, required: true, trim: true, lowercase: true, maxlength: 180 },
     phone: { type: String, trim: true, maxlength: 60 },
+    course: { type: String, enum: ENQUIRY_PROGRAMMES.map(({ value }) => value) },
+    purpose: { type: String, enum: ENQUIRY_PURPOSES.map(([value]) => value) },
     interest: {
       type: String,
       required: true,
@@ -82,9 +85,12 @@ app.post("/api/enquiries", async (request, response) => {
       name: request.body.name,
       email: request.body.email,
       phone: request.body.phone,
+      course: request.body.course,
+      purpose: request.body.purpose,
       interest: request.body.interest,
       message: request.body.message,
       consent: request.body.consent === true,
+      source: request.body.source === ENQUIRY_MODAL_SOURCE ? ENQUIRY_MODAL_SOURCE : undefined,
       userAgent: request.get("user-agent")
     });
 
@@ -124,7 +130,7 @@ app.get("/api/enquiries", async (_request, response) => {
   const enquiries = await Enquiry.find()
     .sort({ createdAt: -1 })
     .limit(50)
-    .select("name email phone interest message consent status createdAt");
+    .select("name email phone interest course purpose message consent source status createdAt");
 
   response.json({ enquiries });
 });
